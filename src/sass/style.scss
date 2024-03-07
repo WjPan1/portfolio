@@ -1,0 +1,39 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Typography
+    - Variables
+    - Mixins
+
+// 待删除
+	- Elements
+	- Links
+	- Forms
+
+# Components
+	- Header
+	- Footer
+
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+@use "generic/normalize-fwd";
+@use "generic/typography";
+@use "generic/variables";
+@use "generic/mixins";
+
+
+// 有待删除
+@use "App";
+
+
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@use "components/header";
+@use "components/footer";
+
