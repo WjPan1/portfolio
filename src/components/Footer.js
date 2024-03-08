@@ -7,7 +7,7 @@ function Footer () {
             <h1>Footer</h1>
             <div className="footer-logo">
             <NavLink to="/" className="logo-container">
-                <img src={Logo} alt="Logo" />
+                <img src={Logo} alt="Logo" width={50}/>
             </NavLink> 
         </div>
         <p>&copy; 2024. All rights reserved.</p>

@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 function SingleProject ( {restBase} ) {
 
     const { slug } = useParams();
-    const restPath = restBase + `posts?slug=${slug}&_embed`
+    const restPath = restBase + `posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
     // const [isLoaded, setLoadStatus] = useState(false)
 
@@ -21,19 +21,52 @@ function SingleProject ( {restBase} ) {
             }
         }
         fetchData()
-    }, [restPath])
         
 
+    }, [restPath])
+        
+    
     return (
         <main className="single-project-container">
-            <h1>Portfolio</h1>
             {restData.acf && 
-                <div className="project-intro">
-                    <h2>{restData.title.rendered}</h2>
-                    <p>{restData.acf.overview}</p>
-                    {restData.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                        <p key={index}>{item.single_skill_name}</p>
+                <div className="project-detail">
+                    {/* single project overview with image slide */}
+                    <div className="project-intro">
+                        <h2>{restData.title.rendered}</h2>
+                        <p>{restData.acf.overview}</p>
+                        {restData.acf.skill_used_for_this_project.map((item, index) => (
+                            <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/>
+                        ))}
+                        
+                        <div className="image-slide">
+                            {restData.acf.image_slide.map((item, index) => (
+                                <img key={index} src={item.one_slide} alt={restData.title.rendered} width={500}/>
+                            ))}
+                        </div>
+
+                        <button>Link to website</button>
+                        <button>Link to Github</button>
+                    </div>
+
+                    {/* feature */}
+
+                    {restData.acf.features.map((item, index) => (
+                        <div key={index} className="feature">
+
+                            <video src={item.video} type="video/mp4" 
+                                autoPlay
+                                loop
+                                playsInline>
+                                Sorry, your browser doesn't support this particular embedded video type.
+                            </video>
+                            <p>{item.description}</p>
+
+                        </div>
+
                     ))}
+
+                    {/* Insight */}
+                    <div className="insight" dangerouslySetInnerHTML={{__html:restData.acf.insight}}></div>
                 </div>
             }
 
