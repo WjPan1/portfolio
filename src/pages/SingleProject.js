@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
+
 function SingleProject ( {restBase} ) {
 
     const { slug } = useParams();
@@ -48,27 +55,64 @@ function SingleProject ( {restBase} ) {
                         <button>Link to Github</button>
                     </div>
 
-                    {/* feature */}
+                    <div>
+                        {/* feature */}
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                            >
+                            Features
+                            </AccordionSummary>
 
-                    {restData.acf.features.map((item, index) => (
-                        <div key={index} className="feature">
+                            <AccordionDetails>
+                                {restData.acf.features.map((item, index) => (
+                                    <div key={index} className="feature-container">
 
-                            <video src={item.video} type="video/mp4" 
-                                autoPlay
-                                loop
-                                playsInline>
-                                Sorry, your browser doesn't support this particular embedded video type.
-                            </video>
-                            <p>{item.description}</p>
+                                        <video src={item.video} type="video/mp4" 
+                                            autoPlay
+                                            loop
+                                            playsInline>
+                                            Sorry, your browser doesn't support this particular embedded video type.
+                                        </video>
+                                        
+                                        <div className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></div>
 
-                        </div>
+                                    </div>
+                                ))}
+                            </AccordionDetails>
+                        </Accordion>
 
-                    ))}
+                        {/* Insight */}
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel3-content"
+                                id="panel3-header"
+                            >
+                            Insight
+                            </AccordionSummary>
 
-                    {/* Insight */}
-                    <div className="insight" dangerouslySetInnerHTML={{__html:restData.acf.insight}}></div>
+                            <AccordionDetails>
+                                <div className="insight" dangerouslySetInnerHTML={{__html: restData.acf.insight}}></div>
+                            </AccordionDetails>
+
+                            <AccordionActions>
+                                <Button>Cancel</Button>
+                                <Button>Agree</Button>
+                            </AccordionActions>
+                        </Accordion>
+                    </div>
+
                 </div>
+
+
+
+                
             }
+
+
 
         </main>
     )

@@ -1,4 +1,6 @@
 // import { useEffect, useState } from "react"
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 function About ( {restData} ) {
 
@@ -17,7 +19,7 @@ function About ( {restData} ) {
             {restData.acf &&
                 <div>
                     {/* intro about myself */}
-                    <div dangerouslySetInnerHTML={{__html:restData.acf.introduction}}></div>
+                    <div className="intro-myself" dangerouslySetInnerHTML={{__html:restData.acf.introduction}}></div>
 
                     {/* development skill */}
                     { restData.acf.development_category.map((item, index) => (
