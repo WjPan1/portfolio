@@ -5,10 +5,12 @@
         left: 50%;
         transform: translateX(-50%);
         // padding-top: 300px;
-        height: 70px;
+        // height: 70px;
+        padding: 10px 0;
         width: 100%;
-        background-color: white;
+        background-color: #3C5A58;
         text-align: center;
+        z-index: 1000;
 
         .header-logo {
             display: none;
@@ -18,11 +20,13 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center; 
         } 
 
         ul li {
             display: inline-block;
-            margin: 0 10px; /* 调整每个 li 之间的间距 */
         }
     
         
@@ -36,6 +40,29 @@
             font-weight: bold; /* 添加粗体效果 */
             color: #000; /* 设置活动链接的颜色 */
         }
+
+        li a {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+
+            .nav-icon {
+                width: 30px;
+                height: 30px;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+
+                    fill: rgb(224, 218, 218);
+                }
+            }
+        }
+
+        // li span {
+        //     font-size: 20px;
+        // }
     }
 }
 
@@ -45,10 +72,31 @@
             position: unset;
             transform: none;
             background-color: unset;
+
+            ul {
+
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                column-gap: 70px;
+            }
     
             .header-logo {
                 display: inline-block;
             }
+
+            li a {
+                display: unset;
+            }
+
+            .nav-icon {
+                display: none;
+            }
+
+            li span {
+                font-size: 18px;
+            }
+
         }
     }
 }

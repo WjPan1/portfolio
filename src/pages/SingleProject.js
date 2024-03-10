@@ -10,9 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 
-import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
-
-import { HashLink } from 'react-router-hash-link';
+import BackToTopButton from "../components/BackToTopButton";
 
 
 function SingleProject ( {restBase} ) {
@@ -42,7 +40,7 @@ function SingleProject ( {restBase} ) {
     return (
         <main className="single-project-container">
             {restData.acf && 
-                <div className="project-detail">
+                <section className="project-detail">
                     {/* single project overview with image slide */}
                     <div className="project-intro">
                         <h2>{restData.title.rendered}</h2>
@@ -116,7 +114,7 @@ function SingleProject ( {restBase} ) {
                         </Accordion>
                     </div>
 
-                </div>
+                </section>
                 
             }
 
@@ -125,8 +123,7 @@ function SingleProject ( {restBase} ) {
                       classname={"project-slide"}
                       title={"Other Projects"} />
 
-            <HashLink to="#top" smooth className="back-to-top"><ArrowUpwardRoundedIcon /></HashLink>
-
+            <BackToTopButton />
         </main>
     )
 }

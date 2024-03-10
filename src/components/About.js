@@ -5,6 +5,22 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
+// skills icons
+import { FaFigma } from "react-icons/fa";
+import { SiAdobexd } from "react-icons/si";
+import { SiAdobephotoshop } from "react-icons/si";
+import { SiAdobeillustrator } from "react-icons/si";
+import { FaHtml5 } from "react-icons/fa";
+import { SiCss3 } from "react-icons/si";
+import { FaSass } from "react-icons/fa";
+import { RiJavascriptFill } from "react-icons/ri";
+import { FaReact } from "react-icons/fa";
+import { FaWordpress } from "react-icons/fa";
+import { SiWoocommerce } from "react-icons/si";
+import { FaShopify } from "react-icons/fa";
+import { FaBootstrap } from "react-icons/fa";
+
+
 function About ( {restData} ) {
 
     const [value, setValue] = useState('1');
@@ -39,26 +55,66 @@ function About ( {restData} ) {
                             </TabList>
                             </Box>
                             <TabPanel value="1">                        
-                                { restData.acf.development_category.map((item, index) => (
+                                {/* { restData.acf.development_category.map((item, index) => (
                                     <p key={index}>{item.development_skill}</p>
                                 ))}
                                 {restData.acf.design_category.map((item, index) => (
                                 <p key={index}>{item.design_skill}</p>
-                                ))}
+                                ))} */}
+                                <div className="development-skill-container">
+                                    <FaHtml5 />
+                                    <SiCss3 />
+                                    <FaSass />
+                                    <RiJavascriptFill />
+                                    <FaReact />
+                                    <FaWordpress />
+                                    <SiWoocommerce />
+                                    <FaShopify />
+                                    <FaBootstrap />
+
+                                </div>
+
+                                <div className="design-skill-container">
+                                    <FaFigma />
+                                    <SiAdobexd />
+                                    <SiAdobephotoshop />
+                                    <SiAdobeillustrator />
+                                </div>
                             </TabPanel>
                             
                             {/* development skill */}
                             <TabPanel value="2">                        
-                                { restData.acf.development_category.map((item, index) => (
+                                {/* { restData.acf.development_category.map((item, index) => (
                                     <p key={index}>{item.development_skill}</p>
-                                ))}
+                                ))} */}
+                                <div className="development-skill-container">
+                                    <FaHtml5 />
+                                    <SiCss3 />
+                                    <FaSass />
+                                    <RiJavascriptFill />
+                                    <FaReact />
+                                    <FaWordpress />
+                                    <SiWoocommerce />
+                                    <FaShopify />
+                                    <FaBootstrap />
+
+                                </div>
+
+
                             </TabPanel>
                             
                             {/* design skill */}                    
                             <TabPanel value="3">                        
-                                {restData.acf.design_category.map((item, index) => (
+                                {/* {restData.acf.design_category.map((item, index) => (
                                     <p key={index}>{item.design_skill}</p>
-                                ))}
+                                ))} */}
+                                <div className="design-skill-container">
+                                    <FaFigma />
+                                    <SiAdobexd />
+                                    <SiAdobephotoshop />
+                                    <SiAdobeillustrator />
+                                </div>
+
                             </TabPanel>
                         
                         </TabContext>

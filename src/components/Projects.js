@@ -5,8 +5,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+// import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+// import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+
+
 
 function Projects ( {restBase, classname, title} ) {
     const restPath = restBase + 'posts?_embed&acf_format=standard'
@@ -36,7 +41,7 @@ function Projects ( {restBase, classname, title} ) {
             className={className}
             style={{ display: "block" }}
             onClick={onClick}
-            > <ArrowBackIosRoundedIcon />
+            > <IoIosArrowBack />
 
             </div>
         );
@@ -50,7 +55,7 @@ function Projects ( {restBase, classname, title} ) {
             style={{ display: "block" }}
             onClick={onClick}
             >
-            <ArrowForwardIosRoundedIcon />
+            <IoIosArrowForward />
             </div>
         );
     }
@@ -69,11 +74,12 @@ function Projects ( {restBase, classname, title} ) {
     
     
     return (
-        <section id="projects" className="projects-container">
+        
+        <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
             <h1>{title}</h1>
 
-
             {classname === "project-slide" &&
+
                 <div className="slider-container">
 
                 <Slider {...settings}>

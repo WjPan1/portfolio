@@ -3,9 +3,8 @@ import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
-import { HashLink } from "react-router-hash-link";
 
-import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
+import BackToTopButton from "../components/BackToTopButton";
 
 function Home ( {restBase} ) {
 
@@ -37,7 +36,7 @@ function Home ( {restBase} ) {
             <About restBase={restBase} restData={restData}/>
             <Contact restBase={restBase} restData={restData}/>
 
-            <HashLink to="#top" smooth className="back-to-top"><ArrowUpwardRoundedIcon /></HashLink>
+            <BackToTopButton />
 
         </main>
     )
