@@ -40,11 +40,18 @@
 
 
 // 自己写的
+body {
+  background-color: #98A896;
+}
+
 .site-container {
   max-width: 1400px;
   margin: auto;
-  width: 80%;
-  background-color: rgba(243, 246, 249, 0.6);
+  width: 95%;
 }
 
-
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}

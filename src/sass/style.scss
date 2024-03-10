@@ -11,7 +11,9 @@
 # Components
 	- Header
 	- Footer
-
+	- Project-slider
+	- Projects
+	- Features
 
 
 
@@ -41,4 +43,6 @@
 @use "components/header";
 @use "components/footer";
 @use "components/project-slider";
+@use "components/no-slider-projects";
+@use "components/features";
 

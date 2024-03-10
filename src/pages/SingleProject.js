@@ -10,6 +10,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
+
+import { HashLink } from 'react-router-hash-link';
 
 
 function SingleProject ( {restBase} ) {
@@ -122,6 +125,7 @@ function SingleProject ( {restBase} ) {
                       classname={"project-slide"}
                       title={"Other Projects"} />
 
+            <HashLink to="#top" smooth className="back-to-top"><ArrowUpwardRoundedIcon /></HashLink>
 
         </main>
     )
