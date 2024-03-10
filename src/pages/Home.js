@@ -29,7 +29,9 @@ function Home ( {restBase} ) {
         <main className="home-container">
             <h1>Home Page</h1>
             <Banner restBase={restBase} restData={restData}/>
-            <Projects restBase={restBase}/>
+            <Projects restBase={restBase} 
+                      classname={"all-project"} 
+                      title={"All Projects"} />
             <About restBase={restBase} restData={restData}/>
             <Contact restBase={restBase} restData={restData}/>
 

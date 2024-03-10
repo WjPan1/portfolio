@@ -19,17 +19,26 @@ function About ( {restData} ) {
             {restData.acf &&
                 <div>
                     {/* intro about myself */}
-                    <div className="intro-myself" dangerouslySetInnerHTML={{__html:restData.acf.introduction}}></div>
+                    {/* 为每个段落创建一个<p>元素 */}
+                    <div className='intro-myself'>
+                        {restData.acf.introduction.split('\n').map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p>
+                        ))}
+                    </div>
 
                     {/* development skill */}
-                    { restData.acf.development_category.map((item, index) => (
-                        <p key={index}>{item.development_skill}</p>
-                    ))}
-                    {/* design skill */}
-                    {restData.acf.design_category.map((item, index) => (
-                        <p key={index}>{item.design_skill}</p>
-                    ))}
+                    <div className='development-skill-container'>
+                        { restData.acf.development_category.map((item, index) => (
+                            <p key={index}>{item.development_skill}</p>
+                        ))}
+                    </div>
 
+                    {/* design skill */}                    
+                    <div className='design-skill-container'>
+                        {restData.acf.design_category.map((item, index) => (
+                            <p key={index}>{item.design_skill}</p>
+                        ))}
+                    </div>
                 </div>
             }
         </section>

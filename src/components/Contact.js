@@ -18,7 +18,10 @@ function Contact ( {restData} ) {
             <h1>Contact</h1>
             {restData.acf && 
                 <div className="contact-info">
-                    <div dangerouslySetInnerHTML={{ __html: restData.acf.contact_info }}></div>
+                    {/* 为每个段落创建一个<p>元素 */}
+                    <div>{restData.acf.contact_info.split('\n').map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p> 
+                    ))}</div>
 
                     <p>{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
                 </div>
