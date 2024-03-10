@@ -1,0 +1,18 @@
+.css-heg063-MuiTabs-flexContainer {
+    flex-direction: column;
+}
+
+.css-13xfq8m-MuiTabPanel-root {
+    p {
+        display: inline-block;
+        margin-right: 15px;
+    }
+}
+
+
+@media (min-width: 30em) {
+
+    .css-heg063-MuiTabs-flexContainer {
+        flex-direction: row;
+    }
+}

@@ -1,12 +1,9 @@
 .no-slider-container {
-    // max-width: 1250px;
     margin: auto;
     display: flex;
-    // grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    // justify-items: center;
+
     flex-direction: column;
-    // row-gap: 70px;
-    // column-gap: 35px;
+    row-gap: 70px;
 
     .project-card {
         max-width: 500px;
@@ -25,8 +22,7 @@
 
 @media (min-width: 30em) {
     .no-slider-container {
-        // max-width: 1250px;
-        // margin: auto;
+
         display: grid;
         justify-items: center;
         row-gap: 70px;

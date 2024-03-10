@@ -28,18 +28,6 @@ function About ( {restData} ) {
                         ))}
                     </div>
 
-                    {/* development skill */}
-                    <div className='development-skill-container'>
-                        { restData.acf.development_category.map((item, index) => (
-                            <p key={index}>{item.development_skill}</p>
-                        ))}
-                    </div>
-
-                    {/* design skill */}                    
-                    <div className='design-skill-container'>
-
-                    </div>
-
                     <h2>Skills</h2>
                     <Box sx={{ width: '100%', typography: 'body1' }}>
                         <TabContext value={value}>
@@ -59,12 +47,14 @@ function About ( {restData} ) {
                                 ))}
                             </TabPanel>
                             
+                            {/* development skill */}
                             <TabPanel value="2">                        
                                 { restData.acf.development_category.map((item, index) => (
                                     <p key={index}>{item.development_skill}</p>
                                 ))}
                             </TabPanel>
                             
+                            {/* design skill */}                    
                             <TabPanel value="3">                        
                                 {restData.acf.design_category.map((item, index) => (
                                     <p key={index}>{item.design_skill}</p>

@@ -86,11 +86,11 @@ function Projects ( {restBase, classname, title} ) {
                                 <h2>{post.title.rendered}</h2>
                                 <p>{post.acf.brief_overview}</p>
 
-                                <div className='skill-container'>
+                                <p className='skill-container'>
                                     {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
                                         <span key={index}>{item.single_skill_name}</span>
                                     ))}
-                                </div>
+                                </p>
 
                                 <Link to={`/project/${post.slug}`}>More Info</Link>
                             </div>
@@ -114,13 +114,13 @@ function Projects ( {restBase, classname, title} ) {
                             <h2>{post.title.rendered}</h2>
                             <p>{post.acf.brief_overview}</p>
 
-                            <div className='skill-container'>
+                            <p className='skill-container'>
                                 {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                    <p key={index}>{item.single_skill_name}</p>
+                                    <span key={index}>{item.single_skill_name}</span>
                                 ))}
-                            </div>
+                            </p>
 
-                            <button><Link to={`/project/${post.slug}`}>More Info</Link></button>
+                            <Link to={`/project/${post.slug}`}>More Info</Link>
                         </div>
                     </div>
                 )}

@@ -1,6 +1,18 @@
 .header-container {
     .site-navigation {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        // padding-top: 300px;
+        height: 70px;
+        width: 100%;
+        background-color: white;
         text-align: center;
+
+        .header-logo {
+            display: none;
+        }
     
         ul {
             list-style: none;
@@ -25,5 +37,18 @@
             color: #000; /* 设置活动链接的颜色 */
         }
     }
-      
+}
+
+@media (min-width: 45em) {
+    .header-container {
+        .site-navigation {
+            position: unset;
+            transform: none;
+            background-color: unset;
+    
+            .header-logo {
+                display: inline-block;
+            }
+        }
+    }
 }
