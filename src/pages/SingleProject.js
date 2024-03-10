@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Projects from "../components/Projects";
+
 
 import Accordion from '@mui/material/Accordion';
 import AccordionActions from '@mui/material/AccordionActions';
@@ -7,6 +9,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
+
+
 
 function SingleProject ( {restBase} ) {
 
@@ -31,7 +35,6 @@ function SingleProject ( {restBase} ) {
         
 
     }, [restPath])
-        
     
     return (
         <main className="single-project-container">
@@ -40,10 +43,13 @@ function SingleProject ( {restBase} ) {
                     {/* single project overview with image slide */}
                     <div className="project-intro">
                         <h2>{restData.title.rendered}</h2>
-                        <p>{restData.acf.overview}</p>
-                        {restData.acf.skill_used_for_this_project.map((item, index) => (
-                            <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/>
-                        ))}
+                        <p className="project-overview">{restData.acf.overview}</p>
+
+                        <div className='skill-image-container'>
+                            {restData.acf.skill_used_for_this_project.map((item, index) => (
+                                <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/>
+                            ))}
+                        </div>
                         
                         <div className="image-slide">
                             {restData.acf.image_slide.map((item, index) => (
@@ -55,7 +61,7 @@ function SingleProject ( {restBase} ) {
                         <button>Link to Github</button>
                     </div>
 
-                    <div>
+                    <div className="project-highlight">
                         {/* feature */}
                         <Accordion>
                             <AccordionSummary
@@ -99,19 +105,22 @@ function SingleProject ( {restBase} ) {
                             </AccordionDetails>
 
                             <AccordionActions>
+
                                 <Button>Cancel</Button>
                                 <Button>Agree</Button>
+
                             </AccordionActions>
                         </Accordion>
                     </div>
 
                 </div>
-
-
-
                 
             }
 
+            {/* show other projects - CTA */}
+            <Projects restBase={restBase}
+                      classname={"project-slide"}
+                      title={"Other Projects"} />
 
 
         </main>

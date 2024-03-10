@@ -6,15 +6,23 @@
 	- Typography
     - Variables
     - Mixins
-
-// 待删除
-	- Elements
-	- Links
-	- Forms
+	- App
 
 # Components
 	- Header
 	- Footer
+
+
+
+
+--------------------------
+	// 待删除
+	- Elements
+	- Links
+	- Forms
+
+
+
 
 
 /*--------------------------------------------------------------
@@ -24,11 +32,7 @@
 @use "generic/typography";
 @use "generic/variables";
 @use "generic/mixins";
-
-
-// 有待删除
-@use "App";
-
+@use "generic/app";
 
 
 /*--------------------------------------------------------------
@@ -36,4 +40,5 @@
 --------------------------------------------------------------*/
 @use "components/header";
 @use "components/footer";
+@use "components/project-slider";
 
