@@ -4,7 +4,6 @@ import Logo from "../images/logo.png";
 function Footer () {
     return (
         <footer className="footer-container">
-            <h1>Footer</h1>
             <div className="footer-logo">
             <NavLink to="/" className="logo-container">
                 <img src={Logo} alt="Logo" width={50}/>

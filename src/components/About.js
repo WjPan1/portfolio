@@ -16,7 +16,7 @@ import { FaSass } from "react-icons/fa";
 import { RiJavascriptFill } from "react-icons/ri";
 import { FaReact } from "react-icons/fa";
 import { FaWordpress } from "react-icons/fa";
-import { SiWoocommerce } from "react-icons/si";
+import { SiWoo } from "react-icons/si";
 import { FaShopify } from "react-icons/fa";
 import { FaBootstrap } from "react-icons/fa";
 
@@ -32,7 +32,7 @@ function About ( {restData} ) {
 
     return (
         <section id="about" className="about-container">
-            <h1>About</h1>
+            <h2>About</h2>
 
             {restData.acf &&
                 <div>
@@ -44,7 +44,7 @@ function About ( {restData} ) {
                         ))}
                     </div>
 
-                    <h2>Skills</h2>
+                    <h3>Skills</h3>
                     <Box sx={{ width: '100%', typography: 'body1' }}>
                         <TabContext value={value}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -68,7 +68,7 @@ function About ( {restData} ) {
                                     <RiJavascriptFill />
                                     <FaReact />
                                     <FaWordpress />
-                                    <SiWoocommerce />
+                                    <SiWoo />
                                     <FaShopify />
                                     <FaBootstrap />
 
@@ -94,7 +94,7 @@ function About ( {restData} ) {
                                     <RiJavascriptFill />
                                     <FaReact />
                                     <FaWordpress />
-                                    <SiWoocommerce />
+                                    <SiWoo />
                                     <FaShopify />
                                     <FaBootstrap />
 

@@ -1,13 +1,11 @@
 .slider-container {
-    position: relative;
     max-width: 500px;
     margin: auto;
 
     .slick-slide > div {
-        width: 260px;
+        width: 230px;
         height: 400px;
         background-color: #fff;
-        // color: rgba(0, 0, 0, 0.87);
         border-radius: 4px;
         box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
         overflow: hidden;
@@ -15,11 +13,9 @@
     }
 
     .project-card {
-
     
         img {
             width: 100%;
-            // height: 300px;
             object-fit: cover;
         }
     }
@@ -66,8 +62,8 @@
 @media (min-width: 55em) {
     .slider-container {
         .slick-slide > div {
-            width: 460px;
-            height: 600px;
+            width: 350px;
+            height: 450px;
         }
 
         .slick-prev {
@@ -80,8 +76,8 @@
 
         .slick-prev,
         .slick-next {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
         }
     }
 }

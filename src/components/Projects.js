@@ -5,9 +5,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-// import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -76,7 +73,7 @@ function Projects ( {restBase, classname, title} ) {
     return (
         
         <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
 
             {classname === "project-slide" &&
 
@@ -89,7 +86,7 @@ function Projects ( {restBase, classname, title} ) {
                             <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
 
                             <div className="card-content">
-                                <h2>{post.title.rendered}</h2>
+                                <h3>{post.title.rendered}</h3>
                                 <p>{post.acf.brief_overview}</p>
 
                                 <p className='skill-container'>
@@ -117,7 +114,7 @@ function Projects ( {restBase, classname, title} ) {
 
                         <div className="card-content">
 
-                            <h2>{post.title.rendered}</h2>
+                            <h3>{post.title.rendered}</h3>
                             <p>{post.acf.brief_overview}</p>
 
                             <p className='skill-container'>

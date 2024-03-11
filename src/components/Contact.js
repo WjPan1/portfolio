@@ -15,7 +15,9 @@ function Contact ( {restData} ) {
     
     return (
         <section id="contact" className="contact-container">
-            <h1>Contact</h1>
+            <h2>Contact</h2>
+
+
             {restData.acf && 
                 <div className="contact-info">
                     {/* 为每个段落创建一个<p>元素 */}

@@ -22,7 +22,7 @@ function AppRouter () {
                   <Route path="/" element={<Home restBase={restBase} />} />
 
                   <Route path="/project/:slug" element={<SingleProject restBase={restBase} />} />
-
+                  
 
                   {/* to be deleted */}
                   <Route path="/app" element={<App />} />

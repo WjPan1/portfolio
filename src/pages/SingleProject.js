@@ -12,6 +12,11 @@ import Button from '@mui/material/Button';
 
 import BackToTopButton from "../components/BackToTopButton";
 
+// for test, need to change later
+// import { SiWoo } from "react-icons/si";
+// import { FaShopify } from "react-icons/fa";
+// import { FaBootstrap } from "react-icons/fa";
+
 
 function SingleProject ( {restBase} ) {
 
@@ -19,6 +24,9 @@ function SingleProject ( {restBase} ) {
     const restPath = restBase + `posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
     // const [isLoaded, setLoadStatus] = useState(false)
+
+
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,78 +50,91 @@ function SingleProject ( {restBase} ) {
             {restData.acf && 
                 <section className="project-detail">
                     {/* single project overview with image slide */}
+                    <div className="banner">
+                        <div className="image-container">
+                            {restData.acf.image_slide.slice(0, 1).map((item, index) => (
+                                <img key={index} src={item.one_slide} alt={restData.title.rendered} />
+                            ))}
+                        </div>
+                    </div>
+
                     <div className="project-intro">
-                        <h2>{restData.title.rendered}</h2>
+                        <h1 className="page-title">{restData.title.rendered}</h1>
+
+                        <h2>Overview</h2>
                         <p className="project-overview">{restData.acf.overview}</p>
 
                         <div className='skill-image-container'>
                             {restData.acf.skill_used_for_this_project.map((item, index) => (
                                 <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/>
                             ))}
+                            {/* <ul>
+                                <li className="skill-container"><SiWoo /><span>WooCommerce</span></li>
+                                <li className="skill-container"><FaShopify /><span>Shopify</span></li>
+                                <li className="skill-container"><FaBootstrap /><span>Shopify</span></li>
+                            </ul> */}
                         </div>
                         
-                        <div className="image-slide">
-                            {restData.acf.image_slide.map((item, index) => (
-                                <img key={index} src={item.one_slide} alt={restData.title.rendered} width={500}/>
-                            ))}
+
+                        <div className="btn-container"> 
+                            <button className="button">Live Site</button>
+                            <button className="button">GitHub</button>
                         </div>
 
-                        <button>Link to website</button>
-                        <button>Link to Github</button>
+                        <div className="project-highlight">
+                        <h2>Project Details</h2>
+                            {/* feature */}
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1-content"
+                                    id="panel1-header"
+                                    >
+                                Features
+                                </AccordionSummary>
+
+                                <AccordionDetails>
+                                    {restData.acf.features.map((item, index) => (
+                                        <div key={index} className="feature-container">
+
+                                            <video src={item.video} type="video/mp4" 
+                                                autoPlay
+                                                loop
+                                                playsInline>
+                                                Sorry, your browser doesn't support this particular embedded video type.
+                                            </video>
+                                            
+                                            <div className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></div>
+
+                                        </div>
+                                    ))}
+                                </AccordionDetails>
+                            </Accordion>
+
+                            {/* Insight */}
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel3-content"
+                                    id="panel3-header"
+                                    >
+                                Insight
+                                </AccordionSummary>
+
+                                <AccordionDetails>
+                                    <div className="insight" dangerouslySetInnerHTML={{__html: restData.acf.insight}}></div>
+                                </AccordionDetails>
+
+                                <AccordionActions>
+
+                                    <Button>Cancel</Button>
+                                    <Button>Agree</Button>
+
+                                </AccordionActions>
+                            </Accordion>
+                        </div>
+
                     </div>
-
-                    <div className="project-highlight">
-                        {/* feature */}
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                            >
-                            Features
-                            </AccordionSummary>
-
-                            <AccordionDetails>
-                                {restData.acf.features.map((item, index) => (
-                                    <div key={index} className="feature-container">
-
-                                        <video src={item.video} type="video/mp4" 
-                                            autoPlay
-                                            loop
-                                            playsInline>
-                                            Sorry, your browser doesn't support this particular embedded video type.
-                                        </video>
-                                        
-                                        <div className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></div>
-
-                                    </div>
-                                ))}
-                            </AccordionDetails>
-                        </Accordion>
-
-                        {/* Insight */}
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel3-content"
-                                id="panel3-header"
-                            >
-                            Insight
-                            </AccordionSummary>
-
-                            <AccordionDetails>
-                                <div className="insight" dangerouslySetInnerHTML={{__html: restData.acf.insight}}></div>
-                            </AccordionDetails>
-
-                            <AccordionActions>
-
-                                <Button>Cancel</Button>
-                                <Button>Agree</Button>
-
-                            </AccordionActions>
-                        </Accordion>
-                    </div>
-
                 </section>
                 
             }
