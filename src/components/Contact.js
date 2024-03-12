@@ -15,20 +15,23 @@ function Contact ( {restData} ) {
     
     return (
         <section id="contact" className="contact-container">
-            <h2>Contact</h2>
+            <div className="contact-info">
+                <h2>Contact</h2>
 
 
-            {restData.acf && 
-                <div className="contact-info">
-                    {/* 为每个段落创建一个<p>元素 */}
-                    <div>{restData.acf.contact_info.split('\n').map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p> 
-                    ))}</div>
+                {restData.acf && 
+                    <div className="contact">
+                        {/* 为每个段落创建一个<p>元素 */}
+                        <div>{restData.acf.contact_info.split('\n').map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p> 
+                        ))}</div>
 
-                    <p>{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
-                </div>
-            }
-            <button className="copy-btn" onClick={handleCopy}>{copied ? 'Copied!' : 'Copy'}</button>
+                        <p>{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
+                        
+                        <button className="copy-btn" onClick={handleCopy}>{copied ? 'Copied!' : 'Copy'}</button>
+                    </div>
+                }
+            </div>
         </section>
     )
 }

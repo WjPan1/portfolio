@@ -65,9 +65,14 @@ function SingleProject ( {restBase} ) {
                         <p className="project-overview">{restData.acf.overview}</p>
 
                         <div className='skill-image-container'>
+                            <h3>Skills</h3>
                             {restData.acf.skill_used_for_this_project.map((item, index) => (
-                                <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/>
+                            <>
+                                {/* <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/> */}
+                                <p key={index}>{item.single_skill_name}</p>
+                            </>
                             ))}
+
                             {/* <ul>
                                 <li className="skill-container"><SiWoo /><span>WooCommerce</span></li>
                                 <li className="skill-container"><FaShopify /><span>Shopify</span></li>
@@ -97,14 +102,19 @@ function SingleProject ( {restBase} ) {
                                     {restData.acf.features.map((item, index) => (
                                         <div key={index} className="feature-container">
 
-                                            <video src={item.video} type="video/mp4" 
-                                                autoPlay
-                                                loop
-                                                playsInline>
-                                                Sorry, your browser doesn't support this particular embedded video type.
-                                            </video>
-                                            
-                                            <div className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></div>
+                                            <div className="video-container">
+                                                <video src={item.video} type="video/mp4" 
+                                                    autoPlay
+                                                    loop
+                                                    playsInline>
+                                                    Sorry, your browser doesn't support this particular embedded video type.
+                                                </video>
+                                            </div>
+                                            <div className="feature-info">
+
+                                                <h3 className="feature-title" dangerouslySetInnerHTML={{__html: item.feature_title}}></h3>
+                                                <p className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
+                                            </div>
 
                                         </div>
                                     ))}

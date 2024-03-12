@@ -2,6 +2,15 @@
     .banner {
         background-color: #98A896;
         padding: 50px;
+
+        .image-container {
+            max-width: 700px;
+            margin: auto;
+
+            img {
+                width: 100%;
+        }
+    }
     }
     
     .page-title {
@@ -20,14 +29,7 @@
         width: 80%;
     }
 
-    .image-container {
-        max-width: 700px;
-        margin: auto;
 
-        img {
-            width: 100%;
-        }
-    }
 
     
     // .skill-image-container {

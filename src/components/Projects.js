@@ -61,8 +61,8 @@ function Projects ( {restBase, classname, title} ) {
         dots: true,
         infinite: true,
         speed: 500,
-        autoplay: true, // 启用自动轮播
-        autoplaySpeed: 5000, // 自动轮播间隔时间，以毫秒为单位
+        // autoplay: true, // 启用自动轮播
+        // autoplaySpeed: 5000, // 自动轮播间隔时间，以毫秒为单位
         slidesToShow: 1,
         slidesToScroll: 1,
         prevArrow: <SliderPrevArrow />,
@@ -83,7 +83,10 @@ function Projects ( {restBase, classname, title} ) {
 
                     {restData.map(post => 
                         <div className="project-card" key={post.id} id={`post-${post.id}`}>
-                            <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                            <div className="image-container">
+
+                                <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                            </div>
 
                             <div className="card-content">
                                 <h3>{post.title.rendered}</h3>
@@ -110,8 +113,11 @@ function Projects ( {restBase, classname, title} ) {
 
                 {restData.map(post => 
                     <div className="project-card" key={post.id} id={`post-${post.id}`}>
-                        <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} min-width={300}/>
+                                                    
+                        <div className="image-container">
 
+                            <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} min-width={300}/>
+                        </div>
                         <div className="card-content">
 
                             <h3>{post.title.rendered}</h3>

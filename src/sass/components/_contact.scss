@@ -1,0 +1,20 @@
+.contact-container {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url(../../images/contact.jpg);
+    
+    .contact-info {
+        max-width: 1200px;
+        margin: auto;
+        width: 80%;
+        height: 80%;
+    }
+}

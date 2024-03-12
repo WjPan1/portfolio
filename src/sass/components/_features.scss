@@ -1,34 +1,49 @@
 .css-1c35hjw-MuiPaper-root-MuiAccordion-root {
 
     .css-o4b71y-MuiAccordionSummary-content {
-        font-size: 26px;
-        font-weight: bold;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 
     // .feature-container {
     //     width: 90%;
     //     margin: auto;
     // }
-    
-    video {
-        width: 100%;
+    .css-15v22id-MuiAccordionDetails-root {
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+        
+        video {
+            width: 100%;
+        }
+        
+        .feature-description {
+            margin: 30px auto;
+        }
+
     }
 
-    .feature-description {
-        margin: 30px auto;
-    }
-
-    @media (min-width: 60em) {
+    @media (min-width: 65em) {
 
         .feature-container {
             display: flex;
-            gap: 30px;
+            gap: 50px;
             align-items: center;
             justify-content: space-around;
         }
 
+        .video-container {
+            width: 50%;
+        }
+
         video {
-            width: 600px;
+            width: 100%;
+        }
+
+        .feature-info {
+            width: 50%;
         }
     }
 

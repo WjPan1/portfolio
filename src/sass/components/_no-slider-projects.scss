@@ -1,3 +1,9 @@
+.projects-container {
+    max-width: 1200px;
+    margin: 100px auto;
+    width: 80%;
+}
+
 .no-slider-container {
     margin: auto;
     display: flex;
@@ -38,9 +44,17 @@
 
         .project-card {
             display: flex;
-            // gap: 3rem;
+            gap: 3rem;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .image-container {
+            width: 45%;
+        }
+
+        .card-content {
+            width: 45%;
         }
 
         .project-card:nth-child(even) .card-content {
@@ -48,7 +62,7 @@
           }
 
         img {
-            max-width: 55%;
+            width: 100%;
         }
 
 
