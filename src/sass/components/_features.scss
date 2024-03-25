@@ -1,3 +1,5 @@
+@import '../generic/mixins';
+
 .css-1c35hjw-MuiPaper-root-MuiAccordion-root {
 
     .css-o4b71y-MuiAccordionSummary-content {
@@ -25,7 +27,7 @@
 
     }
 
-    @media (min-width: 65em) {
+    @include mqMin(65em) {
 
         .feature-container {
             display: flex;

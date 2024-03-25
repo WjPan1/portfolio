@@ -1,9 +1,11 @@
+@import '../generic/mixins';
+
 .footer-container {
     text-align: center;
     padding: 70px 0;
 }
 
-@media (min-width: 45em) {
+@include mqMin(45em) {
     .footer-container {
         padding-bottom: 0;
     }

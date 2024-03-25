@@ -1,3 +1,5 @@
+@import '../generic/mixins';
+
 .single-project-container {
     .banner {
         background-color: #98A896;
@@ -28,35 +30,6 @@
         margin: 33px auto;
         width: 80%;
     }
-
-
-
-    
-    // .skill-image-container {
-    //     margin: 2rem auto;
-
-
-    //     ul {
-    //         list-style: none;
-    //         padding: 0;
-    //         margin: 0;
-    //         display: flex;
-    //         flex-wrap: wrap;
-    //         column-gap: 2rem;
-    //         row-gap: 1rem;
-    //         align-items: center; 
-
-    //     }
-        
-    //     svg {
-
-    //         margin-right: 20px;
-    //         width: 50px;
-    //         height: 50px;
-    
-    //         fill: #cf763e;
-    //     }
-    // }
 
 }
 
@@ -97,7 +70,6 @@
         min-width: calc(200px + 20px);
         min-height: calc(60px + 20px);
         border: 6px solid #00FFCB;
-        // box-shadow: 0 0 60px rgba(0,255,203,.64);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -115,40 +87,13 @@
         opacity: 1;
     }
 
-    // button::after {
-    // content: '';
-    //     width: 30px; height: 30px;
-    //     border-radius: 100%;
-    //     border: 6px solid #00FFCB;
-    //     position: absolute;
-    //     z-index: -1;
-    //     top: 50%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    //     animation: ring 1.5s infinite;
-    // }
-
     .button:hover::after, button:focus::after {
         animation: none;
         display: none;
     }
-
-    // @keyframes ring {
-    // 0% {
-    //     width: 30px;
-    //     height: 30px;
-    //     opacity: 1;
-    // }
-    // 100% {
-    //     width: 300px;
-    //     height: 300px;
-    //     opacity: 0;
-    // }
-    // }
-
 }
 
-@media (min-width: 36.5em) {
+@include mqMin(36.5em) {
     .btn-container {
         margin-bottom: 0;
     }

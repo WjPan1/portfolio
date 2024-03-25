@@ -1,3 +1,4 @@
+@import '../generic/mixins';
 
 .header-container {
     position: relative;
@@ -35,13 +36,12 @@
         
         ul li a {
             text-decoration: none;
-            color: #333; /* 设置链接颜色 */
+            color: #333;
         }
-        
-        /* 如果需要给当前选中的链接添加样式，可以使用 NavLink 的 activeClassName 属性来实现 */
-        ul li a.active {
-            font-weight: bold; /* 添加粗体效果 */
-            color: #000; /* 设置活动链接的颜色 */
+
+        .active-link {
+            font-weight: bold; 
+            color: blue; 
         }
 
         li a {
@@ -69,7 +69,7 @@
     }
 }
 
-@media (min-width: 45em) {
+@include mqMin(45em) {
     .header-container {
         margin-bottom: 20px;
 

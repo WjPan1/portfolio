@@ -47,15 +47,15 @@ function Home ( {restBase} ) {
             } else {
                 window.scrollTo({ top: 0 });
             }
-            
+
         };
-    
+
         // 在组件挂载时执行一次滚动操作
         handleHashChange();
-    
+
         // 监听 hashchange 事件
         window.addEventListener('hashchange', handleHashChange);
-    
+
         // 在组件卸载时移除事件监听器
         return () => {
             window.removeEventListener('hashchange', handleHashChange);
@@ -65,7 +65,7 @@ function Home ( {restBase} ) {
     return (
         <>
         { isLoaded ?
-        <main className="home-container">
+        <main id="home" className="home-container">
             <Banner restBase={restBase} restData={restData}/>
                 <div className="content-container">
                 <Projects restBase={restBase} 

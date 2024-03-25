@@ -1,3 +1,5 @@
+@import '../generic/mixins';
+
 .projects-container {
     max-width: 1200px;
     margin: 100px auto;
@@ -31,7 +33,7 @@
 }
 
 
-@media (min-width: 55em) {
+@include mqMin(55em) {
     .no-slider-container {
 
         display: flex;

@@ -5,7 +5,6 @@ import SingleProject from "../pages/SingleProject";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import App from "../pages/App.js";
 
 
 function AppRouter () {
@@ -20,12 +19,8 @@ function AppRouter () {
                
                <Routes>
                   <Route path="/" element={<Home restBase={restBase} />} />
-
                   <Route path="/project/:slug" element={<SingleProject restBase={restBase} />} />
                   
-
-                  {/* to be deleted */}
-                  <Route path="/app" element={<App />} />
                </Routes>
                
                <Footer />

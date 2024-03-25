@@ -1,3 +1,6 @@
+@import '../generic/mixins';
+
+
 .about-container {
     max-width: 1200px;
     margin: 100px auto;
@@ -25,7 +28,7 @@
         }
     }
 
-    @media (min-width: 30em) {
+    @include mqMin(30em) {
 
         .css-heg063-MuiTabs-flexContainer {
             flex-direction: row;

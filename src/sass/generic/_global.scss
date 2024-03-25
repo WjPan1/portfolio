@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(250, 250, 250);
+}
+
+
+// back to top button
+.back-to-top {
+    position: fixed;
+    right: 8px;
+    bottom: 80px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+
+    svg {
+        width: 100%;
+        height: 100%;
+
+        fill: brown;
+    }
+
+    &.none {
+        display: none;
+    }
+}
+
+
+.skill-container {
+  span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}

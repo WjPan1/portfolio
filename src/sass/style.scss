@@ -30,11 +30,12 @@
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
+
+@use "generic/global";
 @use "generic/normalize-fwd";
 @use "generic/typography";
 @use "generic/variables";
-@use "generic/mixins";
-@use "generic/app";
+// @use "generic/mixins";
 
 
 /*--------------------------------------------------------------

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation  } from "react-router-dom";
 import Logo from "../images/logo.png";
 import { HashLink } from 'react-router-hash-link';
 
@@ -9,7 +9,8 @@ import { MdEmail } from "react-icons/md";
 
 
 function Header() {
-
+    const { hash } = useLocation();
+    const isActive = (iHash) => hash === iHash;
 
     return (
         <header className="header-container">
@@ -17,22 +18,22 @@ function Header() {
 
             <nav className= "site-navigation">
                 <ul>
-                    <li><NavLink to="/">
+                    <li><HashLink to="/#home" className={isActive("#home") ? "active-link" : ""}>
                         <div className="nav-icon"><BiSolidHomeHeart /></div>
-                        <span>Home</span></NavLink></li>
-                    {/* <li><NavLink to="/app">APP</NavLink></li> */}
-                    <li><HashLink to="/#projects" smooth>
+                        <span>Home</span></HashLink></li>
+                    <li><HashLink to="/#projects" smooth  className={isActive("#projects") ? "active-link" : ""} >
                         <div className="nav-icon"><IoFileTrayFull /></div>
                         <span>Projects</span></HashLink></li>
                     <li className="header-logo">
                         <NavLink to="/"><img src={Logo} alt="Site Logo" width={50}/></NavLink> 
                     </li>
-                    <li><HashLink to="/#about" smooth>
+                    <li><HashLink to="/#about"  smooth className={isActive("#about") ? "active-link" : ""} >
                         <div className="nav-icon"><IoPerson /></div>
                         <span>About</span></HashLink></li>
-                    <li><HashLink to="/#contact" smooth>
+                    <li><HashLink to="/#contact" smooth className={isActive("#contact") ? "active-link" : ""} >
                         <div className="nav-icon"><MdEmail /></div>
-                        <span>Contact</span></HashLink></li>
+                        <span>Contact</span></HashLink>
+                    </li>
                 </ul>
             </nav>
 
