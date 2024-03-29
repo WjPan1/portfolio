@@ -1,0 +1,7 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240,240 Q220,190 180,190 Q140,190 120,240 Z" fill="blue" stroke="black" stroke-width="2"/>
+  <path d="M160,240 Q160,180 140,180 Q120,180 120,240 Z" fill="red" stroke="black" stroke-width="2"/>
+  <path d="M180,240 Q180,180 200,180 Q220,180 220,240 Z" fill="yellow" stroke="black" stroke-width="2"/>
+  
+  <path d="M180,240 Q180,270 180,290" fill="none" stroke="black" stroke-width="4"/>
+</svg>

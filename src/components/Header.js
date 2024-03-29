@@ -1,5 +1,5 @@
 import { NavLink, useLocation  } from "react-router-dom";
-import Logo from "../images/logo.png";
+import Logo from "../images/logo.svg";
 import { HashLink } from 'react-router-hash-link';
 
 import { BiSolidHomeHeart } from "react-icons/bi";
