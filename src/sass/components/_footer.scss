@@ -1,12 +1,24 @@
+@import '../generic/variables';
 @import '../generic/mixins';
 
 .footer-container {
     text-align: center;
-    padding: 70px 0;
+    margin: 90px auto;
+
+    .footer-logo-container {
+        width: 70px;
+        height: 70px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    p {
+        margin-top: 0;
+    }
 }
 
-@include mqMin(45em) {
+@include mqMin($tablet-small) {
     .footer-container {
-        padding-bottom: 0;
+        margin: 0;
     }
 }

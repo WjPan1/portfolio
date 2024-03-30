@@ -147,7 +147,6 @@ function SingleProject ( {restBase} ) {
 
                     </div>
                 </section>
-                
             }
 
             {/* show other projects - CTA */}
@@ -155,7 +154,7 @@ function SingleProject ( {restBase} ) {
                       classname={"project-slide"}
                       title={"Other Projects"} />
 
-            <BackToTopButton />
+            {/* <BackToTopButton /> */}
         </main>
     )
 }

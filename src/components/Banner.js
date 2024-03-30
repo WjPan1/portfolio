@@ -13,7 +13,6 @@ function Banner ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                console.log("about found")
                 setLoadStatus(true)
             } else {
                 console.error('Failed to fetch data');

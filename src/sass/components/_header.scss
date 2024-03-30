@@ -2,16 +2,13 @@
 @import '../generic/variables';
 
 .header-container {
-    // position: relative;
+    z-index: 1000;
 
-    .mobile-logo {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 80px;
+    .site-logo-container {
+        width: 70px;
+        height: 70px;
         padding: 20px;
+        margin: 0 auto;
     }
 
     .site-navigation {
@@ -19,18 +16,14 @@
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        // padding-top: 300px;
-        // height: 70px;
-        padding: 20px 0;
         width: 100%;
-        background-color: white;
-        text-align: center;
-        z-index: 1000;
+        z-index: 2000;
+        border: 1px solid #26272c;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;        
         box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.08);
-    
-        .desktop-logo {
-            display: none;
-        }
+        background: rgba(28, 29, 33, 0.904);
+        padding: 15px 10px;
     
         ul {
             list-style: none;
@@ -39,91 +32,70 @@
             display: flex;
             justify-content: space-around;
             align-items: center; 
-        } 
+            
+            li a {
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                align-items: center;
+                font-size: 12px;
 
-        ul li {
-            display: inline-block;
-        }
-    
+                &:hover {
+                    color: $bgc-btn;
         
-        ul li a {
-            text-decoration: none;
-            color: #333;
-        }
+                    .nav-icon {
+                        svg {
+                            fill: $bgc-btn;
+                        }
+                    }
+                }
 
-        li a {
-            display: flex;
-            flex-direction: column;
-            justify-items: center;
-            align-items: center;
+                .nav-icon {
+                    width: 28px;
+                    height: 28px;
 
-            .nav-icon {
-                width: 30px;
-                height: 30px;
-
-                svg {
-                    width: 100%;
-                    height: 100%;
-
-                    fill: rgb(179, 176, 176);
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }
-
-        .active-link {
-            font-weight: bold; 
-            color: $bgc-blue;
-
-            .nav-icon {
-
-                svg {
-                    fill: $bgc-blue;
-                }
-            }
-        }
-
     }
     
     @include mqMin(45em) {
-        .mobile-logo {
-            display: none;
+        position: fixed;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        
+        .site-logo-container {
+            margin: 0;
         }
 
         .site-navigation {
             position: unset;
-            transform: none;
-            background-color: unset;
-            padding: 30px 0;
-            
-            .desktop-logo {
-                display: block;
-                position: static;
-                width: 30px;
-                height: 30px;
-            }
+            transform: none; 
+            width: auto; 
+            border-radius: 10px;
+            padding: 5px 20px 5px 20px;
             
             ul {
-                
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
                 column-gap: 70px;
             }
-            
-            .header-logo {
-                display: inline-block;
-            }
-            
-            li a {
-                display: unset;
-            }
-            
+
             .nav-icon {
                 display: none;
             }
             
             li span {
-                font-size: 18px;
+                font-size: 16px;
             }
             
         }

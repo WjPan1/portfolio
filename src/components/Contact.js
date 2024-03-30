@@ -15,7 +15,6 @@ function Contact ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                console.log("about found")
                 setLoadStatus(true)
             } else {
                 console.error('Failed to fetch data');
@@ -42,15 +41,14 @@ function Contact ( {restBase} ) {
                 <div className="contact-info">
                     <h2>Contact</h2>
 
-
                     {restData.acf && 
                         <div className="contact">
                             {/* 为每个段落创建一个<p>元素 */}
-                            <div>{restData.acf.contact_info.split('\n').map((paragraph, index) => (
-                                <p key={index}>{paragraph}</p> 
-                            ))}</div>
+                            {restData.acf.contact_info.split('\n').map((paragraph, index) => (
+                                <p key={index} className="contact-hook">{paragraph} </p> 
+                            ))}
 
-                            <p>{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
+                            <p className="email">{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
                             
                             <button className="copy-btn" onClick={handleCopy}>{copied ? 'Copied!' : 'Copy'}</button>
                         </div>

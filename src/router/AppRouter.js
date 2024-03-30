@@ -15,18 +15,16 @@ function AppRouter () {
 
    return (
       <BrowserRouter>
-            <div className="site-container">
-
-               <Header />
-               
-               <Routes>
-                  <Route path="/" element={<Home restBase={restBase} />} />
-                  <Route path="/project/:slug" element={<SingleProject restBase={restBase} />} />
-                  
-               </Routes>
-               
-               <Footer />
-            </div>
+         <div className="site-container">
+            <Header />
+            
+            <Routes>
+               <Route path="/" element={<Home restBase={restBase} />} />
+               <Route path="/project/:slug" element={<SingleProject restBase={restBase} />} />
+            </Routes>
+            
+            <Footer />
+         </div>
       </BrowserRouter>
    )
 }

@@ -3,17 +3,11 @@ import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
-
 import BackToTopButton from "../components/BackToTopButton";
-
-
 import Loading from '../components/Loading';
 
 
-
 function Home ( {restBase} ) {
-
-
 
     const restPath = restBase + 'pages/9'
     const [restData, setData] = useState([])
@@ -25,7 +19,6 @@ function Home ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                console.log("about found")
                 setLoadStatus(true)
             } else {
                 console.error('Failed to fetch data');
@@ -65,30 +58,25 @@ function Home ( {restBase} ) {
     // }, []);
     
 
-
-
-      
-
     return (
         <>
         { isLoaded ?
-        <main id="home" className="home-container">
-            <Banner restBase={restBase} restData={restData}/>
-                <div className="content-container">
-                <Projects restBase={restBase} 
-                        classname={"all-project"} 
-                        title={"All Projects"} />
-                <About restBase={restBase} restData={restData}/>
-                <Contact restBase={restBase} restData={restData}/>
+            <main id="home" className="home-container">
+                <Banner restBase={restBase} restData={restData}/>
+                    <div className="content-container">
+                    <Projects restBase={restBase} 
+                            classname={"all-project"} 
+                            title={"All Projects"} />
+                    <About restBase={restBase} restData={restData}/>
+                    <Contact restBase={restBase} restData={restData}/>
 
-            </div>
-            <BackToTopButton />
-
-        </main>
-                : 
-                <Loading /> 
-            }
-            </>  
+                </div>
+                {/* <BackToTopButton /> */}
+            </main>
+            : 
+            <Loading /> 
+        }
+        </>  
     )
 }
 

@@ -129,7 +129,7 @@ function Projects ( {restBase, classname, title} ) {
                                             ))}
                                         </p>
 
-                                        <div class="link-to-project"><Link to={`/project/${post.slug}`}>
+                                        <div className="link-to-project"><Link to={`/project/${post.slug}`}>
                                             See My Work
                                         </Link></div>
                                     </div>
