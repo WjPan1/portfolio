@@ -9,11 +9,14 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
 
+// import Loading from '../components/Loading';
+
+
 
 function Projects ( {restBase, classname, title} ) {
     const restPath = restBase + 'posts?_embed&acf_format=standard'
     const [restData, setData] = useState([])
-    // const [isLoaded, setLoadStatus] = useState(false)
+    const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,9 +24,9 @@ function Projects ( {restBase, classname, title} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                // setLoadStatus(true)
+                setLoadStatus(true)
             } else {
-                // setLoadStatus(false)
+                setLoadStatus(false)
             }
         }
         fetchData()
@@ -71,73 +74,80 @@ function Projects ( {restBase, classname, title} ) {
     
     
     return (
-        
-        <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
-            <h2>{title}</h2>
+        <>
+        { isLoaded && (
+            <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
+                <h2>{title}</h2>
 
-            {classname === "project-slide" &&
+                {classname === "project-slide" &&
 
-                <div className="slider-container">
+                    <div className="slider-container">
 
-                <Slider {...settings}>
+                    <Slider {...settings}>
 
-                    {restData.map(post => 
-                        <div className="project-card" key={post.id} id={`post-${post.id}`}>
-                            <div className="image-container">
+                        {restData.map(post => 
+                            <div className="project-card" key={post.id} id={`post-${post.id}`}>
+                                <div className="image-container">
 
-                                <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                                    <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                                </div>
+
+                                <div className="card-content">
+                                    <h3>{post.title.rendered}</h3>
+                                    <p>{post.acf.brief_overview}</p>
+
+                                    <p className='skill-container'>
+                                        {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
+                                            <span key={index}>{item.single_skill_name}</span>
+                                        ))}
+                                    </p>
+
+                                    <Link to={`/project/${post.slug}`}>More Info</Link>
+                                </div>
                             </div>
+                        )}
 
-                            <div className="card-content">
-                                <h3>{post.title.rendered}</h3>
-                                <p>{post.acf.brief_overview}</p>
+                    </Slider>
+                    </div>
 
-                                <p className='skill-container'>
-                                    {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                        <span key={index}>{item.single_skill_name}</span>
-                                    ))}
-                                </p>
+                }
 
-                                <Link to={`/project/${post.slug}`}>More Info</Link>
-                            </div>
-                        </div>
-                    )}
+                {classname !== "project-slide" && 
+                    <div className="no-slider-container">
 
-                </Slider>
-                </div>
+                        <div className="home-project-container">
+                            {restData.map(post => 
+                                <div className="project-card" key={post.id} id={`post-${post.id}`}>
+                                    <div className="card-content">
 
-            }
+                                        <h3>{post.title.rendered}</h3>
+                                        <p>{post.acf.brief_overview}</p>
 
-            {classname !== "project-slide" && 
-                <div className="no-slider-container">
+                                        <p className='skill-container'>
+                                            {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
+                                                <span key={index}>{item.single_skill_name}</span>
+                                            ))}
+                                        </p>
 
-                {restData.map(post => 
-                    <div className="project-card" key={post.id} id={`post-${post.id}`}>
-                                                    
-                        <div className="image-container">
+                                        <div class="link-to-project"><Link to={`/project/${post.slug}`}>
+                                            See My Work
+                                        </Link></div>
+                                    </div>
+                                    <div className="image-container">
 
-                            <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} min-width={300}/>
-                        </div>
-                        <div className="card-content">
-
-                            <h3>{post.title.rendered}</h3>
-                            <p>{post.acf.brief_overview}</p>
-
-                            <p className='skill-container'>
-                                {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                    <span key={index}>{item.single_skill_name}</span>
-                                ))}
-                            </p>
-
-                            <Link to={`/project/${post.slug}`}>More Info</Link>
+                                        <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} min-width={300}/>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
-                )}
-                </div>
-            }
-  
+                }
+    
 
-        </section>
+            </section>
+
+        )}
+        </> 
     )
 }
 

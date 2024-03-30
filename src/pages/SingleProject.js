@@ -45,6 +45,7 @@ function SingleProject ( {restBase} ) {
 
     }, [restPath])
     
+    
     return (
         <main className="single-project-container">
             {restData.acf && 

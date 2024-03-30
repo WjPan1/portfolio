@@ -1,72 +1,93 @@
 @import '../generic/mixins';
 
 .projects-container {
-    max-width: 1200px;
-    margin: 100px auto;
-    width: 80%;
+    // max-width: 1200px;
+    // margin: 100px auto;
+    // width: 80%;
+    background-color: #f7f4f2;
 }
 
-.no-slider-container {
+.home-project-container {
     margin: auto;
     display: flex;
+    padding: 100px 0;
+    flex-wrap: wrap;
+    gap: 30px;
+    // max-width: 400px;
 
-    flex-direction: column;
+    // flex-direction: column;
     row-gap: 70px;
 
     .project-card {
-    //     max-width: 500px;
-    //     background-color: #fff;
-    //     color: rgba(0, 0, 0, 0.87);
-    //     border-radius: 5px;
-    //     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    //     overflow: hidden;
-    // }
+        max-width: 400px;
+        width: 80%;
+        margin: auto;
+        height: 500px;
 
-    // .card-content {
-    //     padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
 
-        img {
-            width: 100%;
-            border-radius: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .1), 0 15px 35px rgba(0, 0, 0, .05);
+
+        .card-content {
+            padding: 20px;
         }
+
+        .image-container {
+            display: flex;
+            justify-content: flex-end;
+            right: -200px;
+
+            img {
+                width: 60%;
+                // border-radius: 10px;
+            }
+        }
+
     }
+
+
+    
 }
 
 
 @include mqMin(55em) {
-    .no-slider-container {
+//     .no-slider-container {
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        // justify-items: center;
-        // row-gap: 70px;
-        // column-gap: 35px;
-        // grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         // justify-items: center;
+//         // row-gap: 70px;
+//         // column-gap: 35px;
+//         // grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
 
-        .project-card {
-            display: flex;
-            gap: 3rem;
-            justify-content: space-between;
-            align-items: center;
-        }
+//         .project-card {
+//             display: flex;
+//             gap: 3rem;
+//             justify-content: space-between;
+//             align-items: center;
+//         }
 
-        .image-container {
-            width: 45%;
-        }
+//         .image-container {
+//             width: 45%;
+//         }
 
-        .card-content {
-            width: 45%;
-        }
+//         .card-content {
+//             width: 45%;
+//         }
 
-        .project-card:nth-child(even) .card-content {
-            order: -1; /* 使偶数项的内容先显示在左侧 */
-          }
+//         .project-card:nth-child(even) .card-content {
+//             order: -1; /* 使偶数项的内容先显示在左侧 */
+//           }
 
-        img {
-            width: 100%;
-        }
+//         img {
+//             width: 100%;
+//         }
 
 
-    }
+//     }
 }

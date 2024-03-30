@@ -2,7 +2,17 @@
 @import '../generic/variables';
 
 .header-container {
-    position: relative;
+    // position: relative;
+
+    .mobile-logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        padding: 20px;
+    }
 
     .site-navigation {
         position: fixed;
@@ -11,13 +21,14 @@
         transform: translateX(-50%);
         // padding-top: 300px;
         // height: 70px;
-        padding: 10px 0;
+        padding: 20px 0;
         width: 100%;
-        background-color: $bgc-brown;
+        background-color: white;
         text-align: center;
         z-index: 1000;
-
-        .header-logo {
+        box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.08);
+    
+        .desktop-logo {
             display: none;
         }
     
@@ -61,57 +72,60 @@
 
         .active-link {
             font-weight: bold; 
-            color: $content-nav;
+            color: $bgc-blue;
 
             .nav-icon {
 
                 svg {
-                    fill: $content-nav;
+                    fill: $bgc-blue;
                 }
             }
         }
 
     }
-}
-
-@include mqMin(45em) {
-    .header-container {
-        margin-bottom: 20px;
-
+    
+    @include mqMin(45em) {
+        .mobile-logo {
+            display: none;
+        }
 
         .site-navigation {
             position: unset;
             transform: none;
             background-color: unset;
-
-            .header-logo {
+            padding: 30px 0;
+            
+            .desktop-logo {
+                display: block;
                 position: static;
+                width: 30px;
+                height: 30px;
             }
-
+            
             ul {
-
+                
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
                 column-gap: 70px;
             }
-    
+            
             .header-logo {
                 display: inline-block;
             }
-
+            
             li a {
                 display: unset;
             }
-
+            
             .nav-icon {
                 display: none;
             }
-
+            
             li span {
                 font-size: 18px;
             }
-
+            
         }
     }
 }

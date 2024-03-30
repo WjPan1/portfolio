@@ -9,6 +9,8 @@ import BackToTopButton from "../components/BackToTopButton";
 
 import Loading from '../components/Loading';
 
+
+
 function Home ( {restBase} ) {
 
 
@@ -34,34 +36,39 @@ function Home ( {restBase} ) {
     }, [restPath])
 
 
-    useEffect(() => {
-        const handleHashChange = () => {
-            const hash = window.location.hash;
-            if (hash) {
-                const element = document.querySelector(hash);
-                if (element) {
-                    setTimeout(() => {
-                        element.scrollIntoView();
-                    }, 1000); // 添加一个小的延迟以确保元素已经正确渲染
-                }
-            } else {
-                window.scrollTo({ top: 0 });
-            }
+    // useEffect(() => {
+    //     const handleHashChange = () => {
+    //         const hash = window.location.hash;
+    //         if (hash) {
+    //             const element = document.querySelector(hash);
+    //             if (element) {
+    //                 setTimeout(() => {
+    //                     element.scrollIntoView();
+    //                 }, 1000); // 添加一个小的延迟以确保元素已经正确渲染
+    //             }
+    //         } else {
+    //             window.scrollTo({ top: 0 });
+    //         }
 
-        };
+    //     };
 
-        // 在组件挂载时执行一次滚动操作
-        handleHashChange();
+    //     // 在组件挂载时执行一次滚动操作
+    //     handleHashChange();
 
-        // 监听 hashchange 事件
-        window.addEventListener('hashchange', handleHashChange);
+    //     // 监听 hashchange 事件
+    //     window.addEventListener('hashchange', handleHashChange);
 
-        // 在组件卸载时移除事件监听器
-        return () => {
-            window.removeEventListener('hashchange', handleHashChange);
-        };
-    }, []);
+    //     // 在组件卸载时移除事件监听器
+    //     return () => {
+    //         window.removeEventListener('hashchange', handleHashChange);
+    //     };
+    // }, []);
     
+
+
+
+      
+
     return (
         <>
         { isLoaded ?

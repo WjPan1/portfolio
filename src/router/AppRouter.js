@@ -9,7 +9,9 @@ import Footer from "../components/Footer";
 
 function AppRouter () {
 
-   const restBase = 'https://wjweb.works/wordpress-portfolio/wp-json/wp/v2/'
+   const restBase = 'https://wjweb.works/wordpress-portfolio/wp-json/wp/v2/';
+
+   // scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
 
    return (
       <BrowserRouter>
