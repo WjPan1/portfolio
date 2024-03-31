@@ -1,11 +1,11 @@
 import { NavLink  } from "react-router-dom";
-import Logo from "../images/logo.png";
 import { HashLink } from 'react-router-hash-link';
 
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { IoFileTrayFull } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
+import { ReactComponent as LogoWhite } from "../images/logo-white.svg";
 
 
 function Header() {
@@ -13,7 +13,7 @@ function Header() {
     return (
         <header className="header-container">
 
-            <div className="site-logo-container"><NavLink to="/" className="site-logo"><img src={Logo} alt="Site Logo" /></NavLink>
+            <div className="site-logo-container"><NavLink to="/" className="site-logo"><LogoWhite /></NavLink>
             </div> 
 
             <nav className= "site-navigation">

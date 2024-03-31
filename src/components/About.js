@@ -19,6 +19,7 @@ import { FaWordpress } from "react-icons/fa";
 import { SiWoo } from "react-icons/si";
 import { FaShopify } from "react-icons/fa";
 import { FaBootstrap } from "react-icons/fa";
+// import { ReactComponent as BannerBackground } from "../images/banner.svg";
 
 // import Loading from '../components/Loading';
 
@@ -143,8 +144,8 @@ function About ( {restBase} ) {
                         </Box>
                     </div>
                 }
+{/* <BannerBackground /> */}
             </section>
-
         )}
         </> 
     )

@@ -3,7 +3,6 @@ import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
-import BackToTopButton from "../components/BackToTopButton";
 import Loading from '../components/Loading';
 
 
@@ -71,7 +70,6 @@ function Home ( {restBase} ) {
                     <Contact restBase={restBase} restData={restData}/>
 
                 </div>
-                {/* <BackToTopButton /> */}
             </main>
             : 
             <Loading /> 

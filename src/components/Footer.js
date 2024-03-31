@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../images/logo.png";
+import { ReactComponent as LogoWhite } from "../images/logo-white.svg";
 
 function Footer () {
     return (
         <footer className="footer-container">
             <div className="footer-logo-container">
                 <NavLink to="/" className="footer-logo">
-                    <img src={Logo} alt="Site Logo" />
+                    <LogoWhite />
                 </NavLink> 
-        </div>
+            </div>
         <p>&copy; 2024. All rights reserved.</p>
         </footer>
     )

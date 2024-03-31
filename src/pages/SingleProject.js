@@ -10,8 +10,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 
-import BackToTopButton from "../components/BackToTopButton";
-
 // for test, need to change later
 // import { SiWoo } from "react-icons/si";
 // import { FaShopify } from "react-icons/fa";
@@ -154,7 +152,6 @@ function SingleProject ( {restBase} ) {
                       classname={"project-slide"}
                       title={"Other Projects"} />
 
-            {/* <BackToTopButton /> */}
         </main>
     )
 }

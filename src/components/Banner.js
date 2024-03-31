@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
+
 // import Loading from '../components/Loading';
+import { ReactComponent as BannerBackground } from "../images/banner.svg";
+import { HashLink } from 'react-router-hash-link';
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 
 function Banner ( {restBase} ) {
 
@@ -21,14 +26,38 @@ function Banner ( {restBase} ) {
         }
         fetchData()
     }, [restPath])
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentPosition = window.scrollY;
+            setScrollPosition(currentPosition);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     
     return (
         <>
         { isLoaded && (
-            <section id="banner" className="banner-container">
-                <p className="my-name">{restData.acf && restData.acf.my_name}</p>
-                <p className="my-role">{restData.acf && restData.acf.brief_intro}</p>
-
+            <section className="banner-container">
+                <div className='background-img'><BannerBackground /></div>
+                <div className="intro">
+                    <p className={`my-name ${scrollPosition < 200 ? 'green' : 'gray'}`}>{restData.acf.my_name}</p>
+                    <p className={`role ${scrollPosition < 200 ? 'green' : 'gray'}`}>{restData.acf && restData.acf.brief_intro}</p>
+                    <p className={`mission ${scrollPosition >= 200 && scrollPosition < 400 ? 'green' : 'gray'}`}>{restData.acf && restData.acf.mission}</p>
+                    <p className={`inquiry ${scrollPosition >= 200 && scrollPosition < 400 ? 'green' : 'gray'}`}>{restData.acf && restData.acf.inquiry}</p>
+                    <p className={`hook ${scrollPosition >= 400 ? 'green' : 'gray'}`}>{restData.acf && restData.acf.home_hook}</p>
+                    <div className="cta-button">
+                        <HashLink to="/#projects" smooth className={scrollPosition >= 400 ? 'green' : 'gray'}>
+                            <span>See my work</span>
+                            <FaLongArrowAltRight />
+                        </HashLink>
+                    </div>
+                </div>
+                
             </section>
 
         )}
