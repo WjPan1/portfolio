@@ -27,33 +27,31 @@ function Contact ( {restBase} ) {
     const handleCopy = () => {
         navigator.clipboard.writeText(restData.acf.email_address);
         setCopied(true);
-
-        // Reset copied state after 1 seconds
-        setTimeout(() => {
-            setCopied(false);
-        }, 1000); 
     };
     
     return (
         <>
         { isLoaded && (
             <section id="contact" className="contact-container">
-                <div className="contact-info">
+                {/* <div className="contact-info"> */}
                     <h2>Contact</h2>
 
-                    {restData.acf && 
-                        <div className="contact">
+                    {/* {restData.acf &&  */}
+                        <div className="contact-info">
                             {/* 为每个段落创建一个<p>元素 */}
                             {restData.acf.contact_info.split('\n').map((paragraph, index) => (
                                 <p key={index} className="contact-hook">{paragraph} </p> 
                             ))}
 
-                            <p className="email">{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
-                            
-                            <button className="copy-btn" onClick={handleCopy}>{copied ? 'Copied!' : 'Copy'}</button>
+                            <p className="email">{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}
+                            </p>
+
+                            <div className="button-container">
+                                <button className={copied ? "is-copied-button" : "copy-button"} onClick={handleCopy}>{copied ? 'Email Copied!' : 'Copy My Email!'}</button>
+                            </div>
                         </div>
-                    }
-                </div>
+                    {/* } */}
+                {/* </div> */}
             </section>
 
         )}

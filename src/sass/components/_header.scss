@@ -16,8 +16,8 @@
             transition: 0.3s ease-in-out;
 
             &:hover path {
-                fill: $bgc-btn;
-                stroke: $bgc-btn;
+                fill: $bgc-btn-blue;
+                stroke: $bgc-btn-blue;
             }
         }
     }
@@ -55,11 +55,11 @@
                 transition: 0.2s ease;
 
                 &:hover {
-                    color: $bgc-btn;
+                    color: $bgc-btn-blue;
         
                     .nav-icon {
                         svg {
-                            fill: $bgc-btn;
+                            fill: $bgc-btn-blue;
                         }
                     }
                 }

@@ -2,21 +2,64 @@
 @import '../generic/variables';
 
 .contact-container {
+    max-width: 1250px;
+    width: 90%;
+    margin: 200px auto;
+    padding: 10px;
     @include cardBackground;
-    // height: 100vh;
-    // position: relative;
     
     .contact-info {
-        // position: absolute;
-        // top: 50%;
-        // left: 50%; 
-        // transform: translate(-50%, -50%);
-        // max-width: 1200px;
-        // padding: 70px;
-        // width: 80%;
-        // height: 60%;
-        // border-radius: 26px;
-        // background: linear-gradient(86.26deg, rgba(28, 29, 33, .98) 61.1%, rgba(28, 29, 33, .392) 76.93%) ;
-        // border: 1px solid #26272c;
+        max-width: 1000px;
+        margin: 0 auto 35px;
+
+        .email {
+            text-align: center;
+            margin-top: 40px;
+
+            a {
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+
+            .copy-button,
+            .is-copied-button {
+                width: 200px;
+                height: 60px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #313133;
+                background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+                border: none;
+                border-radius: 100px;
+                box-shadow: 1px 1px 10px rgba(79, 209, 197, 0.64);
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+                padding: 10px;
+            }
+
+            .copy-button {
+                &:hover,
+                &:focus {
+                    background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
+                    box-shadow: 1px 1px 10px $bgc-btn-yellow;
+                    transform: translateY(-6px);
+                }
+            }
+
+            .is-copied-button {
+                background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
+                box-shadow: 1px 1px 10px $bgc-btn-yellow;
+
+            }
+        }
+
+        
     }
 }

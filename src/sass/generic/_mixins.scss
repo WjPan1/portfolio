@@ -7,17 +7,16 @@
 
 // Button style
 @mixin button {
-    min-width: 180px;
-    min-height: 60px;
+    width: 180px;
+    height: 60px;
     font-size: 22px;
     font-weight: 700;
     color: #313133;
-    background: #4FD1C5;
     background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
     border: none;
     border-radius: 100px;
     box-shadow: 1px 1px 10px rgba(79, 209, 197, 0.64);
-    transition: all 0.3s ease-in-out 0s;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
     position: relative;
     padding: 10px;
@@ -25,29 +24,25 @@
     &::before {
     content: '';
         border-radius: 100px;
-        min-width: calc(180px + 20px);
-        min-height: calc(60px + 20px);
+        width: calc(180px + 20px);
+        height: calc(60px + 20px);
         border: 6px solid #00FFCB;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         opacity: 0;
-        transition: all .3s ease-in-out 0s;
+        transition: .3s ease-in-out;
     }
 
-    &:hover, .button:focus {
-        color: #313133;
+    &:hover, 
+    &:focus {
         transform: translateY(-6px);
     }
 
-    &:hover::before, button:focus::before {
+    &:hover::before, 
+    &:focus::before {
         opacity: 1;
-    }
-
-    &:hover::after, button:focus::after {
-        animation: none;
-        display: none;
     }
 }
 

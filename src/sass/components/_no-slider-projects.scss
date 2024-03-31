@@ -10,7 +10,8 @@
         margin: 50px 0;
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        column-gap: 20px;
+        row-gap: 50px;
 
         .project-card {
             @include cardBackground;
@@ -55,12 +56,12 @@
                     margin: 10px auto;
 
                     span {
-                        color: $bgc-btn;
+                        color: $bgc-btn-blue;
                         font-weight: bold;
                     }
 
                     svg {
-                        color: $bgc-btn;
+                        color: $bgc-btn-blue;
                         vertical-align: middle;
                         margin-left: 10px;
                     }
