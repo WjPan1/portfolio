@@ -3,46 +3,157 @@
 
 
 .about-container {
-    max-width: 1200px;
-    margin: 100px auto;
-    width: 80%;
+    max-width: 1250px;
+    width: 90%;
+    margin: 200px auto;
+    padding: 10px;
+    @include cardBackground;
 
-    .css-heg063-MuiTabs-flexContainer {
-        flex-direction: column;
+    .intro-myself {
+        margin-bottom: 70px;
     }
 
-    .css-13xfq8m-MuiTabPanel-root {
-        p {
-            display: inline-block;
-            margin-right: 15px;
+    .skill-container {
+        border-top: 2px solid rgb(97 118 143 / 55%);
+        max-width: 1000px;
+        margin: 0 auto 35px;
+
+        h3 {
+            margin-top: 50px;
+        }
+
+        // tab style
+        .MuiBox-root {
+            .css-1gsv261 {
+                border-bottom: none;
+            }
+            
+            .MuiTabs-root {
+                margin-bottom: 30px;
+            }
+
+            .MuiTabs-flexContainer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .MuiTab-textColorPrimary {
+                color: $content;
+                font-weight: bold;
+                transition: font-size 0.1s ease-in-out;
+                width: 80%;
+            }
+            
+            .MuiTab-textColorPrimary.Mui-selected {
+                color: $bgc-btn-yellow;
+                font-size: 19px;
+                background: rgb(97 118 143 / 55%);
+                border-radius: 30px;
+            }
+            
+            // tab underline
+            .css-1aquho2-MuiTabs-indicator {
+                background-color: transparent;
+            }
+        }
+        
+        // skill list
+        .MuiTabPanel-root {
+
+            &.css-13xfq8m-MuiTabPanel-root {
+                padding: 0;
+            }
+
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                background-color: rgb(97 118 143 / 8%);
+                border-radius: 15px;
+                
+                .skill {
+                    width: 33.3%;
+                    text-align: center;
+                    margin: 25px 0 10px;
+
+                    p {
+                        font-size: 13px;
+                        color: $bgc-btn;
+                    }
+    
+                    svg {
+                        fill: $bgc-btn;
+                        width: 30px;
+                        height: 30px;                    
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    @include mqMin(40em) {
+
+        .skill-container {
+
+            .MuiBox-root {
+                .MuiTabs-flexContainer {
+                    flex-direction: row;
+
+                    .MuiTab-textColorPrimary {
+                        width: 27%;
+                    }
+                }
+            }
+
+            .MuiTabPanel-root {
+                .skill-list {
+                    .skill {
+                        width: 25%;
+                        margin: 25px 0;
+
+                        p {
+                            font-size: 16px;
+                        }
+        
+                        svg {
+                            width: 40px;
+                            height: 40px;                    
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
+    @include mqMin(55em) {
+        .intro-myself {
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 70px;
+        }
+
+        .skill-container {
+            .MuiTabPanel-root {
+                .skill-list {
+                    .skill {
+                        width: 16%;
+                    }
+                }
+            }
         }
     }
 
-    .development-skill-container,
-    .design-skill-container {
-        svg {
-            margin-right: 20px;
-            width: 50px;
-            height: 50px;
+    @include mqMin(67em) {
 
-            fill: $bgc-btn;
+        .skill-container {
+            .MuiTabPanel-root {
+                .skill-list {
+                    .skill {
+                        width: 12%;
+                    }
+                }
+            }
         }
     }
-
-    .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-        color: $content;
-        background-color: $bgc-body;
-    }
-
-    .css-1aquho2-MuiTabs-indicator {
-        color: $bgc-body;
-    }
-
-    @include mqMin(30em) {
-
-        .css-heg063-MuiTabs-flexContainer {
-            flex-direction: row;
-        }
-    }
-
 }

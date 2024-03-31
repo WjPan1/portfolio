@@ -6,20 +6,10 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
 // skills icons
-import { FaFigma } from "react-icons/fa";
-import { SiAdobexd } from "react-icons/si";
-import { SiAdobephotoshop } from "react-icons/si";
-import { SiAdobeillustrator } from "react-icons/si";
-import { FaHtml5 } from "react-icons/fa";
-import { SiCss3 } from "react-icons/si";
-import { FaSass } from "react-icons/fa";
+import { FaFigma, FaHtml5, FaSass, FaReact, FaWordpress, FaShopify, FaBootstrap } from "react-icons/fa";
+import { SiAdobexd, SiAdobephotoshop, SiAdobeillustrator, SiCss3, SiWoo } from "react-icons/si";
 import { RiJavascriptFill } from "react-icons/ri";
-import { FaReact } from "react-icons/fa";
-import { FaWordpress } from "react-icons/fa";
-import { SiWoo } from "react-icons/si";
-import { FaShopify } from "react-icons/fa";
-import { FaBootstrap } from "react-icons/fa";
-// import { ReactComponent as BannerBackground } from "../images/banner.svg";
+
 
 // import Loading from '../components/Loading';
 
@@ -51,14 +41,55 @@ function About ( {restBase} ) {
         fetchData()
     }, [restPath])
 
+
+    // skills lists
+    const DevelopmentSkills = [
+        { name: 'HTML5', icon: FaHtml5 },
+        { name: 'CSS3', icon: SiCss3 },
+        { name: 'Sass', icon: FaSass },
+        { name: 'JavaScript', icon: RiJavascriptFill },
+        { name: 'React', icon: FaReact },
+        { name: 'WordPress', icon: FaWordpress },
+        { name: 'WooCommerce', icon: SiWoo },
+        { name: 'Shopify', icon: FaShopify },
+        { name: 'Bootstrap', icon: FaBootstrap },
+    ];
+      
+    const DesignSkills = [
+        { name: 'Figma', icon: FaFigma },
+        { name: 'Adobe XD', icon: SiAdobexd },
+        { name: 'Adobe Photoshop', icon: SiAdobephotoshop },
+        { name: 'Adobe Illustrator', icon: SiAdobeillustrator },
+    ];
+
+    const SkillContainer = ({ skills }) => (
+        <>
+        {skills.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+                <div key={index} className="skill">
+                <span><Icon /></span>
+                <p>{skill.name}</p>
+                </div>
+            );
+        })}
+        </>
+    );
+      
+    const FilterSkillContainer = ( {skill} ) => (
+        <SkillContainer skills={skill} />
+    );
+
+
+
     return (
         <>
         { isLoaded && (
             <section id="about" className="about-container">
                 <h2>About</h2>
 
-                {restData.acf &&
-                    <div>
+                {/* {restData.acf && */}
+                    <>
                         {/* intro about myself */}
                         {/* 为每个段落创建一个<p>元素 */}
                         <div className='intro-myself'>
@@ -66,85 +97,44 @@ function About ( {restBase} ) {
                                 <p key={index}>{paragraph}</p>
                             ))}
                         </div>
+                        <div className="skill-container">
+                            <h3>Skills</h3>
+                            <Box sx={{ width: '100%', typography: 'body1' }}>
+                                <TabContext value={value}>
+                                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                    <TabList onChange={handleChange} aria-label="lab API tabs example">
+                                        <Tab label="All" value="1" />
+                                        <Tab label="Development" value="2" />
+                                        <Tab label="Design" value="3" />
+                                    </TabList>
+                                    </Box>
+                                    <TabPanel value="1">                        
+                                        <div className="all-skill-container skill-list">
+                                            <FilterSkillContainer skill={DevelopmentSkills}/>
+                                            <FilterSkillContainer skill={DesignSkills}/>
+                                        </div>
 
-                        <h3>Skills</h3>
-                        <Box sx={{ width: '100%', typography: 'body1' }}>
-                            <TabContext value={value}>
-                                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                    <Tab label="All" value="1" />
-                                    <Tab label="Development" value="2" />
-                                    <Tab label="Design" value="3" />
-                                </TabList>
-                                </Box>
-                                <TabPanel value="1">                        
-                                    {/* { restData.acf.development_category.map((item, index) => (
-                                        <p key={index}>{item.development_skill}</p>
-                                    ))}
-                                    {restData.acf.design_category.map((item, index) => (
-                                    <p key={index}>{item.design_skill}</p>
-                                    ))} */}
-                                    <div className="development-skill-container">
-                                        <FaHtml5 />
-                                        <SiCss3 />
-                                        <FaSass />
-                                        <RiJavascriptFill />
-                                        <FaReact />
-                                        <FaWordpress />
-                                        <SiWoo />
-                                        <FaShopify />
-                                        <FaBootstrap />
-
-                                    </div>
-
-                                    <div className="design-skill-container">
-                                        <FaFigma />
-                                        <SiAdobexd />
-                                        <SiAdobephotoshop />
-                                        <SiAdobeillustrator />
-                                    </div>
-                                </TabPanel>
+                                    </TabPanel>
+                                    
+                                    {/* development skill */}
+                                    <TabPanel value="2">                        
+                                        <div className="development-skill-container skill-list">
+                                            <FilterSkillContainer skill={DevelopmentSkills}/>
+                                        </div>
+                                    </TabPanel>
+                                    
+                                    {/* design skill */}                    
+                                    <TabPanel value="3">                        
+                                        <div className="design-skill-container skill-list">
+                                            <FilterSkillContainer skill={DesignSkills}/>
+                                        </div>
+                                    </TabPanel>
                                 
-                                {/* development skill */}
-                                <TabPanel value="2">                        
-                                    {/* { restData.acf.development_category.map((item, index) => (
-                                        <p key={index}>{item.development_skill}</p>
-                                    ))} */}
-                                    <div className="development-skill-container">
-                                        <FaHtml5 />
-                                        <SiCss3 />
-                                        <FaSass />
-                                        <RiJavascriptFill />
-                                        <FaReact />
-                                        <FaWordpress />
-                                        <SiWoo />
-                                        <FaShopify />
-                                        <FaBootstrap />
-
-                                    </div>
-
-
-                                </TabPanel>
-                                
-                                {/* design skill */}                    
-                                <TabPanel value="3">                        
-                                    {/* {restData.acf.design_category.map((item, index) => (
-                                        <p key={index}>{item.design_skill}</p>
-                                    ))} */}
-                                    <div className="design-skill-container">
-                                        <FaFigma />
-                                        <SiAdobexd />
-                                        <SiAdobephotoshop />
-                                        <SiAdobeillustrator />
-                                    </div>
-
-                                </TabPanel>
-                            
-                            </TabContext>
-                        </Box>
-                    </div>
-                }
-{/* <BannerBackground /> */}
+                                </TabContext>
+                            </Box>
+                        </div>
+                    </>
+                {/* } */}
             </section>
         )}
         </> 

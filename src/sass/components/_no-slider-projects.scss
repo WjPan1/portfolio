@@ -2,6 +2,7 @@
 @import '../generic/variables';
 
 .home-project-container {
+    max-width: 1250px;
     width: 90%;
     margin: auto;
 
@@ -9,16 +10,21 @@
         margin: 50px 0;
         display: flex;
         flex-wrap: wrap;
-        gap: 70px;
+        gap: 20px;
 
         .project-card {
-            background: rgba(46, 53, 61, 0.8705882353);
-            border: 1px solid rgba(62, 72, 83, 0.44);
-            border-radius: 8px;
-            box-shadow: 0 -2px 17px 5px rgba(46, 53, 61, 0.8705882353);
-            overflow: hidden;
+            @include cardBackground;
             max-width: 400px;
             margin: auto;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                @include cardHover;
+            }
+
+            a {
+                text-decoration: none;
+            }
 
             .card-content {
                 padding: 20px;
@@ -48,13 +54,15 @@
                 .link-to-project {
                     margin: 10px auto;
 
-                    a {
+                    span {
                         color: $bgc-btn;
+                        font-weight: bold;
+                    }
 
-                        svg {
-                            vertical-align: middle;
-                            margin-left: 10px;
-                        }
+                    svg {
+                        color: $bgc-btn;
+                        vertical-align: middle;
+                        margin-left: 10px;
                     }
                 }
             }

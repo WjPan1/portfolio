@@ -51,6 +51,21 @@
     }
 }
 
+
+// Card background style
+@mixin cardBackground {
+    background: rgba(46, 53, 61, 0.8705882353);
+    border: 1px solid rgba(62, 72, 83, 0.44);
+    border-radius: 8px;
+    box-shadow: 0 -2px 17px 5px rgba(46, 53, 61, 0.870588235)
+}
+
+// Card Hover style
+@mixin cardHover {
+    background: rgba(81, 93, 107, 0.55);
+    box-shadow: 0 -2px 20px 8px rgba(67, 77, 88, 0.71);
+}
+
 // Mixin: absolute horizontally centered
 // @mixin centerAbsolute {
 //     position: absolute;
