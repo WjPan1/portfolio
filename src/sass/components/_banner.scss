@@ -2,26 +2,44 @@
 @import '../generic/mixins';
 
 .banner-container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    width: 90%;
+    height: calc( 100vh - 70px );
+    // width: 90%;
     margin: auto;
+    position: relative;
 
-    .background-img {
-        margin-left: auto;
-        margin-top: auto; 
+    .background-img { 
         filter: blur(5px);
         transform: rotate(-20deg);
-        height: 20%;
+        position: absolute;
+        top: 5%;
+        right: 0;
     }
 
     .intro {
         margin: 15px;
-        height: 65%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        backdrop-filter: blur(7px);
+
         
         p {
-            font-size: clamp(1.3rem, 5vw, 2.5rem);
+            font-size: clamp(1.5rem, 5vw, 3rem);
+        }
+
+        .my-name {
+            margin-bottom: 0;
+        }
+
+        .role {
+            margin-top: 0;
+        }
+
+        .mission,
+        .inquiry ,
+        .hook {
+            font-size: clamp(1rem, 3vw, 1.3rem);
         }
 
         .green {
@@ -40,29 +58,34 @@
 
         .cta-button {
             span {
-
                 margin-right: 10px;
             }
 
             svg {
                 vertical-align: middle;
             }
-    
         }
     }
 
     @include mqMin(45em) {
         max-width: 1200px;
         width: 80%;
+        height: 100vh;
 
         .background-img {
             transform: rotate(-10deg);
-            height: 5%;
+            top: 60%;
         }
-    
+
         .intro {
-            height: 65%;
-            margin-top: auto;
+            top: 55%;
+            .mission {
+                margin-top: 90px;
+            }
+            
+            .hook {
+                margin-top: 50px;
+            }
         }
     }
 

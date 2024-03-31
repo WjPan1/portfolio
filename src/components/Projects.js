@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 
 // import Loading from '../components/Loading';
@@ -64,24 +65,31 @@ function Projects ( {restBase, classname, title} ) {
         dots: true,
         infinite: true,
         speed: 500,
-        // autoplay: true, // 启用自动轮播
-        // autoplaySpeed: 5000, // 自动轮播间隔时间，以毫秒为单位
+        // autoplay: true, 
+        // autoplaySpeed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
         prevArrow: <SliderPrevArrow />,
         nextArrow: <SliderNextArrow />,
     };
+
+    function Excerpt({ text, maxLength }) {
+        const excerpt = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+      
+        return <p>{excerpt}</p>;
+      }
     
     
     return (
         <>
         { isLoaded && (
             <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
-                <h2>{title}</h2>
+                {/* <h2>{title}</h2> */}
 
                 {classname === "project-slide" &&
 
                     <div className="slider-container">
+                        <h2>{title}</h2>
 
                     <Slider {...settings}>
 
@@ -94,7 +102,8 @@ function Projects ( {restBase, classname, title} ) {
 
                                 <div className="card-content">
                                     <h3>{post.title.rendered}</h3>
-                                    <p>{post.acf.brief_overview}</p>
+                                    {/* <p>{post.acf.overview}</p> */}
+                                    <Excerpt text={post.acf.overview} maxLength={50} />
 
                                     <p className='skill-container'>
                                         {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
@@ -113,29 +122,37 @@ function Projects ( {restBase, classname, title} ) {
                 }
 
                 {classname !== "project-slide" && 
-                    <div className="no-slider-container">
+                    // <div className="no-slider-container">
 
                         <div className="home-project-container">
+                            <h2>{title}</h2>
+                            
+                            <div className="card-container">
+
                             {restData.map(post => 
                                 <div className="project-card" key={post.id} id={`post-${post.id}`}>
                                     <div className="card-content">
 
                                         <h3>{post.title.rendered}</h3>
-                                        <p>{post.acf.brief_overview}</p>
+                                        <Excerpt text={post.acf.overview} maxLength={50} />
 
-                                        <p className='skill-container'>
+
+                                        <div className='skill-container'>
                                             {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                                <span key={index}>{item.single_skill_name}</span>
+                                                <p key={index}>{item.single_skill_name}</p>
                                             ))}
-                                        </p>
+                                        </div>
 
-                                        <div className="link-to-project"><Link to={`/project/${post.slug}`}>
-                                            See My Work
-                                        </Link></div>
+                                        <div className="link-to-project">
+                                            <Link to={`/project/${post.slug}`}>
+                                                <span>More Info</span>
+                                                <FaLongArrowAltRight />
+                                            </Link>
+                                        </div>
                                     </div>
-                                    <div className="image-container">
 
-                                        <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} min-width={300}/>
+                                    <div className="image-container">
+                                        <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
                                     </div>
                                 </div>
                             )}
@@ -143,7 +160,6 @@ function Projects ( {restBase, classname, title} ) {
                     </div>
                 }
     
-
             </section>
 
         )}

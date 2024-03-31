@@ -65,7 +65,7 @@ function Home ( {restBase} ) {
                     <div className="content-container">
                     <Projects restBase={restBase} 
                             classname={"all-project"} 
-                            title={"All Projects"} />
+                            title={"Projects"} />
                     <About restBase={restBase} restData={restData}/>
                     <Contact restBase={restBase} restData={restData}/>
 
