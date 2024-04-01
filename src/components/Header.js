@@ -13,7 +13,9 @@ function Header() {
     return (
         <header className="header-container">
 
-            <div className="site-logo-container"><NavLink to="/" className="site-logo"><LogoWhite /></NavLink>
+            <div className="site-logo-container">
+                <NavLink to="/" className="site-logo"><LogoWhite />
+                </NavLink>
             </div> 
 
             <nav className= "site-navigation">

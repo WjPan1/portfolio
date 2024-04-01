@@ -8,6 +8,9 @@ function Footer () {
                 <NavLink to="/" className="footer-logo">
                     <LogoWhite />
                 </NavLink> 
+                                <a href="https://www.linkedin.com/in/wenjing-pan01/" target="_blank" rel="noreferrer">LinkedIn</a>
+                                <a href="https://www.google.com/" target="_blank" rel="noreferrer">GitHub</a>
+                            
             </div>
         <p>&copy; 2024. All rights reserved.</p>
         </footer>

@@ -41,25 +41,24 @@ function SingleProject ( {restBase} ) {
         { isLoaded ?
 
         <main className="single-project-container">
-            {/* {restData.acf &&  */}
                 <section className="project-detail">
                     <div className="banner-container">
-                        {/* <div className="banner-content"> */}
                             <h1 className="page-title">{restData.title.rendered}</h1>
                             <div className="image-container">
-                                {restData.acf.image_slide.slice(0, 1).map((item, index) => (
-                                    <img key={index} src={item.one_slide} alt={restData.title.rendered} />
-                                ))}
+                                <img src={restData.acf.project_image} alt={restData.title.rendered} />
                             </div>
                             
                             <div className="cta-container">
-                                <p className="cta">cta hook to test the style, click the button below</p>
+                                <p className="cta">{restData.acf.blub}</p>
                                 <div className="btn-container"> 
-                                    <button className="button">Live Site</button>
-                                    <button className="button">GitHub</button>
+                                    <button className="button">
+                                        <a href={restData.acf.live_site.url} target="_blank" rel="noreferrer">Live Site</a>
+                                    </button>
+                                    <button className="button">                                
+                                        <a href={restData.acf.github.url} target="_blank" rel="noreferrer">GitHub</a>
+                                    </button>
                                 </div>
                             </div>
-                        {/* </div> */}
                     </div>
 
                     <div className="project-intro">
@@ -72,8 +71,8 @@ function SingleProject ( {restBase} ) {
                             <div className='skill-container'>
                                 <h3>Skills</h3>
                                 <div className="skill-list">
-                                    {restData.acf.skill_used_for_this_project.map((item, index) => (
-                                        <p key={index}>{item.single_skill_name}</p>
+                                    {restData.acf.used_skill.map((item, index) => (
+                                        <p key={index}>{item.each_skill_name}</p>
                                     ))}
                                 </div>
                             </div>
@@ -81,8 +80,9 @@ function SingleProject ( {restBase} ) {
 
                         <div className="highlight-container">
                         <h3>Highlight</h3>
+
                             {/* feature */}
-                            <Accordion>
+                            <Accordion defaultExpanded>
                                 <AccordionSummary
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls="panel1-content"
@@ -131,7 +131,6 @@ function SingleProject ( {restBase} ) {
 
                     </div>
                 </section>
-            {/* } */}
 
             {/* show other projects - CTA */}
             <Projects restBase={restBase}

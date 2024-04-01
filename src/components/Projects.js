@@ -90,18 +90,18 @@ function Projects ( {restBase, classname, title} ) {
                         {restData.map(post => 
                             <div className="project-card" key={post.id} id={`post-${post.id}`}>
                                 <div className="image-container">
-                                    <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                                    <img src={post.acf.project_image} alt={post.title.rendered} />
                                 </div>
 
                                 <div className="card-content">
                                     <h3>{post.title.rendered}</h3>
                                     <Excerpt text={post.acf.overview} maxLength={50} />
 
-                                    <p className='skill-container'>
-                                        {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                            <p key={index}>{item.single_skill_name}</p>
+                                    <div className='skill-container'>
+                                        {post.acf.used_skill.slice(0, 3).map((item, index) => (
+                                            <p key={index}>{item.each_skill_name}</p>
                                         ))}
-                                    </p>
+                                    </div>
 
                                     <Link to={`/project/${post.slug}`}>
                                         <span>More Info</span>
@@ -130,10 +130,9 @@ function Projects ( {restBase, classname, title} ) {
                                             <h3>{post.title.rendered}</h3>
                                             <Excerpt text={post.acf.overview} maxLength={50} />
 
-
                                             <div className='skill-container'>
-                                                {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                                    <p key={index}>{item.single_skill_name}</p>
+                                                {post.acf.used_skill.slice(0, 3).map((item, index) => (
+                                                    <p key={index}>{item.each_skill_name}</p>
                                                 ))}
                                             </div>
 
@@ -144,7 +143,7 @@ function Projects ( {restBase, classname, title} ) {
                                         </div>
 
                                         <div className="image-container">
-                                            <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                                            <img src={post.acf.project_image} alt={post.title.rendered} />
                                         </div>
                                     </Link>
                                 </div>

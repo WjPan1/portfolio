@@ -22,6 +22,8 @@
             transform: translateY(-50%);
             padding: 10px;
             backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
 
             
             p {
@@ -43,7 +45,7 @@
             }
 
             .green {
-                color: $bgc-btn-blue;
+                color: $bgc-btn-yellow;
                 font-weight: bold;
             }
 

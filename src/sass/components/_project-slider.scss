@@ -63,7 +63,7 @@
         font-size: 25px;
         color: $content;
         position: absolute; 
-        top: 50%; 
+        top: 47%; 
         left: 50%; 
         transform: translate(-50%, -50%);
     }
@@ -103,7 +103,6 @@
         .slick-prev:before,
         .slick-next:before {
             font-size: 30px;
-            top: 47%; 
         }
     }
 }
