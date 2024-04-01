@@ -6,10 +6,10 @@
 }
 
 // Button style
-@mixin button {
-    width: 180px;
-    height: 60px;
-    font-size: 22px;
+@mixin button-blue {
+    width: 160px;
+    height: 50px;
+    font-size: 20px;
     font-weight: 700;
     color: #313133;
     background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
@@ -20,29 +20,18 @@
     cursor: pointer;
     position: relative;
     padding: 10px;
+}
 
-    &::before {
-    content: '';
-        border-radius: 100px;
-        width: calc(180px + 20px);
-        height: calc(60px + 20px);
-        border: 6px solid #00FFCB;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: .3s ease-in-out;
-    }
+@mixin button-yellow {
+    border: 1px solid $bgc-btn-yellow;
+    background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
+    box-shadow: 1px 1px 10px $bgc-btn-yellow;
+}
 
-    &:hover, 
-    &:focus {
+// Button Hover style
+@mixin buttonHover {
+    &:hover {
         transform: translateY(-6px);
-    }
-
-    &:hover::before, 
-    &:focus::before {
-        opacity: 1;
     }
 }
 
@@ -60,7 +49,21 @@
     box-shadow: 0 -2px 20px 8px rgba(67, 77, 88, 0.71);
 }
 
-// Center Element
+// Box inside a Card style
+@mixin bgc-innerBox {
+    padding: 10px;
+    background-color: rgb(97 118 143 / 12%);
+    border-radius: 15px;
+}
+
+// Horizontally centered
+@mixin horizontal-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// Horizontally and Vertically centered
 @mixin centerElement {
     position: absolute;
     top: 50%;
@@ -84,11 +87,4 @@
             margin-left: 10px; 
         }
     }
-}
-
-// Inner Box style
-@mixin bgc-innerBox {
-    padding: 10px;
-    background-color: rgb(97 118 143 / 12%);
-    border-radius: 15px;
 }

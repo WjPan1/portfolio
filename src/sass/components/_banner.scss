@@ -63,14 +63,33 @@
                 transition: 0.3s ease-in-out; 
             }
 
+            .cta-container {
+                margin-top: 40px;
+            }
+
             .cta-button {
-                border: 1px solid $content;
+                border: 1px solid $bgc-btn-yellow;
                 padding: 10px;
                 border-radius: 100px;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    @include button-yellow;
+
+                    span {
+                        color: #313133;
+                    }
+    
+                    svg {
+                        fill: #313133;
+                    }
+                }
+
 
                 span {
                     margin-right: 10px;
                     font-size: 17px;
+                    font-weight: bold;
                 }
 
                 svg {
@@ -79,13 +98,10 @@
             }
 
             .yellow-btn {
-                border: 1px solid $bgc-btn-yellow;
-                background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
-                box-shadow: 1px 1px 10px $bgc-btn-yellow;
+                @include button-yellow;
 
                 span {
                     color: #313133;
-                    font-weight: bold;
                 }
 
                 svg {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Projects from "../components/Projects";
-import Loading from '../components/Loading';
+import Loading from '../utilities/Loading';
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -50,12 +50,8 @@ function SingleProject ( {restBase} ) {
                             <div className="cta-container">
                                 <p className="cta">{restData.acf.blub}</p>
                                 <div className="btn-container"> 
-                                    <button className="button">
-                                        <a href={restData.acf.live_site.url} target="_blank" rel="noreferrer">Live Site</a>
-                                    </button>
-                                    <button className="button">                                
-                                        <a href={restData.acf.github.url} target="_blank" rel="noreferrer">GitHub</a>
-                                    </button>
+                                    <a href={restData.acf.live_site.url} target="_blank" rel="noreferrer">Live Site</a>
+                                    <a href={restData.acf.github.url} target="_blank" rel="noreferrer">GitHub</a>
                                 </div>
                             </div>
                     </div>

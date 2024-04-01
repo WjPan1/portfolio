@@ -29,26 +29,16 @@
 
             .copy-button,
             .is-copied-button {
+                @include button-blue;
                 width: 200px;
-                height: 60px;
-                font-size: 20px;
-                font-weight: 700;
-                color: #313133;
-                background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
-                border: none;
-                border-radius: 100px;
-                box-shadow: 1px 1px 10px rgba(79, 209, 197, 0.64);
-                transition: all 0.3s ease-in-out;
-                cursor: pointer;
-                padding: 10px;
+                height: 55px;
             }
 
             .copy-button {
                 &:hover,
                 &:focus {
-                    background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
-                    box-shadow: 1px 1px 10px $bgc-btn-yellow;
-                    transform: translateY(-6px);
+                    @include button-yellow;
+                    @include buttonHover;
                 }
             }
 

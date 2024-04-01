@@ -50,10 +50,12 @@ function Banner ( {restBase} ) {
                     <p className={`mission ${scrollPosition >= 200 && scrollPosition < 400 ? 'yellow-big' : 'gray'}`}>{restData.acf && restData.acf.mission}</p>
                     <p className={`inquiry ${scrollPosition >= 200 && scrollPosition < 400 ? 'yellow-big' : 'gray'}`}>{restData.acf && restData.acf.inquiry}</p>
                     <p className={`hook ${scrollPosition >= 400 ? 'yellow-big' : 'gray'}`}>{restData.acf && restData.acf.home_hook}</p>
-                    <HashLink to="/#projects" smooth className={`cta-button ${scrollPosition >= 400 ? 'yellow-btn' : 'gray'}`}>
-                        <span>See my work</span>
-                        <FaLongArrowAltRight />
-                    </HashLink>
+                    <div className='cta-container'>
+                        <HashLink to="/#projects" smooth className={`cta-button ${scrollPosition >= 400 ? 'yellow-btn' : 'gray'}`}>
+                            <span>See my work</span>
+                            <FaLongArrowAltRight />
+                        </HashLink>
+                    </div>
                 </div>
                 
             </section>

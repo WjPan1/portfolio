@@ -3,7 +3,7 @@ import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
-import Loading from '../components/Loading';
+import Loading from '../utilities/Loading';
 
 
 function Home ( {restBase} ) {

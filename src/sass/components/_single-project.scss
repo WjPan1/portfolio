@@ -10,10 +10,8 @@
         .page-title {
             margin: 0;
             font-size: clamp(2rem, 5.5vw, 4rem);
-            position: absolute;
+            @include horizontal-center;
             top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
             z-index: 100;
             width: 80%;
             text-align: center;
@@ -46,20 +44,10 @@
                 flex-direction: column;
                 gap: 20px;
                 
-                .button {
-                    width: 160px;
-                    height: 40px;
-                    font-size: 18px;
-                    font-weight: 700;
-                    color: #313133;
-                    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
-                    border: none;
-                    border-radius: 100px;
-                    box-shadow: 1px 1px 10px rgba(79, 209, 197, 0.64);
-                    transition: 0.3s ease-in-out;
-                    cursor: pointer;
-                    position: relative;
-                    padding: 10px;
+                a {
+                    text-align: center;
+                    @include button-blue;
+                    @include buttonHover;
                 }
             }
         }
@@ -89,10 +77,6 @@
                 .btn-container {
                     flex-direction: row;
                     gap: 50px;
-
-                    .button {
-                        @include button;
-                    }
                 }
             }
         }
