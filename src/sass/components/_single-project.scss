@@ -1,56 +1,107 @@
 @import '../generic/mixins';
+@import '../generic/variables';
 
 .single-project-container {
-    .banner {
-        background-color: #98A896;
-        padding: 50px;
+
+    // banner section
+    .banner-container {
+        position: relative;
+
+        .page-title {
+            margin: 0;
+            font-size: clamp(2rem, 5.5vw, 4rem);
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 80%;
+            text-align: center;
+        }
 
         .image-container {
-            max-width: 700px;
-            margin: auto;
-
             img {
                 width: 100%;
+                max-height: 650px;
+                min-height: 430px;
+                object-fit: cover;
+                filter: brightness(35%);  
+            }
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+
+            p {
+                text-align: end;
+            }
+
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                
+                .button {
+                    width: 160px;
+                    height: 40px;
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #313133;
+                    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+                    border: none;
+                    border-radius: 100px;
+                    box-shadow: 1px 1px 10px rgba(79, 209, 197, 0.64);
+                    transition: 0.3s ease-in-out;
+                    cursor: pointer;
+                    position: relative;
+                    padding: 10px;
+                }
+            }
         }
     }
-    }
     
-    .page-title {
-        text-align: center;
-        font-size: clamp(2rem, 10vw, 3.5rem);
+
+    @include mqMin($tablet-small) {
+        .banner {
+    
+            .page-title {
+                top: 35%;
+                left: 50%;
+            }
+            
+            .cta-container {
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                position: absolute;
+                bottom: 10%;
+                right: 10%;
+
+                p {
+                    font-size: 20px;
+                }
+
+                .btn-container {
+                    flex-direction: row;
+                    gap: 50px;
+
+                    .button {
+                        @include button;
+                    }
+                }
+            }
+        }
     }
 
-    h2 {
-        font-size: clamp(1.5rem, 7vw, 2.5rem);
-    }
-
-    .project-intro,
-    .projects-container h2 {
-        max-width: 1200px;
-        margin: 33px auto;
-        width: 80%;
-    }
+    // overview section
+    
 
 }
 
 
-.btn-container {
-    height: 6rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 3rem;
-    margin-bottom: 10rem;
 
-    .button {
-        @include button;
-    }
-}
-
-@include mqMin(36.5em) {
-    .btn-container {
-        margin-bottom: 0;
-    }
-}

@@ -1,91 +1,91 @@
 @import '../generic/variables';
 @import '../generic/mixins';
 
-.banner-container {
-    height: calc( 100vh - 70px );
-    margin: auto;
-    position: relative;
-
-    .background-img { 
-        filter: blur(5px);
-        transform: rotate(-20deg);
-        position: absolute;
-        top: 5%;
-        right: 0;
-    }
-
-    .intro {
-        margin: 15px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 10px;
-        backdrop-filter: blur(10px);
-
-        
-        p {
-            font-size: clamp(1.5rem, 5vw, 3rem);
-        }
-
-        .my-name {
-            margin-bottom: 0;
-        }
-
-        .role {
-            margin-top: 0;
-        }
-
-        .mission,
-        .inquiry ,
-        .hook {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-        }
-
-        .green {
-            color: $bgc-btn-blue;
-            font-weight: bold;
-        }
-
-        .gray {
-            color: #cfcfcf;
-        }
-
-        .green,
-        .gray {
-            transition: color 0.5s ease-in-out; 
-        }
-
-        .cta-button {
-            span {
-                margin-right: 10px;
-            }
-
-            svg {
-                vertical-align: middle;
-            }
-        }
-    }
-
-    @include mqMin(45em) {
-        max-width: 1200px;
-        width: 80%;
+.home-container {
+    .banner-container {
         height: 100vh;
+        margin: auto;
+        position: relative;
 
-        .background-img {
-            transform: rotate(-10deg);
-            top: 60%;
+        .background-img { 
+            filter: blur(5px);
+            transform: rotate(-20deg);
+            position: absolute;
+            top: 12%;
+            right: 0;
         }
 
         .intro {
-            top: 55%;
-            .mission {
-                margin-top: 90px;
-            }
+            margin: 15px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            backdrop-filter: blur(10px);
+
             
+            p {
+                font-size: clamp(1.5rem, 5vw, 3rem);
+            }
+
+            .my-name {
+                margin-bottom: 0;
+            }
+
+            .role {
+                margin-top: 0;
+            }
+
+            .mission,
+            .inquiry ,
             .hook {
-                margin-top: 50px;
+                font-size: clamp(1rem, 3vw, 1.3rem);
+            }
+
+            .green {
+                color: $bgc-btn-blue;
+                font-weight: bold;
+            }
+
+            .gray {
+                color: #cfcfcf;
+            }
+
+            .green,
+            .gray {
+                transition: color 0.5s ease-in-out; 
+            }
+
+            .cta-button {
+                span {
+                    margin-right: 10px;
+                }
+
+                svg {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        @include mqMin(45em) {
+            max-width: 1200px;
+            width: 80%;
+
+            .background-img {
+                transform: rotate(-10deg);
+                top: 60%;
+            }
+
+            .intro {
+                top: 55%;
+                .mission {
+                    margin-top: 90px;
+                }
+                
+                .hook {
+                    margin-top: 50px;
+                }
             }
         }
     }
-
 }

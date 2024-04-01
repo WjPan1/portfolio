@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Projects from "../components/Projects";
+import Loading from '../components/Loading';
 
 
 import Accordion from '@mui/material/Accordion';
@@ -10,18 +11,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 
-// for test, need to change later
-// import { SiWoo } from "react-icons/si";
-// import { FaShopify } from "react-icons/fa";
-// import { FaBootstrap } from "react-icons/fa";
-
 
 function SingleProject ( {restBase} ) {
 
     const { slug } = useParams();
     const restPath = restBase + `posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
-    // const [isLoaded, setLoadStatus] = useState(false)
+    const [isLoaded, setLoadStatus] = useState(false)
 
 
     
@@ -32,10 +28,10 @@ function SingleProject ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data[0])
-                // setLoadStatus(true)
+                setLoadStatus(true)
             } else {
                 console.error('Failed to fetch data');
-                // setLoadStatus(false)
+                setLoadStatus(false)
             }
         }
         fetchData()
@@ -45,20 +41,32 @@ function SingleProject ( {restBase} ) {
     
     
     return (
+        <>
+        { isLoaded ?
+
         <main className="single-project-container">
-            {restData.acf && 
+            {/* {restData.acf &&  */}
                 <section className="project-detail">
-                    {/* single project overview with image slide */}
-                    <div className="banner">
-                        <div className="image-container">
-                            {restData.acf.image_slide.slice(0, 1).map((item, index) => (
-                                <img key={index} src={item.one_slide} alt={restData.title.rendered} />
-                            ))}
-                        </div>
+                    <div className="banner-container">
+                        {/* <div className="banner-content"> */}
+                            <h1 className="page-title">{restData.title.rendered}</h1>
+                            <div className="image-container">
+                                {restData.acf.image_slide.slice(0, 1).map((item, index) => (
+                                    <img key={index} src={item.one_slide} alt={restData.title.rendered} />
+                                ))}
+                            </div>
+                            
+                            <div className="cta-container">
+                                <p className="cta">cta hook to test the style, click the button below</p>
+                                <div className="btn-container"> 
+                                    <button className="button">Live Site</button>
+                                    <button className="button">GitHub</button>
+                                </div>
+                            </div>
+                        {/* </div> */}
                     </div>
 
                     <div className="project-intro">
-                        <h1 className="page-title">{restData.title.rendered}</h1>
 
                         <h2>Overview</h2>
                         <p className="project-overview">{restData.acf.overview}</p>
@@ -77,12 +85,6 @@ function SingleProject ( {restBase} ) {
                                 <li className="skill-container"><FaShopify /><span>Shopify</span></li>
                                 <li className="skill-container"><FaBootstrap /><span>Shopify</span></li>
                             </ul> */}
-                        </div>
-                        
-
-                        <div className="btn-container"> 
-                            <button className="button">Live Site</button>
-                            <button className="button">GitHub</button>
                         </div>
 
                         <div className="project-highlight">
@@ -145,7 +147,7 @@ function SingleProject ( {restBase} ) {
 
                     </div>
                 </section>
-            }
+            {/* } */}
 
             {/* show other projects - CTA */}
             <Projects restBase={restBase}
@@ -153,6 +155,10 @@ function SingleProject ( {restBase} ) {
                       title={"Other Projects"} />
 
         </main>
+        : 
+        <Loading /> 
+        }
+        </>
     )
 }
 

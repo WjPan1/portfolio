@@ -61,6 +61,14 @@
     box-shadow: 0 -2px 20px 8px rgba(67, 77, 88, 0.71);
 }
 
+// Center Element
+@mixin centerElement {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 // Mixin: absolute horizontally centered
 // @mixin centerAbsolute {
 //     position: absolute;

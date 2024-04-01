@@ -5,10 +5,13 @@
     z-index: 1000;
 
     .site-logo-container {
-        width: 70px;
-        height: 70px;
-        padding: 20px;
-        margin: 0 auto;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
 
         svg {
             width: 100%;
@@ -46,7 +49,6 @@
             align-items: center; 
             
             li a {
-                text-decoration: none;
                 display: flex;
                 flex-direction: column;
                 justify-items: center;
@@ -89,7 +91,10 @@
         max-width: 1400px;
         
         .site-logo-container {
-            margin: 0;
+            position: static;
+            top: initial;
+            left: initial;
+            transform: initial;
         }
 
         .site-navigation {
