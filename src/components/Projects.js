@@ -95,14 +95,6 @@ function Projects ( {restBase, classname, title} ) {
 
                                 <div className="card-content">
                                     <h3>{post.title.rendered}</h3>
-                                    <Excerpt text={post.acf.overview} maxLength={50} />
-
-                                    <div className='skill-container'>
-                                        {post.acf.used_skill.slice(0, 3).map((item, index) => (
-                                            <p key={index}>{item.each_skill_name}</p>
-                                        ))}
-                                    </div>
-
                                     <Link to={`/project/${post.slug}`}>
                                         <span>More Info</span>
                                         <FaLongArrowAltRight />

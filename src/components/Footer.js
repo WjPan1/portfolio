@@ -1,18 +1,15 @@
-import { NavLink } from "react-router-dom";
-import { ReactComponent as LogoWhite } from "../images/logo-white.svg";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
+
 
 function Footer () {
     return (
         <footer className="footer-container">
             <div className="footer-logo-container">
-                <NavLink to="/" className="footer-logo">
-                    <LogoWhite />
-                </NavLink> 
-                                <a href="https://www.linkedin.com/in/wenjing-pan01/" target="_blank" rel="noreferrer">LinkedIn</a>
-                                <a href="https://www.google.com/" target="_blank" rel="noreferrer">GitHub</a>
-                            
+                <a href="https://www.linkedin.com/in/wenjing-pan01/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                <a href="https://www.google.com/" target="_blank" rel="noreferrer"><FaGithubAlt /></a>              
             </div>
-        <p>&copy; 2024. All rights reserved.</p>
+            <p>&copy; 2024. All rights reserved.</p>
         </footer>
     )
 }

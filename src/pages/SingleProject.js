@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import Projects from "../components/Projects";
 import Loading from '../components/Loading';
 
-
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';

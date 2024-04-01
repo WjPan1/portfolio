@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import Loading from '../components/Loading';
-
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
 
 function Contact ( {restBase} ) {
     const [copied, setCopied] = useState(false);
@@ -48,8 +49,8 @@ function Contact ( {restBase} ) {
                             </div>
 
                             <div className="social-media">
-                                <a href="https://www.linkedin.com/in/wenjing-pan01/" target="_blank" rel="noreferrer">LinkedIn</a>
-                                <a href="https://www.google.com/" target="_blank" rel="noreferrer">GitHub</a>
+                                <a href="https://www.linkedin.com/in/wenjing-pan01/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                                <a href="https://www.google.com/" target="_blank" rel="noreferrer"><FaGithubAlt /></a>
                             </div>
                         </div>
             </section>

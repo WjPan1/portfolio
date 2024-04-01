@@ -8,8 +8,9 @@
     .footer-logo-container {
         width: 70px;
         height: 70px;
-        padding: 20px;
         margin: 0 auto;
+        display: flex;
+        gap: 20px;
 
         svg {
             width: 100%;
@@ -18,7 +19,6 @@
 
             &:hover path {
                 fill: $bgc-btn-blue;
-                stroke: $bgc-btn-blue;
             }
         }
     }
