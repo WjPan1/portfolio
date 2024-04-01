@@ -62,21 +62,16 @@ function Projects ( {restBase, classname, title} ) {
     }
 
     const settings = {
-        dots: true,
         infinite: true,
-        speed: 500,
-        // autoplay: true, 
-        // autoplaySpeed: 5000,
         slidesToShow: 1,
-        slidesToScroll: 1,
         prevArrow: <SliderPrevArrow />,
         nextArrow: <SliderNextArrow />,
     };
 
+    
     function Excerpt({ text, maxLength }) {
         const excerpt = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-      
-        return <p>{excerpt}</p>;
+        return <p className="overview">{excerpt}</p>;
       }
     
     
@@ -84,46 +79,43 @@ function Projects ( {restBase, classname, title} ) {
         <>
         { isLoaded && (
             <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
-                {/* <h2>{title}</h2> */}
 
                 {classname === "project-slide" &&
 
-                    <div className="slider-container">
-                        <h2>{title}</h2>
+                <div className="slider-container">
+                    <h2>{title}</h2>
 
                     <Slider {...settings}>
 
                         {restData.map(post => 
                             <div className="project-card" key={post.id} id={`post-${post.id}`}>
                                 <div className="image-container">
-
                                     <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
                                 </div>
 
                                 <div className="card-content">
                                     <h3>{post.title.rendered}</h3>
-                                    {/* <p>{post.acf.overview}</p> */}
                                     <Excerpt text={post.acf.overview} maxLength={50} />
 
                                     <p className='skill-container'>
                                         {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                            <span key={index}>{item.single_skill_name}</span>
+                                            <p key={index}>{item.single_skill_name}</p>
                                         ))}
                                     </p>
 
-                                    <Link to={`/project/${post.slug}`}>More Info</Link>
+                                    <Link to={`/project/${post.slug}`}>
+                                        <span>More Info</span>
+                                        <FaLongArrowAltRight />
+                                    </Link>
                                 </div>
                             </div>
                         )}
-
                     </Slider>
-                    </div>
+                </div>
 
                 }
 
                 {classname !== "project-slide" && 
-                    // <div className="no-slider-container">
-
                         <div className="home-project-container">
                             <h2>{title}</h2>
                             
@@ -154,16 +146,13 @@ function Projects ( {restBase, classname, title} ) {
                                         <div className="image-container">
                                             <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
                                         </div>
-
                                     </Link>
                                 </div>
                             )}
                         </div>
                     </div>
                 }
-    
             </section>
-
         )}
         </> 
     )

@@ -5,11 +5,9 @@ import Loading from '../components/Loading';
 
 
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
 
 
 function SingleProject ( {restBase} ) {
@@ -19,8 +17,6 @@ function SingleProject ( {restBase} ) {
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
-
-    
 
     useEffect(() => {
         const fetchData = async () => {

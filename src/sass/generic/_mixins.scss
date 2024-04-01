@@ -86,28 +86,9 @@
     }
 }
 
-// Mixin: absolute horizontally centered
-// @mixin centerAbsolute {
-//     position: absolute;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-  
-// }
-
 // Inner Box style
 @mixin bgc-innerBox {
     padding: 10px;
     background-color: rgb(97 118 143 / 12%);
     border-radius: 15px;
 }
-
-// Title styles
-// @mixin title-styles {
-//     text-align: center;
-//     font-weight: 100;
-//     font-size: 2rem;
-//     margin: 0 0 1em 0;
-//     color: $content-color;
-//     text-transform: uppercase;
-  
-// }

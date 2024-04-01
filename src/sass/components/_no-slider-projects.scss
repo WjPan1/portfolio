@@ -1,75 +1,77 @@
 @import '../generic/mixins';
 @import '../generic/variables';
-
-.home-project-container {
+.projects-container {
     max-width: 1250px;
     width: 90%;
     margin: auto;
 
-    .card-container {
-        margin: 50px 0;
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 20px;
-        row-gap: 50px;
+    .home-project-container {
 
-        .project-card {
-            @include cardBackground;
-            max-width: 400px;
-            margin: auto;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        .card-container {
+            margin: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            row-gap: 50px;
 
-            &:hover {
-                @include cardHover;
-            }
+            .project-card {
+                @include cardBackground;
+                max-width: 400px;
+                margin: auto;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-            .card-content {
-                padding: 20px;
-
-
-                h3 {
-                    font-size: clamp(1.3rem, 3vw, 1.8rem);
+                &:hover {
+                    @include cardHover;
                 }
 
-                .skill-container {
-                    p {
-                        display: inline-block;
-                        font-size: 13px;
-                        margin: 0 ;
-                        
-                        &:not(:last-child) {
-                            margin-right: 10px;
+                .card-content {
+                    padding: 20px;
+
+
+                    h3 {
+                        font-size: clamp(1.3rem, 3vw, 1.8rem);
+                    }
+
+                    .skill-container {
+                        p {
+                            display: inline-block;
+                            font-size: 13px;
+                            margin: 0 ;
+                            
+                            &:not(:last-child) {
+                                margin-right: 10px;
+                            }
+
+                            &:not(:last-child)::after {
+                                content: "|"; 
+                                margin-left: 10px; 
+                            }
+                        }
+                    }
+
+                    .link-to-project {
+                        margin: 10px auto;
+
+                        span {
+                            color: $bgc-btn-blue;
+                            font-weight: bold;
                         }
 
-                        &:not(:last-child)::after {
-                            content: "|"; 
-                            margin-left: 10px; 
+                        svg {
+                            color: $bgc-btn-blue;
+                            vertical-align: middle;
+                            margin-left: 10px;
                         }
                     }
                 }
 
-                .link-to-project {
-                    margin: 10px auto;
+                .image-container {
+                    display: flex;
+                    justify-content: flex-end;
 
-                    span {
-                        color: $bgc-btn-blue;
-                        font-weight: bold;
+                    img {
+                        width: 70%;
                     }
-
-                    svg {
-                        color: $bgc-btn-blue;
-                        vertical-align: middle;
-                        margin-left: 10px;
-                    }
-                }
-            }
-
-            .image-container {
-                display: flex;
-                justify-content: flex-end;
-
-                img {
-                    width: 70%;
                 }
             }
         }

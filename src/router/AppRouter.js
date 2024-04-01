@@ -31,27 +31,6 @@ function AppRouter () {
          };
      
          createStars();
-
-         // 监听鼠标滚动事件
-         // let prevScrollY = window.scrollY;
-
-         // const handleScroll = () => {
-         //   const currentScrollY = window.scrollY;
-         //   const scrollDelta = currentScrollY - prevScrollY;
-         //   prevScrollY = currentScrollY;
-       
-         //   const stars = document.querySelectorAll('.star');
-         //   stars.forEach(star => {
-         //     const speed = parseFloat(star.getAttribute('data-speed'));
-         //     const yPos = parseFloat(star.style.top) || 0;
-         //     const newYPos = yPos + scrollDelta * speed;
-         //     star.style.top = `${newYPos}px`;
-         //   });
-         // };
-
-
-         // window.addEventListener('scroll', handleScroll);
-
      
          // 清理函数，在组件卸载时清除星星
          return () => {

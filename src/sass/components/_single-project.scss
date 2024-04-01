@@ -23,7 +23,7 @@
             img {
                 width: 100%;
                 max-height: 650px;
-                min-height: 430px;
+                min-height: 490px;
                 object-fit: cover;
                 filter: brightness(35%);  
             }
@@ -134,7 +134,7 @@
 
         // Hightlight section
         .highlight-container {
-            margin-top: 70px;
+            margin: 70px auto 45px;
 
             h3 {
                 text-align: center;
