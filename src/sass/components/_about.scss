@@ -67,8 +67,8 @@
             .skill-list {
                 display: flex;
                 flex-wrap: wrap;
-                background-color: rgb(97 118 143 / 8%);
-                border-radius: 15px;
+                @include bgc-innerBox;
+                padding: 0;
                 
                 .skill {
                     width: 33.3%;

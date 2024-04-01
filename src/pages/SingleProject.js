@@ -69,26 +69,22 @@ function SingleProject ( {restBase} ) {
                     <div className="project-intro">
 
                         <h2>Overview</h2>
-                        <p className="project-overview">{restData.acf.overview}</p>
 
-                        <div className='skill-image-container'>
-                            <h3>Skills</h3>
-                            {restData.acf.skill_used_for_this_project.map((item, index) => (
-                            <>
-                                {/* <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/> */}
-                                <p key={index}>{item.single_skill_name}</p>
-                            </>
-                            ))}
+                        <div className="overview-column">
+                            <p className="project-overview">{restData.acf.overview}</p>
 
-                            {/* <ul>
-                                <li className="skill-container"><SiWoo /><span>WooCommerce</span></li>
-                                <li className="skill-container"><FaShopify /><span>Shopify</span></li>
-                                <li className="skill-container"><FaBootstrap /><span>Shopify</span></li>
-                            </ul> */}
+                            <div className='skill-container'>
+                                <h3>Skills</h3>
+                                <div className="skill-list">
+                                    {restData.acf.skill_used_for_this_project.map((item, index) => (
+                                        <p key={index}>{item.single_skill_name}</p>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="project-highlight">
-                        <h2>Project Details</h2>
+                        <div className="highlight-container">
+                        <h3>Highlight</h3>
                             {/* feature */}
                             <Accordion>
                                 <AccordionSummary
@@ -112,8 +108,7 @@ function SingleProject ( {restBase} ) {
                                                 </video>
                                             </div>
                                             <div className="feature-info">
-
-                                                <h3 className="feature-title" dangerouslySetInnerHTML={{__html: item.feature_title}}></h3>
+                                                <h4 className="feature-title" dangerouslySetInnerHTML={{__html: item.feature_title}}></h4>
                                                 <p className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
                                             </div>
 
@@ -135,13 +130,6 @@ function SingleProject ( {restBase} ) {
                                 <AccordionDetails>
                                     <div className="insight" dangerouslySetInnerHTML={{__html: restData.acf.insight}}></div>
                                 </AccordionDetails>
-
-                                <AccordionActions>
-
-                                    <Button>Cancel</Button>
-                                    <Button>Agree</Button>
-
-                                </AccordionActions>
                             </Accordion>
                         </div>
 

@@ -67,7 +67,7 @@
     
 
     @include mqMin($tablet-small) {
-        .banner {
+        .banner-container {
     
             .page-title {
                 top: 35%;
@@ -98,9 +98,121 @@
         }
     }
 
-    // overview section
-    
 
+    .project-intro {
+        max-width: 1200px;
+        width: 90%;
+        padding: 10px;
+        margin: 200px auto;
+        @include cardBackground;
+        
+        // overview section
+        .skill-container {
+            @include bgc-innerBox;
+            padding-bottom: 24px;
+
+            .skill-list {
+                @include skillList;
+                
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        @include mqMin(800px) {
+
+            .overview-column {
+                display: flex;
+                justify-content: space-around;
+            }
+            .project-overview {
+                width: 65%;
+            }
+        }
+
+
+        // Hightlight section
+        .highlight-container {
+            margin-top: 70px;
+
+            h3 {
+                text-align: center;
+            }
+
+            video {
+                border-radius: 10px;
+            }
+
+            .feature-title {
+                text-align: center;
+                font-size: clamp(1rem, 5vw, 1.3rem);
+            }
+
+            // dropdown box
+            .MuiPaper-root {
+                @include bgc-innerBox;
+                padding-left: 0;
+                padding-right: 0;
+                color: $content;
+
+                // heading
+                .MuiButtonBase-root {
+                    .MuiAccordionSummary-content {
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                    
+                    .MuiAccordionSummary-expandIconWrapper {
+                        svg {
+                            fill: $content;
+                        }
+                    }
+                }
+
+                // dropdown content
+                .MuiCollapse-root {
+
+                    .MuiAccordionDetails-root {
+
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 3rem;
+                        
+                        video {
+                            width: 100%;
+                        }
+                        
+                        .feature-description {
+                            margin: 30px auto;
+                        }
+                    } 
+                }               
+            }
+
+            @include mqMin(65em) {
+
+                .feature-container {
+                    display: flex;
+                    gap: 50px;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+        
+                .video-container {
+                    width: 50%;
+                }
+        
+                video {
+                    width: 100%;
+                }
+        
+                .feature-info {
+                    width: 50%;
+                }
+            }
+        }
+    }
 }
 
 
