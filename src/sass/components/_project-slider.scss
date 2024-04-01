@@ -27,10 +27,15 @@
                 color: $bgc-btn-blue;
                 font-size: 18px;
                 font-weight: bold;
+                transition: color 0.3s ease-in-out;
 
                 svg {
                     vertical-align: middle;
                     margin-left: 10px;
+                }
+
+                &:hover {
+                    color: $bgc-btn-yellow;
                 }
             }
         }
@@ -93,7 +98,7 @@
         }
     
         .slick-prev {
-            left: calc(50% - 45px);
+            left: calc(50% - 50px);
         }
     
         .slick-next {

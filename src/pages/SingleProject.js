@@ -98,7 +98,8 @@ function SingleProject ( {restBase} ) {
                                                 <video src={item.video} type="video/mp4" 
                                                     autoPlay
                                                     loop
-                                                    playsInline>
+                                                    playsInline
+                                                    loading="lazy">
                                                     Sorry, your browser doesn't support this particular embedded video type.
                                                 </video>
                                             </div>

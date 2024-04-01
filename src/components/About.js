@@ -4,11 +4,8 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { DevelopmentSkills, DesignSkills, FilterSkillContainer } from '../utilities/toolbelt';
 
-// skills icons
-import { FaFigma, FaHtml5, FaSass, FaReact, FaWordpress, FaShopify, FaBootstrap } from "react-icons/fa";
-import { SiAdobexd, SiAdobephotoshop, SiAdobeillustrator, SiCss3, SiWoo } from "react-icons/si";
-import { RiJavascriptFill } from "react-icons/ri";
 
 
 // import Loading from '../components/Loading';
@@ -20,7 +17,6 @@ function About ( {restBase} ) {
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-
 
     const restPath = restBase + 'pages/9'
     const [restData, setData] = useState([])
@@ -40,46 +36,6 @@ function About ( {restBase} ) {
         }
         fetchData()
     }, [restPath])
-
-
-    // skills lists
-    const DevelopmentSkills = [
-        { name: 'HTML5', icon: FaHtml5 },
-        { name: 'CSS3', icon: SiCss3 },
-        { name: 'Sass', icon: FaSass },
-        { name: 'JavaScript', icon: RiJavascriptFill },
-        { name: 'React', icon: FaReact },
-        { name: 'WordPress', icon: FaWordpress },
-        { name: 'WooCommerce', icon: SiWoo },
-        { name: 'Shopify', icon: FaShopify },
-        { name: 'Bootstrap', icon: FaBootstrap },
-    ];
-      
-    const DesignSkills = [
-        { name: 'Figma', icon: FaFigma },
-        { name: 'Adobe XD', icon: SiAdobexd },
-        { name: 'Adobe Photoshop', icon: SiAdobephotoshop },
-        { name: 'Adobe Illustrator', icon: SiAdobeillustrator },
-    ];
-
-    const SkillContainer = ({ skills }) => (
-        <>
-        {skills.map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-                <div key={index} className="skill">
-                <span><Icon /></span>
-                <p>{skill.name}</p>
-                </div>
-            );
-        })}
-        </>
-    );
-      
-    const FilterSkillContainer = ( {skill} ) => (
-        <SkillContainer skills={skill} />
-    );
-
 
 
     return (

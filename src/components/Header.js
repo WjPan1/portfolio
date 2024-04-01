@@ -21,7 +21,7 @@ function Header() {
             <nav className= "site-navigation">
                 <ul>
                     <li>
-                        <HashLink to="/#home" >
+                        <HashLink to="/#home" smooth>
                         <div className="nav-icon"><BiSolidHomeHeart /></div>
                         <span>Home</span></HashLink>
                     </li>

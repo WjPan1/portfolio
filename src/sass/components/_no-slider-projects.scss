@@ -22,6 +22,18 @@
 
                 &:hover {
                     @include cardHover;
+
+                    .card-content {
+                        .link-to-project {
+                            span {
+                                color: $bgc-btn-yellow;
+                            }
+
+                            svg {
+                                color: $bgc-btn-yellow;
+                            }
+                        }
+                    }
                 }
 
                 .card-content {
@@ -51,6 +63,7 @@
 
                     .link-to-project {
                         margin: 10px auto;
+                        font-size: 18px;
 
                         span {
                             color: $bgc-btn-blue;

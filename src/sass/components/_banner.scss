@@ -23,7 +23,6 @@
             padding: 10px;
             backdrop-filter: blur(10px);
             border-radius: 10px;
-            overflow: hidden;
             font-size: 20px;
 
             p {
@@ -61,17 +60,17 @@
             .yellow,
             .yellow-big,
             .gray {
-                transition: 0.5s ease-in-out; 
+                transition: 0.3s ease-in-out; 
             }
 
             .cta-button {
                 border: 1px solid $content;
-                width: fit-content;
                 padding: 10px;
                 border-radius: 100px;
 
                 span {
                     margin-right: 10px;
+                    font-size: 17px;
                 }
 
                 svg {
