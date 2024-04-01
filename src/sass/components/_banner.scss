@@ -24,18 +24,20 @@
             backdrop-filter: blur(10px);
             border-radius: 10px;
             overflow: hidden;
+            font-size: 20px;
 
-            
             p {
                 font-size: clamp(1.5rem, 5vw, 3rem);
             }
 
             .my-name {
                 margin-bottom: 0;
+                font-weight: bold;
             }
 
             .role {
                 margin-top: 0;
+                font-weight: bold;
             }
 
             .mission,
@@ -44,27 +46,51 @@
                 font-size: clamp(1rem, 3vw, 1.3rem);
             }
 
-            .green {
+            .yellow {
                 color: $bgc-btn-yellow;
-                font-weight: bold;
+            }
+
+            .yellow-big {
+                color: $bgc-btn-yellow;
             }
 
             .gray {
                 color: #cfcfcf;
             }
 
-            .green,
+            .yellow,
+            .yellow-big,
             .gray {
-                transition: color 0.5s ease-in-out; 
+                transition: 0.5s ease-in-out; 
             }
 
             .cta-button {
+                border: 1px solid $content;
+                width: fit-content;
+                padding: 10px;
+                border-radius: 100px;
+
                 span {
                     margin-right: 10px;
                 }
 
                 svg {
                     vertical-align: middle;
+                }
+            }
+
+            .yellow-btn {
+                border: 1px solid $bgc-btn-yellow;
+                background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
+                box-shadow: 1px 1px 10px $bgc-btn-yellow;
+
+                span {
+                    color: #313133;
+                    font-weight: bold;
+                }
+
+                svg {
+                    fill: #313133;
                 }
             }
         }
@@ -86,6 +112,18 @@
                 
                 .hook {
                     margin-top: 50px;
+                }
+
+                .yellow {
+                    font-weight: bold;
+                }
+    
+                .yellow-big {
+                    font-weight: bold;
+                }
+
+                .yellow-big {
+                    font-size: 120%;
                 }
             }
         }
