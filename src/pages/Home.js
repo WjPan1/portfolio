@@ -28,20 +28,20 @@ function Home ( {restBase} ) {
     }, [restPath])
 
     return (
-        <>
-        { isLoaded ?
-            <main id="home" className="home-container">
-                <Banner restBase={restBase} restData={restData}/>
-                <Projects restBase={restBase} 
-                          classname={"all-project"} 
-                          title={"Projects"} />
-                <About restBase={restBase} restData={restData}/>
-                <Contact restBase={restBase} restData={restData}/>
-            </main>
-            : 
-            <Loading /> 
-        }
-        </>  
+        <main id="home" className="home-container">
+            { isLoaded ?
+                <>
+                    <Banner restBase={restBase} restData={restData}/>
+                    <Projects restBase={restBase} 
+                            classname={"all-project"} 
+                            title={"Projects"} />
+                    <About restBase={restBase} restData={restData}/>
+                    <Contact restBase={restBase} restData={restData}/>
+                </>  
+                : 
+                <Loading /> 
+            }
+        </main>
     )
 }
 

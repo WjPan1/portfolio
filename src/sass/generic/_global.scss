@@ -5,21 +5,22 @@ body {
     background-color: $bgc-body;
     color: $content;
 
-    .loading {
-        @include centerElement;
-    }
     
     .site-container {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-
+        
         // position set for star
         position: relative;
         overflow: hidden;
-
+        
         main {
-            flex-grow: 1;
+            flex: 1;
+        }
+
+        .loading {
+            @include centerElement;
         }
     }
 
