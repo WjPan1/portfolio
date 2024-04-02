@@ -20,7 +20,7 @@ function Home ( {restBase} ) {
                 setData(data)
                 setTimeout(() => {
                     setLoadStatus(true);
-                }, 1000);
+                }, 1500);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)
