@@ -41,23 +41,24 @@ function SingleProject ( {restBase} ) {
 
         <main className="single-project-container">
                 <section className="project-detail">
-                    <div className="banner-container">
-                            <h1 className="page-title">{restData.title.rendered}</h1>
+                    <div className="banner-flex">
+                        <div className="banner-container">
                             <div className="image-container">
                                 <img src={restData.acf.project_image} alt={restData.title.rendered} />
+                            </div>                 
+                        </div>
+
+                        <div className="cta-container">
+                            <h1 className="page-title">{restData.title.rendered}</h1>
+                            <p className="cta">{restData.acf.blub}</p>
+                            <div className="btn-container"> 
+                                <a href={restData.acf.live_site.url} target="_blank" rel="noreferrer">Live Site</a>
+                                <a href={restData.acf.github.url} target="_blank" rel="noreferrer">GitHub</a>
                             </div>
-                            
-                            <div className="cta-container">
-                                <p className="cta">{restData.acf.blub}</p>
-                                <div className="btn-container"> 
-                                    <a href={restData.acf.live_site.url} target="_blank" rel="noreferrer">Live Site</a>
-                                    <a href={restData.acf.github.url} target="_blank" rel="noreferrer">GitHub</a>
-                                </div>
-                            </div>
+                        </div>
                     </div>
 
                     <div className="project-intro">
-
                         <h2>Overview</h2>
 
                         <div className="overview-column">
@@ -74,7 +75,7 @@ function SingleProject ( {restBase} ) {
                         </div>
 
                         <div className="highlight-container">
-                        <h3>Highlight</h3>
+                            <h2>Highlight</h2>
 
                             {/* feature */}
                             <Accordion defaultExpanded>
