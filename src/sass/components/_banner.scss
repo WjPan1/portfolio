@@ -3,27 +3,21 @@
 
 .home-container {
     .banner-container {
-        height: 100vh;
         margin: auto;
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;        
 
         .background-img { 
             filter: blur(5px);
             transform: rotate(-20deg);
-            position: absolute;
-            top: 12%;
-            right: 0;
+            margin-left: auto;
         }
 
         .intro {
-            margin: 15px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            margin: 10px;
+            margin-top: 100px;
             padding: 10px;
-            background-color: #21272eb4;
-            box-shadow: 0 0 20px 20px #21272eb4;
-            border-radius: 10px;
             font-size: 20px;
 
             p {
@@ -114,14 +108,15 @@
         @include mqMin(45em) {
             max-width: 1200px;
             width: 80%;
+            
 
             .background-img {
-                transform: rotate(-10deg);
-                top: 60%;
+                margin-top: 10%;
             }
 
             .intro {
-                top: 55%;
+                // top: 55%;
+                // margin-top: 0;
                 .mission {
                     margin-top: 90px;
                 }
@@ -141,6 +136,20 @@
                 .yellow-big {
                     font-size: 120%;
                 }
+            }
+        }
+
+        @include mqMin(90em) {
+            max-width: 1300px;
+            flex-direction: row;
+
+            .background-img {
+                margin-top: 10%;
+                order: 2;
+            }
+
+            .intro {
+                margin-top: 200px;
             }
         }
     }
