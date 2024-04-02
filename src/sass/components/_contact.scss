@@ -34,9 +34,11 @@
             }
 
             .copy-button {
-                &:hover {
-                    @include button-yellow;
-                    @include buttonHover;
+                @media (hover: hover) {
+                    &:hover {
+                        @include button-yellow;
+                        @include buttonHover;
+                    }
                 }
             }
 

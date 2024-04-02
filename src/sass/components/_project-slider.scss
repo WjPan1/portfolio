@@ -18,9 +18,12 @@
         
         .card-content {
             @include centerElement;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-            p {
-                display: none;
+            h3 {
+                font-size: 20px;
             }
             
             a {
@@ -50,8 +53,10 @@
         height: 35px;
         transition: 0.3s ease;
 
-        &:hover {
-            background-color: rgb(79 209 197 / 65%);
+        @media (hover: hover) {
+            &:hover {
+                background-color: rgb(79 209 197 / 65%);
+            }
         }
     }
 
@@ -75,7 +80,7 @@
     }
 
     .slick-next:before {
-        content: "🠖";
+        // content: "🠖";
     }
 
 
@@ -87,10 +92,14 @@
     }
 
     @include mqMin($tablet-small) {
-
-        h3 {
-            font-size: 30px;
+        .project-card {
+            .card-content {
+                h3 {
+                    font-size: 30px;
+                }
+            }
         }
+
 
         .slick-prev,
         .slick-next {

@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 
-function Projects ( {restBase, classname, title} ) {
+function Projects ( {restBase, classname, title, slug} ) {
     const restPath = restBase + 'posts?_embed&acf_format=standard'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
@@ -32,7 +32,11 @@ function Projects ( {restBase, classname, title} ) {
         fetchData()
     }, [restPath])  
 
-    
+
+    // Iterates through all posts until matching current post's slug
+    const currentProjectIndex = restData.findIndex(post => post.slug === slug);
+
+
     return (
         <>
         { isLoaded && (
@@ -42,7 +46,8 @@ function Projects ( {restBase, classname, title} ) {
                     <div className="slider-container">
                         <h2>{title}</h2>
                         <Slider {...settings}>
-                            {restData.map(post => 
+                        {restData.map((post, index) =>
+                                index !== currentProjectIndex &&
                                 <div className="project-card" key={post.id} id={`post-${post.id}`}>
                                     <div className="image-container">
                                         <img src={post.acf.project_image} alt={post.title.rendered} loading="lazy"/>

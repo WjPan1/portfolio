@@ -139,7 +139,8 @@ function SingleProject ( {restBase} ) {
             {/* show other projects - CTA */}
             <Projects restBase={restBase}
                       classname={"project-slide"}
-                      title={"Other Projects"} />
+                      title={"Other Projects"} 
+                      slug={slug} />
 
             </>
             : 
