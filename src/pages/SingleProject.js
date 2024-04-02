@@ -32,7 +32,8 @@ function SingleProject ( {restBase} ) {
         }
         fetchData()
 
-        
+        document.title = `Projects - ${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
+    
         // Page scroll to top every time the content change
         const scrollToTop = () => {
             window.scrollTo({
@@ -41,7 +42,7 @@ function SingleProject ( {restBase} ) {
         };
         scrollToTop();
 
-    }, [restPath])
+    }, [restPath, slug])
     
     
     return (

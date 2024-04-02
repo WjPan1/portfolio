@@ -4,7 +4,7 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
 import Loading from '../utilities/Loading';
-
+import { APP_NAME } from '../utilities/globalVariables';
 
 function Home ( {restBase} ) {
 
@@ -27,7 +27,11 @@ function Home ( {restBase} ) {
             }
         }
         fetchData()
+
+        document.title = APP_NAME;
+
     }, [restPath])
+    
 
     return (
         <main id="home" className="home-container">
