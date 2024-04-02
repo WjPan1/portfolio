@@ -1,20 +1,147 @@
-.banner-container {
-    min-height: 700px;
-    // background: #001224;
-    background: #6389b0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-      
-      p {
-        font-size: clamp(2rem, 10vw, 5.5rem);
-        margin: 0;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-      }
+@import '../generic/variables';
+@import '../generic/mixins';
 
-      .my-role {
-        font-size: 2rem;
-      }
+.home-container {
+    .banner-container {
+        height: 100vh;
+        margin: auto;
+        position: relative;
+
+        .background-img { 
+            filter: blur(5px);
+            transform: rotate(-20deg);
+            position: absolute;
+            top: 12%;
+            right: 0;
+        }
+
+        .intro {
+            margin: 15px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: #21272eb4;
+            box-shadow: 0 0 20px 20px #21272eb4;
+            border-radius: 10px;
+            font-size: 20px;
+
+            p {
+                font-size: clamp(1.5rem, 5vw, 3rem);
+            }
+
+            .my-name {
+                margin-bottom: 0;
+                font-weight: bold;
+            }
+
+            .role {
+                margin-top: 0;
+                font-weight: bold;
+            }
+
+            .mission,
+            .inquiry ,
+            .hook {
+                font-size: clamp(1rem, 3vw, 1.3rem);
+            }
+
+            .yellow {
+                color: $bgc-btn-yellow;
+            }
+
+            .yellow-big {
+                color: $bgc-btn-yellow;
+            }
+
+            .gray {
+                color: #cfcfcf;
+            }
+
+            .yellow,
+            .yellow-big,
+            .gray {
+                transition: 0.3s ease-in-out; 
+            }
+
+            .cta-container {
+                margin-top: 40px;
+            }
+
+            .cta-button {
+                border: 1px solid $bgc-btn-yellow;
+                padding: 10px;
+                border-radius: 100px;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    @include button-yellow;
+
+                    span {
+                        color: #313133;
+                    }
+    
+                    svg {
+                        fill: #313133;
+                    }
+                }
+
+
+                span {
+                    margin-right: 10px;
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+
+                svg {
+                    vertical-align: middle;
+                }
+            }
+
+            .yellow-btn {
+                @include button-yellow;
+
+                span {
+                    color: #313133;
+                }
+
+                svg {
+                    fill: #313133;
+                }
+            }
+        }
+
+        @include mqMin(45em) {
+            max-width: 1200px;
+            width: 80%;
+
+            .background-img {
+                transform: rotate(-10deg);
+                top: 60%;
+            }
+
+            .intro {
+                top: 55%;
+                .mission {
+                    margin-top: 90px;
+                }
+                
+                .hook {
+                    margin-top: 50px;
+                }
+
+                .yellow {
+                    font-weight: bold;
+                }
+    
+                .yellow-big {
+                    font-weight: bold;
+                }
+
+                .yellow-big {
+                    font-size: 120%;
+                }
+            }
+        }
+    }
 }

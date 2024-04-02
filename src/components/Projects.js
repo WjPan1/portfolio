@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Excerpt, settings } from "../utilities/toolbelt";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+
+
+// import Loading from '../components/Loading';
 
 
 
 function Projects ( {restBase, classname, title} ) {
     const restPath = restBase + 'posts?_embed&acf_format=standard'
     const [restData, setData] = useState([])
-    // const [isLoaded, setLoadStatus] = useState(false)
+    const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,123 +24,81 @@ function Projects ( {restBase, classname, title} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                // setLoadStatus(true)
+                setLoadStatus(true)
             } else {
-                // setLoadStatus(false)
+                setLoadStatus(false)
             }
         }
         fetchData()
     }, [restPath])  
 
-
-    // Change the arrow svg in slider
-    function SliderPrevArrow(props) {
-        const { className, onClick } = props;
-        return (
-            <div
-            className={className}
-            style={{ display: "block" }}
-            onClick={onClick}
-            > <IoIosArrowBack />
-
-            </div>
-        );
-    }
-
-    function SliderNextArrow(props) {
-        const { className, onClick } = props;
-        return (
-            <div
-            className={className}
-            style={{ display: "block" }}
-            onClick={onClick}
-            >
-            <IoIosArrowForward />
-            </div>
-        );
-    }
-
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        // autoplay: true, // 启用自动轮播
-        // autoplaySpeed: 5000, // 自动轮播间隔时间，以毫秒为单位
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        prevArrow: <SliderPrevArrow />,
-        nextArrow: <SliderNextArrow />,
-    };
-    
     
     return (
-        
-        <section id={classname !== "project-slide" ? "projects" : undefined} className="projects-container">
-            <h2>{title}</h2>
+        <>
+        { isLoaded && (
+            <section id={ classname === "all-project" ? "projects" : undefined } className="projects-container">
 
-            {classname === "project-slide" &&
+                {classname === "project-slide" &&
+                    <div className="slider-container">
+                        <h2>{title}</h2>
+                        <Slider {...settings}>
+                            {restData.map(post => 
+                                <div className="project-card" key={post.id} id={`post-${post.id}`}>
+                                    <div className="image-container">
+                                        <img src={post.acf.project_image} alt={post.title.rendered} loading="lazy"/>
+                                    </div>
 
-                <div className="slider-container">
+                                    <div className="card-content">
+                                        <h3>{post.title.rendered}</h3>
+                                        <Link to={`/project/${post.slug}`}>
+                                            <span>More Info</span>
+                                            <FaLongArrowAltRight />
+                                        </Link>
+                                    </div>
+                                </div>
+                            )}
+                        </Slider>
+                    </div>
+                }
 
-                <Slider {...settings}>
+                {classname === "all-project" && 
+                    <div className="home-project-container">
+                        <h2>{title}</h2>
+                        
+                        <div className="card-container">
 
-                    {restData.map(post => 
-                        <div className="project-card" key={post.id} id={`post-${post.id}`}>
-                            <div className="image-container">
+                        {restData.map(post => 
+                            <div className="project-card" key={post.id} id={`post-${post.id}`}>
+                                <Link to={`/project/${post.slug}`}>
 
-                                <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} />
+                                    <div className="card-content">
+                                        <h3>{post.title.rendered}</h3>
+                                        <Excerpt text={post.acf.overview} maxLength={50} />
+
+                                        <div className='skill-container'>
+                                            {post.acf.used_skill.slice(0, 3).map((item, index) => (
+                                                <p key={index}>{item.each_skill_name}</p>
+                                            ))}
+                                        </div>
+
+                                        <div className="link-to-project">
+                                            <span>More Info</span>
+                                            <FaLongArrowAltRight />
+                                        </div>
+                                    </div>
+
+                                    <div className="image-container">
+                                        <img src={post.acf.project_image} alt={post.title.rendered} loading="lazy"/>
+                                    </div>
+                                </Link>
                             </div>
-
-                            <div className="card-content">
-                                <h3>{post.title.rendered}</h3>
-                                <p>{post.acf.brief_overview}</p>
-
-                                <p className='skill-container'>
-                                    {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                        <span key={index}>{item.single_skill_name}</span>
-                                    ))}
-                                </p>
-
-                                <Link to={`/project/${post.slug}`}>More Info</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </Slider>
-                </div>
-
-            }
-
-            {classname !== "project-slide" && 
-                <div className="no-slider-container">
-
-                {restData.map(post => 
-                    <div className="project-card" key={post.id} id={`post-${post.id}`}>
-                                                    
-                        <div className="image-container">
-
-                            <img src={post.acf.image_slide[0].one_slide} alt={post.title.rendered} min-width={300}/>
-                        </div>
-                        <div className="card-content">
-
-                            <h3>{post.title.rendered}</h3>
-                            <p>{post.acf.brief_overview}</p>
-
-                            <p className='skill-container'>
-                                {post.acf.skill_used_for_this_project.slice(0, 3).map((item, index) => (
-                                    <span key={index}>{item.single_skill_name}</span>
-                                ))}
-                            </p>
-
-                            <Link to={`/project/${post.slug}`}>More Info</Link>
+                        )}
                         </div>
                     </div>
-                )}
-                </div>
-            }
-  
-
-        </section>
+                }
+            </section>
+        )}
+        </> 
     )
 }
 

@@ -1,99 +1,115 @@
 @import '../generic/mixins';
+@import '../generic/variables';
 
 .slider-container {
     max-width: 500px;
-    margin: auto;
-
-    .slick-slide > div {
-        width: 230px;
-        height: 350px;
-        background-color: #fff;
-        border-radius: 4px;
-        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-        overflow: hidden;
-        margin: 20px auto;
-    }
-
+    margin: 200px auto;
+    
     .project-card {
+        position: relative;
 
         .image-container {
             width: 100%;
+            height: 100%;
+            filter: brightness(35%);  
+            border-radius: 15px;
+            overflow: hidden;
         }
-    
-        img {
-            width: 100%;
-            object-fit: cover;
+        
+        .card-content {
+            @include centerElement;
+
+            p {
+                display: none;
+            }
+            
+            a {
+                color: $bgc-btn-blue;
+                font-size: 18px;
+                font-weight: bold;
+                transition: color 0.3s ease-in-out;
+
+                svg {
+                    vertical-align: middle;
+                    margin-left: 10px;
+                }
+
+                &:hover {
+                    color: $bgc-btn-yellow;
+                }
+            }
         }
-
-        p {
-            display: none;
-        }
-    }
-
-    .card-content {
-        padding: 16px;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-        display: none;
-    }
-
-    .slick-prev svg,
-    .slick-next svg {
-        fill: rgb(118, 117, 117);
-        width: 100%;
-        height: 100%;
-
-    }
-
-    .slick-prev {
-        left: 10px;
-        z-index: 100;
-    }
-
-    .slick-next {
-        right: 10px;
     }
 
     .slick-prev,
     .slick-next {
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
+        top: 110%;
+        background-color: rgba(97, 118, 143, 0.397);
         border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-        padding: 9px;
+        width: 35px;
+        height: 35px;
+        transition: 0.3s ease;
+
+        &:hover {
+            background-color: rgb(79 209 197 / 65%);
+        }
     }
-    
-}
 
-@include mqMin(55em) {
-    .slider-container {
-        .slick-slide > div {
-            width: 350px;
-            height: 500px;
+    .slick-prev {
+        left: calc(50% - 45px);
+    }
+
+    .slick-next {
+        left: calc(50% + 10px);
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 25px;
+        color: $content;
+        @include centerElement;
+    }
+
+    .slick-prev:before {
+        content: "🠔";
+    }
+
+    .slick-next:before {
+        content: "🠖";
+    }
+
+
+    @include mqMin(25em) {
+        
+        h3 {
+            white-space: nowrap;
         }
+    }
 
-        .slick-prev {
-            left: -100px;
-        }
+    @include mqMin($tablet-small) {
 
-        .slick-next {
-            right: -100px;
+        h3 {
+            font-size: 30px;
         }
 
         .slick-prev,
         .slick-next {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
         }
-
-        .project-card {
-            p {
-                display: block;
-            }
+    
+        .slick-prev {
+            left: calc(50% - 55px);
+        }
+    
+        .slick-next {
+            left: calc(50% + 15px);
+        }
+    
+        .slick-prev:before,
+        .slick-next:before {
+            font-size: 30px;
+            top: 47%; 
         }
     }
 }

@@ -1,72 +1,91 @@
 @import '../generic/mixins';
-
+@import '../generic/variables';
 .projects-container {
-    max-width: 1200px;
-    margin: 100px auto;
-    width: 80%;
-}
-
-.no-slider-container {
+    max-width: 1250px;
+    width: 90%;
     margin: auto;
-    display: flex;
 
-    flex-direction: column;
-    row-gap: 70px;
+    .home-project-container {
 
-    .project-card {
-    //     max-width: 500px;
-    //     background-color: #fff;
-    //     color: rgba(0, 0, 0, 0.87);
-    //     border-radius: 5px;
-    //     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    //     overflow: hidden;
-    // }
-
-    // .card-content {
-    //     padding: 16px;
-
-        img {
-            width: 100%;
-            border-radius: 10px;
-        }
-    }
-}
-
-
-@include mqMin(55em) {
-    .no-slider-container {
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        // justify-items: center;
-        // row-gap: 70px;
-        // column-gap: 35px;
-        // grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
-
-        .project-card {
+        .card-container {
+            margin: 50px 0;
             display: flex;
-            gap: 3rem;
-            justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            row-gap: 50px;
+
+            .project-card {
+                @include cardBackground;
+                max-width: 400px;
+                margin: auto;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    @include cardHover;
+
+                    .card-content {
+                        .link-to-project {
+                            span {
+                                color: $bgc-btn-yellow;
+                            }
+
+                            svg {
+                                color: $bgc-btn-yellow;
+                            }
+                        }
+                    }
+                }
+
+                .card-content {
+                    padding: 20px;
+
+                    h3 {
+                        font-size: clamp(1.3rem, 3vw, 1.5rem);
+                    }
+
+                    .skill-container {
+                        p {
+                            display: inline-block;
+                            font-size: 13px;
+                            margin: 0 ;
+                            
+                            &:not(:last-child) {
+                                margin-right: 10px;
+                            }
+
+                            &:not(:last-child)::after {
+                                content: "|"; 
+                                margin-left: 10px; 
+                            }
+                        }
+                    }
+
+                    .link-to-project {
+                        margin: 10px auto;
+                        font-size: 18px;
+
+                        span {
+                            color: $bgc-btn-blue;
+                            font-weight: bold;
+                        }
+
+                        svg {
+                            color: $bgc-btn-blue;
+                            vertical-align: middle;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+
+                .image-container {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
         }
-
-        .image-container {
-            width: 45%;
-        }
-
-        .card-content {
-            width: 45%;
-        }
-
-        .project-card:nth-child(even) .card-content {
-            order: -1; /* 使偶数项的内容先显示在左侧 */
-          }
-
-        img {
-            width: 100%;
-        }
-
-
     }
 }

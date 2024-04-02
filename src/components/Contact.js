@@ -1,38 +1,62 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+// import Loading from '../components/Loading';
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
 
-function Contact ( {restData} ) {
+function Contact ( {restBase} ) {
     const [copied, setCopied] = useState(false);
+    
+    const restPath = restBase + 'pages/9'
+    const [restData, setData] = useState([])
+    const [isLoaded, setLoadStatus] = useState(false)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(restPath)
+            if ( response.ok ) {
+                const data = await response.json()
+                setData(data)
+                setLoadStatus(true)
+            } else {
+                console.error('Failed to fetch data');
+                setLoadStatus(false)
+            }
+        }
+        fetchData()
+    }, [restPath])
 
     const handleCopy = () => {
         navigator.clipboard.writeText(restData.acf.email_address);
         setCopied(true);
-
-        // Reset copied state after 1 seconds
-        setTimeout(() => {
-            setCopied(false);
-        }, 1000); 
     };
     
     return (
-        <section id="contact" className="contact-container">
-            <div className="contact-info">
-                <h2>Contact</h2>
+        <>
+        { isLoaded && (
+            <section id="contact" className="contact-container">
+                    <h2>Contact</h2>
 
+                        <div className="contact-info">
+                            {restData.acf.contact_info.split('\n').map((paragraph, index) => (
+                                <p key={index} className="contact-hook">{paragraph} </p> 
+                            ))}
 
-                {restData.acf && 
-                    <div className="contact">
-                        {/* 为每个段落创建一个<p>元素 */}
-                        <div>{restData.acf.contact_info.split('\n').map((paragraph, index) => (
-                            <p key={index}>{paragraph}</p> 
-                        ))}</div>
+                            <p className="email">{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}
+                            </p>
 
-                        <p>{<a href={`mailto:${restData.acf.email_address}`}>{restData.acf.email_address}</a>}</p>
-                        
-                        <button className="copy-btn" onClick={handleCopy}>{copied ? 'Copied!' : 'Copy'}</button>
-                    </div>
-                }
-            </div>
-        </section>
+                            <div className="button-container">
+                                <button className={copied ? "is-copied-button" : "copy-button"} onClick={handleCopy}>{copied ? 'Email Copied!' : 'Copy My Email!'}</button>
+                            </div>
+
+                            <div className="social-media">
+                                <a href="https://www.linkedin.com/in/wenjing-pan01/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                                <a href="https://www.google.com/" target="_blank" rel="noreferrer"><FaGithubAlt /></a>
+                            </div>
+                        </div>
+            </section>
+
+        )}
+        </> 
     )
 }
 

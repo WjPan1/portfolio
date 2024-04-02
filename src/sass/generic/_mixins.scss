@@ -5,23 +5,86 @@
     }
 }
 
-// Mixin: absolute horizontally centered
-@mixin centerAbsolute {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  
+// Button style
+@mixin button-blue {
+    width: 140px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #313133;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 100px;
+    box-shadow: 1px 1px 10px rgba(79, 209, 197, 0.64);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
 }
 
+@mixin button-yellow {
+    border: 1px solid $bgc-btn-yellow;
+    background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
+    box-shadow: 1px 1px 10px $bgc-btn-yellow;
+}
 
+// Button Hover style
+@mixin buttonHover {
+    &:hover {
+        transform: translateY(-6px);
+    }
+}
 
-// Title styles
-@mixin title-styles {
-    text-align: center;
-    font-weight: 100;
-    font-size: 2rem;
-    margin: 0 0 1em 0;
-    color: $content-color;
-    text-transform: uppercase;
-  
+// Card background style
+@mixin cardBackground {
+    background: rgba(46, 53, 61, 0.8705882353);
+    border: 1px solid rgba(62, 72, 83, 0.44);
+    border-radius: 8px;
+    box-shadow: 0 -2px 17px 5px rgba(46, 53, 61, 0.870588235)
+}
+
+// Card Hover style
+@mixin cardHover {
+    background: rgba(81, 93, 107, 0.55);
+    box-shadow: 0 -2px 20px 8px rgba(67, 77, 88, 0.71);
+}
+
+// Box inside a Card style
+@mixin bgc-innerBox {
+    padding: 10px;
+    background-color: rgb(97 118 143 / 12%);
+    border-radius: 15px;
+}
+
+// Horizontally centered
+@mixin horizontal-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// Horizontally and Vertically centered
+@mixin centerElement {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Skill List Style
+@mixin skillList {
+    p {
+        display: inline-block;
+        font-size: 13px;
+        margin: 0 ;
+        
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &:not(:last-child)::after {
+            content: "|"; 
+            margin-left: 10px; 
+        }
+    }
 }

@@ -1,21 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Projects from "../components/Projects";
-
+import Loading from '../utilities/Loading';
 
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
-
-import BackToTopButton from "../components/BackToTopButton";
-
-// for test, need to change later
-// import { SiWoo } from "react-icons/si";
-// import { FaShopify } from "react-icons/fa";
-// import { FaBootstrap } from "react-icons/fa";
 
 
 function SingleProject ( {restBase} ) {
@@ -23,10 +14,8 @@ function SingleProject ( {restBase} ) {
     const { slug } = useParams();
     const restPath = restBase + `posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
-    // const [isLoaded, setLoadStatus] = useState(false)
+    const [isLoaded, setLoadStatus] = useState(false)
 
-
-    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,10 +23,10 @@ function SingleProject ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data[0])
-                // setLoadStatus(true)
+                setLoadStatus(true)
             } else {
                 console.error('Failed to fetch data');
-                // setLoadStatus(false)
+                setLoadStatus(false)
             }
         }
         fetchData()
@@ -45,51 +34,51 @@ function SingleProject ( {restBase} ) {
 
     }, [restPath])
     
+    
     return (
+        <>
+        { isLoaded ?
+
         <main className="single-project-container">
-            {restData.acf && 
                 <section className="project-detail">
-                    {/* single project overview with image slide */}
-                    <div className="banner">
-                        <div className="image-container">
-                            {restData.acf.image_slide.slice(0, 1).map((item, index) => (
-                                <img key={index} src={item.one_slide} alt={restData.title.rendered} />
-                            ))}
+                    <div className="banner-flex">
+                        <div className="banner-container">
+                            <div className="image-container">
+                                <img src={restData.acf.project_image} alt={restData.title.rendered} />
+                            </div>                 
+                        </div>
+
+                        <div className="cta-container">
+                            <h1 className="page-title">{restData.title.rendered}</h1>
+                            <p className="cta">{restData.acf.blub}</p>
+                            <div className="btn-container"> 
+                                <a href={restData.acf.live_site.url} target="_blank" rel="noreferrer">Live Site</a>
+                                <a href={restData.acf.github.url} target="_blank" rel="noreferrer">GitHub</a>
+                            </div>
                         </div>
                     </div>
 
                     <div className="project-intro">
-                        <h1 className="page-title">{restData.title.rendered}</h1>
-
                         <h2>Overview</h2>
-                        <p className="project-overview">{restData.acf.overview}</p>
 
-                        <div className='skill-image-container'>
-                            <h3>Skills</h3>
-                            {restData.acf.skill_used_for_this_project.map((item, index) => (
-                            <>
-                                {/* <img key={index} src={item.single_skill} alt={item.single_skill_name} width={50}/> */}
-                                <p key={index}>{item.single_skill_name}</p>
-                            </>
-                            ))}
+                        <div className="overview-column">
+                            <p className="project-overview">{restData.acf.overview}</p>
 
-                            {/* <ul>
-                                <li className="skill-container"><SiWoo /><span>WooCommerce</span></li>
-                                <li className="skill-container"><FaShopify /><span>Shopify</span></li>
-                                <li className="skill-container"><FaBootstrap /><span>Shopify</span></li>
-                            </ul> */}
-                        </div>
-                        
-
-                        <div className="btn-container"> 
-                            <button className="button">Live Site</button>
-                            <button className="button">GitHub</button>
+                            <div className='skill-container'>
+                                <h3>Skills</h3>
+                                <div className="skill-list">
+                                    {restData.acf.used_skill.map((item, index) => (
+                                        <p key={index}>{item.each_skill_name}</p>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="project-highlight">
-                        <h2>Project Details</h2>
+                        <div className="highlight-container">
+                            <h2>Highlight</h2>
+
                             {/* feature */}
-                            <Accordion>
+                            <Accordion defaultExpanded>
                                 <AccordionSummary
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls="panel1-content"
@@ -106,13 +95,13 @@ function SingleProject ( {restBase} ) {
                                                 <video src={item.video} type="video/mp4" 
                                                     autoPlay
                                                     loop
-                                                    playsInline>
+                                                    playsInline
+                                                    loading="lazy">
                                                     Sorry, your browser doesn't support this particular embedded video type.
                                                 </video>
                                             </div>
                                             <div className="feature-info">
-
-                                                <h3 className="feature-title" dangerouslySetInnerHTML={{__html: item.feature_title}}></h3>
+                                                <h4 className="feature-title" dangerouslySetInnerHTML={{__html: item.feature_title}}></h4>
                                                 <p className="feature-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
                                             </div>
 
@@ -134,28 +123,22 @@ function SingleProject ( {restBase} ) {
                                 <AccordionDetails>
                                     <div className="insight" dangerouslySetInnerHTML={{__html: restData.acf.insight}}></div>
                                 </AccordionDetails>
-
-                                <AccordionActions>
-
-                                    <Button>Cancel</Button>
-                                    <Button>Agree</Button>
-
-                                </AccordionActions>
                             </Accordion>
                         </div>
 
                     </div>
                 </section>
-                
-            }
 
             {/* show other projects - CTA */}
             <Projects restBase={restBase}
                       classname={"project-slide"}
                       title={"Other Projects"} />
 
-            <BackToTopButton />
         </main>
+        : 
+        <Loading /> 
+        }
+        </>
     )
 }
 

@@ -2,24 +2,39 @@
 @import '../generic/variables';
 
 .header-container {
-    position: relative;
+    z-index: 1000;
+
+    .site-logo-container {
+        width: 30px;
+        height: 30px;
+        @include horizontal-center;
+        top: 10px;
+        z-index: 1000;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            transition: 0.3s ease-in-out;
+
+            &:hover path {
+                fill: $bgc-btn-blue;
+                stroke: $bgc-btn-blue;
+            }
+        }
+    }
 
     .site-navigation {
         position: fixed;
         bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        // padding-top: 300px;
-        // height: 70px;
-        padding: 10px 0;
         width: 100%;
-        background-color: $bgc-brown;
-        text-align: center;
-        z-index: 1000;
-
-        .header-logo {
-            display: none;
-        }
+        z-index: 2000;
+        border: 1px solid rgb(62 72 83 / 44%);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;        
+        box-shadow: 0 -2px 12px $bgc-navbar;
+        background: $bgc-navbar;
+        backdrop-filter: blur(5px);
+        padding: 15px 10px;
     
         ul {
             list-style: none;
@@ -28,90 +43,76 @@
             display: flex;
             justify-content: space-around;
             align-items: center; 
-        } 
+            
+            li a {
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                align-items: center;
+                font-size: 12px;
+                transition: 0.2s ease;
 
-        ul li {
-            display: inline-block;
-        }
-    
+                &:hover {
+                    color: $bgc-btn-blue;
         
-        ul li a {
-            text-decoration: none;
-            color: #333;
-        }
+                    .nav-icon {
+                        svg {
+                            fill: $bgc-btn-blue;
+                        }
+                    }
+                }
 
-        li a {
-            display: flex;
-            flex-direction: column;
-            justify-items: center;
-            align-items: center;
+                .nav-icon {
+                    width: 28px;
+                    height: 28px;
 
-            .nav-icon {
-                width: 30px;
-                height: 30px;
-
-                svg {
-                    width: 100%;
-                    height: 100%;
-
-                    fill: rgb(179, 176, 176);
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }
-
-        .active-link {
-            font-weight: bold; 
-            color: $content-nav;
-
-            .nav-icon {
-
-                svg {
-                    fill: $content-nav;
-                }
-            }
-        }
-
     }
-}
-
-@include mqMin(45em) {
-    .header-container {
-        margin-bottom: 20px;
-
+    
+    @include mqMin($tablet-small) {
+        position: fixed;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1400px;
+        
+        .site-logo-container {
+            position: static;
+            top: initial;
+            left: initial;
+            transform: initial;
+        }
 
         .site-navigation {
             position: unset;
-            transform: none;
-            background-color: unset;
-
-            .header-logo {
-                position: static;
-            }
-
+            transform: none; 
+            width: auto; 
+            box-shadow: 0px 0px 20px 0px $bgc-navbar;
+            border-radius: 10px;
+            padding: 5px 20px 5px 20px;
+            
             ul {
-
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
                 column-gap: 70px;
-            }
-    
-            .header-logo {
-                display: inline-block;
-            }
-
-            li a {
-                display: unset;
             }
 
             .nav-icon {
                 display: none;
             }
-
+            
             li span {
-                font-size: 18px;
+                font-size: 16px;
             }
-
+            
         }
     }
 }

@@ -1,33 +1,56 @@
+@import 'mixins';
+@import 'variables';
+
 body {
-    background-color: rgb(250, 250, 250);
-}
+    background-color: $bgc-body;
+    color: $content;
 
+    .loading {
+        @include centerElement;
+    }
+    
+    .site-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
 
-// back to top button
-.back-to-top {
-    position: fixed;
-    right: 8px;
-    bottom: 80px;
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
+        // position set for star
+        position: relative;
+        overflow: hidden;
 
-    svg {
+        main {
+            flex: 1;
+        }
+    }
+
+    // star style
+    .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
+        pointer-events: none;
+        z-index: -1000;
 
-        fill: brown;
+        .star {
+            position: absolute;
+            width: 2px; 
+            height: 2px;
+            background-color: white; 
+            border-radius: 50%;
+            filter: blur(1px);
+        }
     }
-
-    &.none {
-        display: none;
+    
+    
+    a {
+        color: $content;
+        text-decoration: none;
     }
-}
-
-
-.skill-container {
-  span {
-    display: inline-block;
-    margin-right: 10px;
-  }
+    
+    h2 {
+        text-align: center;
+        font-size: clamp(1.8rem, 3.5vw, 2rem);
+    }
 }
