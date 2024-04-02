@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 // import Loading from '../components/Loading';
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubAlt } from "react-icons/fa";
+import ClipboardJS from 'clipboard';
 
 function Contact ( {restBase} ) {
-    const [copied, setCopied] = useState(false);
     
     const restPath = restBase + 'pages/9'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
+    const [copied, setCopied] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,10 +26,23 @@ function Contact ( {restBase} ) {
         fetchData()
     }, [restPath])
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(restData.acf.email_address);
-        setCopied(true);
-    };
+
+    useEffect(() => {
+        const clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', () => {
+            setCopied(true);
+
+            setTimeout(() => {
+                setCopied(false);
+            }, 3000); 
+        });
+
+        return () => {
+            clipboard.destroy();
+        };
+    }, []); 
+    
     
     return (
         <>
@@ -45,7 +59,7 @@ function Contact ( {restBase} ) {
                             </p>
 
                             <div className="button-container">
-                                <button className={copied ? "is-copied-button" : "copy-button"} onClick={handleCopy}>{copied ? 'Email Copied!' : 'Copy My Email!'}</button>
+                                <button className={`btn ${copied ? "is-copied-button" : "copy-button"}`} data-clipboard-text={restData.acf.email_address}>{copied ? 'Email Copied!' : 'Copy My Email!'}</button>
                             </div>
 
                             <div className="social-media">
