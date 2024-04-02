@@ -1,6 +1,5 @@
 import { NavLink  } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { IoFileTrayFull } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
@@ -9,7 +8,7 @@ import { ReactComponent as LogoWhite } from "../images/logo-white.svg";
 
 
 function Header() {
-
+    
     return (
         <header className="header-container">
 
@@ -21,7 +20,7 @@ function Header() {
             <nav className= "site-navigation">
                 <ul>
                     <li>
-                        <HashLink to="/#home" smooth>
+                        <HashLink to="/#home" smooth >
                         <div className="nav-icon"><BiSolidHomeHeart /></div>
                         <span>Home</span></HashLink>
                     </li>

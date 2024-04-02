@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-
-// import Loading from '../components/Loading';
 import { ReactComponent as BannerBackground } from "../images/banner.svg";
 import { HashLink } from 'react-router-hash-link';
 import { FaLongArrowAltRight } from "react-icons/fa";

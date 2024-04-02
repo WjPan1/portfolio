@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import Loading from '../components/Loading';
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubAlt } from "react-icons/fa";
 import ClipboardJS from 'clipboard';

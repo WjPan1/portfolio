@@ -12,8 +12,6 @@ function AppRouter () {
 
    const restBase = 'https://wjweb.works/wordpress-portfolio/wp-json/wp/v2/';
 
-   // scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-
     // Create stars
     useEffect(() => {
         const createStars = () => {
@@ -24,7 +22,6 @@ function AppRouter () {
                 star.className = 'star';
                 
                 // random star position
-                // const x = Math.random() < 0.5 ? Math.random() * 50 : Math.random() * 50 + 50;
                 const x = Math.random() * 100;
                 const y = Math.random() * 100;
 

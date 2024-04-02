@@ -2,15 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Excerpt, settings } from "../utilities/toolbelt";
 import { FaLongArrowAltRight } from "react-icons/fa";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
-
-// import Loading from '../components/Loading';
-
 
 
 function Projects ( {restBase, classname, title, slug} ) {

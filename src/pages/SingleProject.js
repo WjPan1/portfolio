@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Projects from "../components/Projects";
 import Loading from '../utilities/Loading';
-
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -23,7 +22,9 @@ function SingleProject ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data[0])
-                setLoadStatus(true)
+                setTimeout(() => {
+                    setLoadStatus(true);
+                }, 1000);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)

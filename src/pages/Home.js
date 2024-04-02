@@ -18,7 +18,9 @@ function Home ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                setLoadStatus(true)
+                setTimeout(() => {
+                    setLoadStatus(true);
+                }, 1000);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)

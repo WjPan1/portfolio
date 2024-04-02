@@ -6,10 +6,6 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { DevelopmentSkills, DesignSkills, FilterSkillContainer } from '../utilities/toolbelt';
 
-
-
-// import Loading from '../components/Loading';
-
 function About ( {restBase} ) {
 
     const [value, setValue] = useState('1');
