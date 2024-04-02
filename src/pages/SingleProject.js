@@ -30,7 +30,15 @@ function SingleProject ( {restBase} ) {
             }
         }
         fetchData()
+
         
+        // Page scroll to top every time the content change
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0
+            });
+        };
+        scrollToTop();
 
     }, [restPath])
     
