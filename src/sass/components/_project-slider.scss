@@ -68,7 +68,8 @@
     }
 
     .slick-prev:before {
-        content: "🠔";
+        content: "\02ff"; 
+        // 2192, 2190
     }
 
     .slick-next:before {

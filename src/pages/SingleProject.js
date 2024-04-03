@@ -6,7 +6,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 function SingleProject ( {restBase} ) {
@@ -23,7 +23,9 @@ function SingleProject ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data[0])
-                setLoadStatus(true);
+                setTimeout(() => {
+                    setLoadStatus(true);
+                }, 800);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)
@@ -43,7 +45,8 @@ function SingleProject ( {restBase} ) {
     
     
     return (
-        
+        <HelmetProvider>
+
         <main id="site-main" className="single-project-container">
         { isLoaded ?
         
@@ -154,6 +157,8 @@ function SingleProject ( {restBase} ) {
             <Loading /> 
         }
         </main>
+        </HelmetProvider>
+
     )
 }
 
