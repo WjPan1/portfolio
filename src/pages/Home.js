@@ -5,6 +5,7 @@ import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
 import Loading from '../utilities/Loading';
 import { APP_NAME } from '../utilities/globalVariables';
+import { Helmet } from 'react-helmet';
 
 function Home ( {restBase} ) {
 
@@ -18,9 +19,7 @@ function Home ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                setTimeout(() => {
-                    setLoadStatus(true);
-                }, 1500);
+                setLoadStatus(true);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)
@@ -28,15 +27,19 @@ function Home ( {restBase} ) {
         }
         fetchData()
 
-        document.title = APP_NAME;
-
     }, [restPath])
     
 
     return (
-        <main id="home" className="home-container">
+        
+        <main id="site-main" className="home-container">
             { isLoaded ?
                 <>
+                    <Helmet>
+                        <title>{APP_NAME}</title>
+                        <meta name="description" content={`${restData.acf.brief_intro} ${restData.acf.mission}`} />
+                    </Helmet>
+
                     <Banner restBase={restBase} restData={restData}/>
                     <Projects restBase={restBase} 
                             classname={"all-project"} 

@@ -20,23 +20,23 @@ function Header() {
             <nav className= "site-navigation">
                 <ul>
                     <li>
-                        <HashLink to="/#home" >
-                        <div className="nav-icon"><BiSolidHomeHeart /></div>
+                        <HashLink to="/#banner" >
+                        <div className="nav-icon"><BiSolidHomeHeart  role="img" aria-label="Home Icon"/></div>
                         <span>Home</span></HashLink>
                     </li>
                     <li>
                         <HashLink to="/#projects" >
-                        <div className="nav-icon"><IoFileTrayFull /></div>
+                        <div className="nav-icon"><IoFileTrayFull  role="img" aria-label="Projects Icon"/></div>
                         <span>Projects</span></HashLink>
                     </li>
                     <li>
                         <HashLink to="/#about" >
-                        <div className="nav-icon"><IoPerson /></div>
+                        <div className="nav-icon"><IoPerson  role="img" aria-label="About Icon"/></div>
                         <span>About</span></HashLink>
                     </li>
                     <li>
                         <HashLink to="/#contact" >
-                        <div className="nav-icon"><MdEmail /></div>
+                        <div className="nav-icon"><MdEmail  role="img" aria-label="Contact Icon"/></div>
                         <span>Contact</span></HashLink>
                     </li>
                 </ul>

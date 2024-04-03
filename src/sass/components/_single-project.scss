@@ -43,8 +43,13 @@
                 a {
                     text-align: center;
                     @include button-blue;
-                    @include buttonHover;
                     padding: 8px 10px 15px;
+                    
+                    @media (hover: hover) {
+                        &:hover {
+                            @include button-yellow;
+                        }
+                    }
                 }
             }
         }

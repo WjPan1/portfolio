@@ -9,39 +9,77 @@
         position: relative;
 
         .image-container {
-            width: 100%;
-            height: 100%;
             filter: brightness(35%);  
-            border-radius: 15px;
-            overflow: hidden;
+            transition: 0.3s ease-in-out;
         }
         
         .card-content {
-            @include centerElement;
             display: flex;
             flex-direction: column;
             align-items: center;
 
             h3 {
-                font-size: 20px;
+                font-size: 22px;
+                margin: 0;
             }
-            
-            a {
-                color: $bgc-btn-blue;
-                font-size: 18px;
-                font-weight: bold;
-                transition: color 0.3s ease-in-out;
+
+            .link-to-project {
+
+                span {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
 
                 svg {
                     vertical-align: middle;
                     margin-left: 10px;
                 }
+            }
 
-                &:hover {
-                    color: $bgc-btn-yellow;
-                }
+            h3,
+            .link-to-project span,
+            .link-to-project svg {
+                transition: 0.3s ease-in-out;
             }
         }
+
+        &:hover {
+            .image-container {
+                filter: brightness(80%);  
+            }
+
+            h3,
+            .link-to-project span,
+            .link-to-project svg {
+                color: $bgc-btn-yellow;
+                text-shadow: 8px -3px 4px rgba(0, 0, 0, 0.5);
+                filter: drop-shadow(8px -3px 4px rgba(0, 0, 0, 0.5));
+            }
+        }
+    }
+
+    // Slider buttons
+    .slick-prev {
+        left: calc(50% - 45px);
+    }
+
+    .slick-next {
+        left: calc(50% + 10px);
+    }
+
+    .slick-prev:before {
+        content: "🠔";
+    }
+
+    .slick-next:before {
+        content: "🠖";
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 25px;
+        color: $content;
+        @include centerElement;
     }
 
     .slick-prev,
@@ -60,37 +98,6 @@
         }
     }
 
-    .slick-prev {
-        left: calc(50% - 45px);
-    }
-
-    .slick-next {
-        left: calc(50% + 10px);
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-        font-size: 25px;
-        color: $content;
-        @include centerElement;
-    }
-
-    .slick-prev:before {
-        content: "🠔";
-    }
-
-    .slick-next:before {
-        // content: "🠖";
-    }
-
-
-    @include mqMin(25em) {
-        
-        h3 {
-            white-space: nowrap;
-        }
-    }
-
     @include mqMin($tablet-small) {
         .project-card {
             .card-content {
@@ -99,7 +106,6 @@
                 }
             }
         }
-
 
         .slick-prev,
         .slick-next {
