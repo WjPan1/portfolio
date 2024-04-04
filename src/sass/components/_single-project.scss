@@ -45,10 +45,8 @@
                     @include button-blue;
                     padding: 8px 10px 15px;
                     
-                    @media (hover: hover) {
-                        &:hover {
-                            @include button-yellow;
-                        }
+                    &:hover {
+                        @include button-yellow;
                     }
                 }
             }
@@ -172,6 +170,10 @@
                     gap: 50px;
                     align-items: center;
                     justify-content: space-around;
+
+                    .feature-title {
+                        margin-top: 0;
+                    }
                 }
         
                 .video-container {

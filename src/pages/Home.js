@@ -21,7 +21,7 @@ function Home ( {restBase} ) {
                 setData(data)
                 setTimeout(() => {
                     setLoadStatus(true);
-                }, 800);
+                }, 1700);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)
@@ -43,17 +43,12 @@ function Home ( {restBase} ) {
                 <Helmet>
                     <title>{APP_NAME}</title>
                     <meta name="description" content={`${restData.acf.brief_intro} ${restData.acf.mission}`} />
-                    {/* Other meta tags, link tags, etc. */}
                 </Helmet>
-                    {/* <Helmet>
-                        <title>{APP_NAME}</title>
-                        <meta name="description" content={`${restData.acf.brief_intro} ${restData.acf.mission}`} />
-                    </Helmet> */}
 
                     <Banner restBase={restBase} restData={restData}/>
                     <Projects restBase={restBase} 
-                            classname={"all-project"} 
-                            title={"Projects"} />
+                              classname={"all-project"} 
+                              title={"Projects"} />
                     <About restBase={restBase} restData={restData}/>
                     <Contact restBase={restBase} restData={restData}/>
                 </>  

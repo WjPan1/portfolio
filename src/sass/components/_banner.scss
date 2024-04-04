@@ -40,33 +40,43 @@
                 font-size: clamp(1rem, 3vw, 1.3rem);
             }
 
-            .yellow {
-                color: $bgc-btn-yellow;
-            }
-
-            .yellow-big {
-                color: $bgc-btn-yellow;
-            }
-
             .gray {
                 color: #cfcfcf;
+                font-weight: 550;
+                transition: 0.4s ease-in-out; 
+            }
+
+            .my-name.gray,
+            .role.gray {
+                font-weight: bold;
             }
 
             .yellow,
-            .yellow-big,
-            .gray {
-                transition: 0.3s ease-in-out; 
+            .yellow-big {
+                color: $bgc-btn-yellow;
+                font-weight: 550;
+                transition: 0.4s ease-in-out; 
             }
 
-            .cta-container {
-                margin-top: 40px;
+            .yellow {
+                font-weight: bold;
             }
 
             .cta-button {
                 border: 1px solid $bgc-btn-yellow;
                 padding: 10px;
                 border-radius: 100px;
-                transition: 0.3s ease-in-out;
+                // transition: 0.4s ease-in-out;
+
+                span {
+                    margin-right: 10px;
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+
+                svg {
+                    vertical-align: middle;
+                }
 
                 &:hover {
                     @include button-yellow;
@@ -79,21 +89,11 @@
                         fill: #313133;
                     }
                 }
-
-
-                span {
-                    margin-right: 10px;
-                    font-size: 17px;
-                    font-weight: bold;
-                }
-
-                svg {
-                    vertical-align: middle;
-                }
             }
 
             .yellow-btn {
                 @include button-yellow;
+                transition: 0.5s ease-in-out;
 
                 span {
                     color: #313133;
@@ -103,20 +103,21 @@
                     fill: #313133;
                 }
             }
+
+            .cta-container {
+                margin-top: 40px;
+            }
         }
 
-        @include mqMin(45em) {
+        @include mqMin(47em) {
             max-width: 1200px;
-            width: 80%;
+            width: 95%;
             
-
             .background-img {
                 margin-top: 10%;
             }
 
             .intro {
-                // top: 55%;
-                // margin-top: 0;
                 .mission {
                     margin-top: 90px;
                 }
@@ -125,16 +126,54 @@
                     margin-top: 50px;
                 }
 
-                .yellow {
-                    font-weight: bold;
-                }
-    
+                .yellow,
                 .yellow-big {
-                    font-weight: bold;
+                    transform: scale(1.2) translateX(55px);
                 }
 
+                .yellow-btn {
+                    padding: 10px 20px; 
+                }
+            }
+        }
+
+        @include mqMin(55em) {
+            width: 90%;
+
+            .intro {
+                .yellow,
                 .yellow-big {
-                    font-size: 120%;
+                    transform: scale(1.2) translateX(60px);
+                }
+            }
+        }
+
+        @include mqMin(60em) {
+
+            .intro {
+                .yellow,
+                .yellow-big {
+                    transform: scale(1.2) translateX(68px);
+                }
+            }
+        }
+        
+        @include mqMin(65em) {
+
+            .intro {
+                .yellow,
+                .yellow-big {
+                    transform: scale(1.2) translateX(77px);
+                }
+            }
+        }
+        
+        @include mqMin(70em) {
+
+            .intro {
+                .yellow,
+                .yellow-big {
+                    transform: scale(1.2) translateX(95px);
                 }
             }
         }
@@ -144,12 +183,17 @@
             flex-direction: row;
 
             .background-img {
-                margin-top: 10%;
+                margin-top: 6%;
                 order: 2;
             }
 
             .intro {
                 margin-top: 200px;
+
+                .yellow,
+                .yellow-big {
+                    transform: scale(1.2) translateX(55px);
+                }
             }
         }
     }
