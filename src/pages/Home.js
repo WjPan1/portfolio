@@ -4,7 +4,9 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import { useEffect, useState } from "react";
 import Loading from '../utilities/Loading';
-
+import { APP_NAME } from '../utilities/globalVariables';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ScrollToAnchor from "../utilities/ScrollToAnchor";
 
 function Home ( {restBase} ) {
 
@@ -18,30 +20,43 @@ function Home ( {restBase} ) {
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
-                setLoadStatus(true)
+                setTimeout(() => {
+                    setLoadStatus(true);
+                }, 1700);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)
             }
         }
         fetchData()
+
     }, [restPath])
+    
 
     return (
-        <>
-        { isLoaded ?
-            <main id="home" className="home-container">
-                <Banner restBase={restBase} restData={restData}/>
-                <Projects restBase={restBase} 
-                          classname={"all-project"} 
-                          title={"Projects"} />
-                <About restBase={restBase} restData={restData}/>
-                <Contact restBase={restBase} restData={restData}/>
+
+        <HelmetProvider>
+            <main id="site-main" className="home-container">
+                { isLoaded ?
+                    <>
+                    <ScrollToAnchor />
+                    <Helmet>
+                        <title>{APP_NAME}</title>
+                        <meta name="description" content={`${restData.acf.brief_intro} ${restData.acf.mission}`} />
+                    </Helmet>
+
+                        <Banner restBase={restBase} restData={restData}/>
+                        <Projects restBase={restBase} 
+                                classname={"all-project"} 
+                                title={"Projects"} />
+                        <About restBase={restBase} restData={restData}/>
+                        <Contact restBase={restBase} restData={restData}/>
+                    </>  
+                    : 
+                    <Loading /> 
+                }
             </main>
-            : 
-            <Loading /> 
-        }
-        </>  
+        </HelmetProvider>
     )
 }
 

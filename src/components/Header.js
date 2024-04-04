@@ -1,44 +1,43 @@
-import { NavLink  } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
-
+import { NavLink , Link } from "react-router-dom";
+// import { HashLink } from 'react-router-hash-link';
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { IoFileTrayFull } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import { ReactComponent as LogoWhite } from "../images/logo-white.svg";
+import { ReactComponent as Logo } from "../images/logo.svg";
 
 
 function Header() {
-
+    
     return (
         <header className="header-container">
 
             <div className="site-logo-container">
-                <NavLink to="/" className="site-logo"><LogoWhite />
+                <NavLink to="/" className="site-logo"><Logo />
                 </NavLink>
             </div> 
 
             <nav className= "site-navigation">
                 <ul>
                     <li>
-                        <HashLink to="/#home" smooth>
-                        <div className="nav-icon"><BiSolidHomeHeart /></div>
-                        <span>Home</span></HashLink>
+                        <Link to="/#banner" >
+                        <div className="nav-icon"><BiSolidHomeHeart  role="img" aria-label="Home Icon"/></div>
+                        <span>Home</span></Link>
                     </li>
                     <li>
-                        <HashLink to="/#projects" smooth >
-                        <div className="nav-icon"><IoFileTrayFull /></div>
-                        <span>Projects</span></HashLink>
+                        <Link to="/#projects" >
+                        <div className="nav-icon"><IoFileTrayFull  role="img" aria-label="Projects Icon"/></div>
+                        <span>Projects</span></Link>
                     </li>
                     <li>
-                        <HashLink to="/#about" smooth >
-                        <div className="nav-icon"><IoPerson /></div>
-                        <span>About</span></HashLink>
+                        <Link to="/#about" >
+                        <div className="nav-icon"><IoPerson  role="img" aria-label="About Icon"/></div>
+                        <span>About</span></Link>
                     </li>
                     <li>
-                        <HashLink to="/#contact" smooth >
-                        <div className="nav-icon"><MdEmail /></div>
-                        <span>Contact</span></HashLink>
+                        <Link to="/#contact" >
+                        <div className="nav-icon"><MdEmail  role="img" aria-label="Contact Icon"/></div>
+                        <span>Contact</span></Link>
                     </li>
                 </ul>
             </nav>

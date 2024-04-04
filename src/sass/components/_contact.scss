@@ -4,7 +4,7 @@
 .contact-container {
     max-width: 1250px;
     width: 90%;
-    margin: 200px auto;
+    margin: 100px auto;
     padding: 10px;
     @include cardBackground;
     
@@ -27,24 +27,27 @@
             justify-content: center;
             margin-top: 20px;
 
-            .copy-button,
-            .is-copied-button {
+            .copy-button {
                 @include button-blue;
                 width: 200px;
                 height: 55px;
             }
 
             .copy-button {
-                &:hover,
-                &:focus {
-                    @include button-yellow;
-                    @include buttonHover;
+                @media (hover: hover) {
+                    &:hover {
+                        @include button-yellow;
+                        @include buttonHover;
+                    }
                 }
             }
 
             .is-copied-button {
+                @include button-blue;
                 background: linear-gradient(90deg, #eeb265 0%, $bgc-btn-yellow 100%);
                 box-shadow: 1px 1px 10px $bgc-btn-yellow;
+                width: 200px;
+                height: 55px;
             }
         }
 

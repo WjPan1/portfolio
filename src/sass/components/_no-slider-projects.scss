@@ -3,7 +3,7 @@
 .projects-container {
     max-width: 1250px;
     width: 90%;
-    margin: auto;
+    margin: 100px auto 0;
 
     .home-project-container {
 
@@ -25,12 +25,11 @@
 
                     .card-content {
                         .link-to-project {
-                            span {
-                                color: $bgc-btn-yellow;
-                            }
-
+                            span,
                             svg {
                                 color: $bgc-btn-yellow;
+                                text-shadow: 8px -3px 4px rgba(0, 0, 0, 0.05);
+                                filter: drop-shadow(8px -3px 4px rgba(0, 0, 0, 0.5));
                             }
                         }
                     }

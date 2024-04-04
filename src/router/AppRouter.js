@@ -1,8 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Home from "../pages/Home.js";
 import SingleProject from "../pages/SingleProject";
-
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
@@ -11,8 +9,6 @@ import { useEffect } from "react";
 function AppRouter () {
 
    const restBase = 'https://wjweb.works/wordpress-portfolio/wp-json/wp/v2/';
-
-   // scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
 
     // Create stars
     useEffect(() => {
@@ -24,7 +20,6 @@ function AppRouter () {
                 star.className = 'star';
                 
                 // random star position
-                // const x = Math.random() < 0.5 ? Math.random() * 50 : Math.random() * 50 + 50;
                 const x = Math.random() * 100;
                 const y = Math.random() * 100;
 
@@ -48,6 +43,9 @@ function AppRouter () {
 
    return (
         <BrowserRouter>
+
+            <a className="screen-reader-text" href="#site-main">Skip to content</a>
+
             <div className="site-container">
                 <Header />
 

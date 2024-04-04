@@ -31,7 +31,7 @@ export const SkillContainer = ({ skills }) => (
         const Icon = skill.icon;
         return (
             <div key={index} className="skill">
-            <span><Icon /></span>
+            <span><Icon role="img" aria-label={`${skill.name} Icon`}/></span>
             <p>{skill.name}</p>
             </div>
         );
@@ -44,7 +44,7 @@ export const FilterSkillContainer = ( {skill} ) => (
 );
 
 
-// Slider in Single Page
+// Slider setting on Single Page
 // ----------------------
 function SliderPrevArrow(props) {
     const { className, onClick } = props;
