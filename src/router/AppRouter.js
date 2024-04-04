@@ -43,6 +43,7 @@ function AppRouter () {
 
    return (
         <BrowserRouter>
+
             <a className="screen-reader-text" href="#site-main">Skip to content</a>
 
             <div className="site-container">

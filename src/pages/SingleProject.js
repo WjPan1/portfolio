@@ -7,6 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ScrollToAnchor from "../utilities/ScrollToAnchor";
 
 
 function SingleProject ( {restBase} ) {
@@ -49,8 +50,8 @@ function SingleProject ( {restBase} ) {
 
         <main id="site-main" className="single-project-container">
         { isLoaded ?
-        
-            <>
+        <>
+            <ScrollToAnchor />
             <Helmet>
                 <title>{`Projects - ${slug.charAt(0).toUpperCase() + slug.slice(1)}`}</title>
                 <meta name="description" content={restData.excerpt.rendered.replace(/<\/?p>/g, '')} />
@@ -67,7 +68,6 @@ function SingleProject ( {restBase} ) {
                     <div className="cta-container">
                         <h1 className="page-title">{restData.title.rendered}</h1>
                         <p className="cta">{restData.acf.blub}</p>
-                        {/* <p>{restData.excerpt.rendered.replace(/<\/?p>/g, '')}</p> */}
                         <div className="btn-container"> 
                             <a href={restData.acf.live_site_link} target="_blank" rel="noreferrer">Live Site</a>
                             <a href={restData.acf.github_link} target="_blank" rel="noreferrer">GitHub</a>
@@ -152,9 +152,9 @@ function SingleProject ( {restBase} ) {
                       title={"Other Projects"} 
                       slug={slug} />
 
-            </>
-            : 
-            <Loading /> 
+        </>
+        : 
+        <Loading /> 
         }
         </main>
         </HelmetProvider>

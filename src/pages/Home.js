@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Loading from '../utilities/Loading';
 import { APP_NAME } from '../utilities/globalVariables';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ScrollToAnchor from "../utilities/ScrollToAnchor";
 
 function Home ( {restBase} ) {
 
@@ -35,28 +36,27 @@ function Home ( {restBase} ) {
     return (
 
         <HelmetProvider>
+            <main id="site-main" className="home-container">
+                { isLoaded ?
+                    <>
+                    <ScrollToAnchor />
+                    <Helmet>
+                        <title>{APP_NAME}</title>
+                        <meta name="description" content={`${restData.acf.brief_intro} ${restData.acf.mission}`} />
+                    </Helmet>
 
-        
-        <main id="site-main" className="home-container">
-            { isLoaded ?
-                <>
-                <Helmet>
-                    <title>{APP_NAME}</title>
-                    <meta name="description" content={`${restData.acf.brief_intro} ${restData.acf.mission}`} />
-                </Helmet>
-
-                    <Banner restBase={restBase} restData={restData}/>
-                    <Projects restBase={restBase} 
-                              classname={"all-project"} 
-                              title={"Projects"} />
-                    <About restBase={restBase} restData={restData}/>
-                    <Contact restBase={restBase} restData={restData}/>
-                </>  
-                : 
-                <Loading /> 
-            }
-        </main>
-    </HelmetProvider>
+                        <Banner restBase={restBase} restData={restData}/>
+                        <Projects restBase={restBase} 
+                                classname={"all-project"} 
+                                title={"Projects"} />
+                        <About restBase={restBase} restData={restData}/>
+                        <Contact restBase={restBase} restData={restData}/>
+                    </>  
+                    : 
+                    <Loading /> 
+                }
+            </main>
+        </HelmetProvider>
     )
 }
 
