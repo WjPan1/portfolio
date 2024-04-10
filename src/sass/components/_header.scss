@@ -5,11 +5,11 @@
     z-index: 1000;
 
     .site-logo-container {
-        width: 30px;
-        height: 30px;
-        @include horizontal-center;
-        top: 10px;
-        z-index: 1000;
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
 
         svg {
             width: 100%;
@@ -20,6 +20,29 @@
                 fill: $bgc-btn-blue;
                 stroke: $bgc-btn-blue;
             }
+        }
+    }
+
+    .star-icon-mobile {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: $bgc-btn-blue;
+            filter: drop-shadow(0px 0px 7px $content);
+            transition: 0.2s ease;
+        }
+    }
+
+    .star-lighted {
+        svg {
+            fill: $bgc-btn-yellow;
         }
     }
 
@@ -73,6 +96,10 @@
                     }
                 }
             }
+
+            .star-icon-list {
+                display: none;
+            }
         }
     }
     
@@ -94,16 +121,30 @@
             transform: initial;
         }
 
+        .star-icon-mobile {
+            display: none;
+        }
+
         .site-navigation {
             position: unset;
             transform: none; 
             width: auto; 
             box-shadow: 0px 0px 20px 0px $bgc-navbar;
             border-radius: 10px;
-            padding: 5px 20px 5px 20px;
+            padding: 0 10px 0 20px;
             
             ul {
-                column-gap: 70px;
+                li:not(:nth-last-child(-n+2)) {
+                    margin-right: 70px;
+                }
+
+                li:last-child {
+                    margin-left: 20px;
+                }
+
+                .star-icon-list {
+                    display: block;
+                }
             }
 
             .nav-icon {
@@ -114,6 +155,25 @@
                 font-size: 16px;
             }
             
+            .star-icon {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: $bgc-btn-blue;
+                    filter: drop-shadow(0px 0px 7px $content);
+                    transition: 0.2s ease;
+                }
+
+                &.star-lighted {
+                    svg {
+                        fill: $bgc-btn-yellow;
+                    }
+                }
+            }
         }
     }
 }

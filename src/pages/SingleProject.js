@@ -26,7 +26,7 @@ function SingleProject ( {restBase} ) {
                 setData(data[0])
                 setTimeout(() => {
                     setLoadStatus(true);
-                }, 1700);
+                }, 700);
             } else {
                 console.error('Failed to fetch data');
                 setLoadStatus(false)

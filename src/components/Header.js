@@ -5,12 +5,10 @@ import { IoFileTrayFull } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { ReactComponent as Logo } from "../images/logo.svg";
+import { WiStars } from "react-icons/wi";
 
 
-function Header( {handleStar}) {
-
-
-    
+function Header( {handleStar, lightedStar}) {
     
     return (
         <header className="header-container">
@@ -19,6 +17,7 @@ function Header( {handleStar}) {
                 <NavLink to="/" className="site-logo"><Logo />
                 </NavLink>
             </div> 
+            <div className={`star-icon-mobile ${lightedStar ? "star-lighted" : "" }`} onClick={handleStar}><WiStars role="img" title="Light up the night sky Icon"/></div>
 
             <nav className= "site-navigation">
                 <ul>
@@ -42,8 +41,8 @@ function Header( {handleStar}) {
                         <div className="nav-icon"><MdEmail  role="img" aria-label="Contact Icon"/></div>
                         <span>Contact</span></Link>
                     </li>
-                    <li>
-                        <div onClick={handleStar}>star</div>
+                    <li className="star-icon-list">
+                        <div className={`star-icon ${lightedStar ? "star-lighted" : "" }`} onClick={handleStar}><WiStars role="img" title="Light up the night sky Icon"/></div>
                     </li>
                 </ul>
             </nav>

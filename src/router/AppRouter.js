@@ -28,13 +28,13 @@ function AppRouter () {
                 star.style.top = `${y}%`;
 
                 
-                // Randomize blink animation delay
-                const delay = Math.random() * 3000 + 500; // Random delay between 500ms and 2500ms
+                // Randomize twinkle animation delay, delay between 500ms and 2500ms
+                const delay = Math.random() * 5000 + 500; 
                 star.style.animationDelay = `${delay}ms`;
 
-                // Randomly decide if the star should blink
-                if (Math.random() < 0.7) { // Adjust probability as needed
-                    star.classList.add('blink');
+                // Randomly decide if the star should twinkle
+                if (Math.random() < 0.9) {
+                    star.classList.add('twinkle');
                 }
 
                 starsContainer.appendChild(star);
@@ -65,7 +65,8 @@ function AppRouter () {
             <a className="screen-reader-text" href="#site-main">Skip to content</a>
 
             <div className="site-container">
-                <Header handleStar={handleStar} />
+                <Header handleStar={handleStar} 
+                        lightedStar={lightedStar}/>
 
                 <Routes>
                 <Route path="/" element={<Home restBase={restBase} />} />

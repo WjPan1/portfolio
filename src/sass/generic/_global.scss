@@ -41,19 +41,19 @@ body {
 
         .star {
             position: absolute;
-            width: 1px; 
-            height: 1px;
+            width: 1.7px; 
+            height: 1.7px;
             background-color: white; 
             border-radius: 50%;
             filter: blur(1px);
             box-shadow: 0 0 5px 0.5px white;
         }
 
-        .blink {
-            animation: blink 5s infinite;
+        .twinkle {
+            animation: twinkle 5s infinite;
         }
         
-        @keyframes blink {
+        @keyframes twinkle {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
@@ -62,16 +62,8 @@ body {
             .star {
                 width: 3px; 
                 height: 3px;
-                background-color: $bgc-btn-yellow; 
                 box-shadow: 0 0 7px 1px #8ff0e7;
-                // animation: twinkling 10s infinite linear; 
             }
-
-            // @keyframes twinkling {
-            //     0% { opacity: 0.2; }
-            //     50% { opacity: 1; }
-            //     100% { opacity: 0.2; }
-            // }
         }
     }
     
