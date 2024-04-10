@@ -3,7 +3,7 @@ import Home from "../pages/Home.js";
 import SingleProject from "../pages/SingleProject";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 function AppRouter () {
@@ -26,6 +26,17 @@ function AppRouter () {
                 // set star position
                 star.style.left = `${x}%`;
                 star.style.top = `${y}%`;
+
+                
+                // Randomize blink animation delay
+                const delay = Math.random() * 3000 + 500; // Random delay between 500ms and 2500ms
+                star.style.animationDelay = `${delay}ms`;
+
+                // Randomly decide if the star should blink
+                if (Math.random() < 0.7) { // Adjust probability as needed
+                    star.classList.add('blink');
+                }
+
                 starsContainer.appendChild(star);
             }
         };
@@ -39,6 +50,13 @@ function AppRouter () {
         };
 
     }, []); 
+
+    const [lightedStar, setLightedStar] =useState(false);
+
+    const handleStar = () => {
+        setLightedStar(!lightedStar);
+
+    };
     
 
    return (
@@ -47,7 +65,7 @@ function AppRouter () {
             <a className="screen-reader-text" href="#site-main">Skip to content</a>
 
             <div className="site-container">
-                <Header />
+                <Header handleStar={handleStar} />
 
                 <Routes>
                 <Route path="/" element={<Home restBase={restBase} />} />
@@ -57,7 +75,7 @@ function AppRouter () {
                 <Footer />
 
                 {/* Stars container */}
-                <div className="stars"></div>
+                <div className={`stars ${lightedStar ? "lighted" : ""}`} ></div>
 
             </div>
         </BrowserRouter>

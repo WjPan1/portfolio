@@ -7,7 +7,10 @@ import { MdEmail } from "react-icons/md";
 import { ReactComponent as Logo } from "../images/logo.svg";
 
 
-function Header() {
+function Header( {handleStar}) {
+
+
+    
     
     return (
         <header className="header-container">
@@ -38,6 +41,9 @@ function Header() {
                         <Link to="/#contact" >
                         <div className="nav-icon"><MdEmail  role="img" aria-label="Contact Icon"/></div>
                         <span>Contact</span></Link>
+                    </li>
+                    <li>
+                        <div onClick={handleStar}>star</div>
                     </li>
                 </ul>
             </nav>
